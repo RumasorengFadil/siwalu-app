@@ -19,3 +19,44 @@
         cursor: pointer;
     }
 }
+
+.form-register{
+    padding: 20px 26.6px;
+    text-align: center;
+    box-shadow: 0px 4px 6px -2px #10182808;
+    border-radius: 10.6px;
+    box-shadow: 0px 12px 16px -4px #10182814;
+    margin-top: 42px;
+
+    &__input-pass,&__input-email{
+        width: 17.4rem;
+        height: 36.6px;
+        padding-left: 12px;
+        border: 1px solid #101828;
+        box-shadow: 0px 2.55px 5.1px 0px #1018280D;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    &__regist-btn{
+        all: unset;
+        width: 17.4rem;
+        height: 36.6px;
+        border: 1px solid #101828;
+        background-color: $color-primary;
+        color: $color-on-primary;
+        display: inline-block;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0px 1px 2px 0px #1018280D;
+
+    }
+    &__privacy-policy{
+        width: 17.4rem;
+        font-size: 8px;
+        margin-bottom: 10px;
+    }
+    &__login-btn{
+        width: 17.4rem;
+        font-size: 8px;
+    }
+}
