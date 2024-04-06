@@ -7,6 +7,11 @@
     @vite(['public/css/main.scss'])
 </head>
 <body>
-    <h1 class="home">Home Page</h1>
+    <a 
+        class="home"
+        href ="{{url("register")}}"
+    >
+        login
+    </a>
 </body>
 </html>
