@@ -8,7 +8,7 @@
     box-shadow: 0px 1px 3px 0px #1018281A;
 
 
-    &__title{
+    &__brand-name{
         font-size: 1.25rem;
         font-weight: 900;
     }
@@ -16,12 +16,11 @@
         margin-right: 12px;
         width: 2.25rem;
         z-index: 2;
-        cursor: pointer;
     }
 }
 
-.form-register{
-    padding: 20px 26.6px;
+.form{
+    padding: 1.25rem 1.68rem;
     text-align: center;
     box-shadow: 0px 4px 6px -2px #10182808;
     border-radius: 10.6px;
@@ -37,7 +36,7 @@
         margin-bottom: 10px;
         border-radius: 5px;
     }
-    &__regist-btn{
+    &__submit-btn{
         all: unset;
         width: 17.4rem;
         height: 36.6px;
@@ -47,6 +46,7 @@
         display: inline-block;
         border-radius: 5px;
         margin-bottom: 10px;
+        cursor: pointer;
         box-shadow: 0px 1px 2px 0px #1018280D;
 
     }
@@ -55,8 +55,82 @@
         font-size: 8px;
         margin-bottom: 10px;
     }
-    &__login-btn{
+    &__link{
         width: 17.4rem;
         font-size: 8px;
+    }
+}
+
+.footer{
+    background-color: $color-primary;
+    padding: 26px 40px;
+    
+    &__content{
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        margin: 0 auto;
+        font-size: 0.875rem;
+        border-bottom: 1px solid $color-on-primary;
+    }
+
+    &__about-brand{
+        width: 250px;
+        color: $color-on-primary;
+        padding: 20px;
+    }
+    &__logo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    &__brand-name{
+        color: $color-on-primary;
+    }
+
+    &__quick-links{
+        width: fit-content;
+        padding: 20px;
+
+
+    }
+    &__title{
+        font-weight: bold;
+        color: $color-on-primary;
+    }
+    &__links{
+
+    }
+    &__link{
+        padding: 8px 0;
+        display: block;
+        width: fit-content;
+        color: $color-on-primary;
+        text-decoration: none;
+    }
+
+    &__contact-us{
+        width: 250px;
+        padding: 20px;
+        color: $color-on-primary;
+    }
+    &__address{
+        padding: 8px 0;
+    }
+
+
+    &__copyright{
+        font-size: 0.875rem;
+        width: fit-content;
+    }
+    &__copyright-text{
+        color: $color-on-primary;
+        padding: 8px 0;
+    }
+    
+    @media only screen and (min-width : $lg-device){
+        &__copyright{
+            margin : 0 auto;
+        }
     }
 }
