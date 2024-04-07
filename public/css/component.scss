@@ -1,8 +1,10 @@
+// doc: Navbar Style
 .nav{
     width: 100%;
     display: flex;
     align-items: center;
     padding: 0.8rem;
+    background-color: $nav-background-color;
     box-shadow: 0px 0px 0px 4px #F2F4F7;
     box-shadow: 0px 1px 2px 0px #1018280F;
     box-shadow: 0px 1px 3px 0px #1018281A;
@@ -12,13 +14,53 @@
         font-size: 1.25rem;
         font-weight: 900;
     }
+    &__logo-cn{
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
     &__logo{
         margin-right: 12px;
         width: 2.25rem;
         z-index: 2;
     }
+    &__icon{
+        width: 1rem;
+        height: 1rem;
+    }
+    &__links{
+        display: flex;
+        align-items: center;
+    }
+    &__link{
+        display: flex;
+        align-items: center;
+        color: $color-on-background;
+        text-decoration: none;
+        margin: 0 8px;
+    }
+    &__input-search{
+        height: 32px;
+        border-radius: 5px;
+        border: none;
+        padding-left: 30px;
+        background-color: #EAECF0;
+        background-image: url("/public/icn/search.svg");
+        background-repeat: no-repeat;
+        background-position: 7px center;
+        background-size: 16px;
+        background-attachment: scroll;
+    }
+    &__login-btn{
+        padding: 8px 16px;
+        background-color: $color-primary;
+        color: $color-on-primary;
+        border-radius: 5px;
+        height: 32px;
+    }
 }
 
+// doc: Form Style
 .form{
     padding: 1.25rem 1.68rem;
     text-align: center;
@@ -61,6 +103,7 @@
     }
 }
 
+// doc: Footer Style
 .footer{
     background-color: $color-primary;
     padding: 26px 40px;
