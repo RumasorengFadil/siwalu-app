@@ -6,6 +6,7 @@ $color-on-background : #000000;
 $background-color : #B3B3B3;
 $nav-background-color : #F9FAFB;
 $icon-size : 1.5rem;
+$slider-nav-color : #F2F4F7;
 $alpha : 0.25;
 $sm-device : 37.5rem; //600px
 $me-device : 45rem; //720px
@@ -23,9 +24,9 @@ body{
 
 html{
     @media only screen and (min-width : $me-device){
-        font-size: 107%;
+        font-size: 117%;
     }
     @media only screen and (min-width : $lg-device){
-        font-size: 115%;
+        font-size: 135%;
     }
 }

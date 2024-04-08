@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['public/css/main.scss'])
+    @vite(['public/css/main.scss', 'public/js/slider.js'])
 </head>
 <body>
     <header>
@@ -25,6 +25,42 @@
             </ul>
         </nav>
     </header>
+
+    <main class="main">
+        <div class="slider">
+            <div slide-number = "0" class="slider__slide">
+                <a href="" class="slider__link">
+                    <img class="slider__image slider__image0" src="img/slide-0.png" alt="html"></img>
+                </a>
+            </div>
+            <div slide-number = "1" class="slider__slide">
+                <a href="" class="slider__link">
+                    <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
+                </a>
+            </div>
+            <div slide-number = "2" class="slider__slide">
+                <a href="" class="slider__link">
+                    <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
+                </a>
+            </div>
+
+            <div class="slider__nav">
+                <div nav-number = 0 class="slider__nav-item slider__nav-active"></div>
+                <div nav-number = 1 class="slider__nav-item"></div>
+                <div nav-number = 2 class="slider__nav-item"></div>
+            </div>
+            {{-- <div slide-number = "1" className="slider__slide">
+                <a href="" className="slider__link">
+                    <img className="slider__image" src="img/slide-0.png" alt="html"></img>
+                </a>
+            </div> --}}
+            {{-- <div slide-number = "1" className="slider__slide">
+                <a href="" className="slider__link">
+                    <img className="slider__image" src="img/slide-0.png" alt="html"></img>
+                </a>
+            </div> --}}
+        </div>
+    </main>
 
 </body>
 </html>

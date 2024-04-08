@@ -177,3 +177,47 @@
         }
     }
 }
+
+.slider{
+    margin-top: 20px;
+    width: 100%;
+    height: 11rem;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    margin-bottom:  3.12rem;
+    overflow: hidden;
+  &__slide{
+    position: absolute;
+    transition: all linear 1000ms;
+  }
+  &__link{
+  }
+  &__image{
+    width: 100%;
+    padding: 0 3.75rem;
+    object-fit: cover;
+    display: block;
+    object-position: center;
+  }
+  &__nav{
+    z-index: 1;
+    position: absolute;
+  }
+  &__nav-item{
+    display: inline-block;
+    width: 2rem;
+    border-radius: 5px;
+    height: 0.25rem;
+    background-color: $slider-nav-color;
+  }
+
+  &__nav-active{
+    background-color: $color-primary;
+    width: 2.5rem;
+    transition: all linear 500ms;
+  }
+  @media only screen and (min-width : $me-device){
+    height: 16rem;
+  }
+}
