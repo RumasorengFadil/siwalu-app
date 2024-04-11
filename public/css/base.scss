@@ -22,7 +22,6 @@ $lg-device : 60rem; //960px
 body{
     font-family: 'Figtree', system-ui, sans-serif;
 }
-
 html{
     @media only screen and (min-width : $me-device){
         font-size: 117%;
@@ -30,4 +29,8 @@ html{
     @media only screen and (min-width : $lg-device){
         font-size: 135%;
     }
+}
+
+.main{
+    padding: 0 2.33rem;
 }

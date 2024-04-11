@@ -29,17 +29,17 @@
     <main class="main">
         <div class="slider">
             <div slide-number = "0" class="slider__slide">
-                <a href="" class="slider__link">
+                <a class="slider__link">
                     <img class="slider__image slider__image0" src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
             <div slide-number = "1" class="slider__slide">
-                <a href="" class="slider__link">
+                <a class="slider__link">
                     <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
             <div slide-number = "2" class="slider__slide">
-                <a href="" class="slider__link">
+                <a class="slider__link">
                     <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
@@ -49,17 +49,21 @@
                 <div nav-number = 1 class="slider__nav-item"></div>
                 <div nav-number = 2 class="slider__nav-item"></div>
             </div>
-            {{-- <div slide-number = "1" className="slider__slide">
-                <a href="" className="slider__link">
-                    <img className="slider__image" src="img/slide-0.png" alt="html"></img>
-                </a>
-            </div> --}}
-            {{-- <div slide-number = "1" className="slider__slide">
-                <a href="" className="slider__link">
-                    <img className="slider__image" src="img/slide-0.png" alt="html"></img>
-                </a>
-            </div> --}}
         </div>
+
+        <div class="box">
+            <h1 class="box__title">Laundry terpopuler!</h1>
+
+            <div class="card">
+                <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                <h5 class="card__laundry-name">
+                    Lulu 'n Be Luxury Laundry
+
+                    
+                </h5>
+            </div>
+        </div>
+
     </main>
 
 </body>

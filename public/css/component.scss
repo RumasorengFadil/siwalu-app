@@ -178,26 +178,32 @@
     }
 }
 
+//doc: Slider Style
 .slider{
     margin-top: 20px;
     width: 100%;
-    height: 11rem;
     justify-content: center;
     position: relative;
+    height: 28vw;
     display: flex;
-    margin-bottom:  3.12rem;
+    // border-radius: 20px;
+    margin-bottom:  15px;
     overflow: hidden;
+
+
+    
   &__slide{
     position: absolute;
     transition: all linear 1000ms;
+    width: 100%;
   }
   &__link{
   }
   &__image{
     width: 100%;
-    padding: 0 3.75rem;
-    object-fit: cover;
+    height: 28vw;
     display: block;
+    border-radius: 5px;
     object-position: center;
   }
   &__nav{
@@ -218,6 +224,18 @@
     transition: all linear 500ms;
   }
   @media only screen and (min-width : $me-device){
-    height: 16rem;
+    // height: 13.5rem;
   }
+}
+
+//doc: Card Style
+.card{
+    width: 100%;
+    border: 2px solid #EAEBF0;
+    border-radius: 5px;
+}
+.card__laundry-img{
+    width: 160px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
