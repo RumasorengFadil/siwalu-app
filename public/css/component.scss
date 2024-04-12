@@ -8,16 +8,16 @@
     box-shadow: 0px 0px 0px 4px #F2F4F7;
     box-shadow: 0px 1px 2px 0px #1018280F;
     box-shadow: 0px 1px 3px 0px #1018281A;
+    overflow: hidden;
 
-
-    &__brand-name{
-        font-size: 1.25rem;
-        font-weight: 900;
-    }
     &__logo-cn{
         display: flex;
         flex: 1;
         align-items: center;
+    }
+    &__brand-name{
+        font-size: 1.25rem;
+        font-weight: 900;
     }
     &__logo{
         margin-right: 12px;
@@ -30,6 +30,7 @@
     }
     &__links{
         display: flex;
+        width: fit-content;
         align-items: center;
     }
     &__link{
@@ -41,7 +42,7 @@
     }
     &__input-search{
         height: 32px;
-        width: 80%;
+        width: 100%;
         border-radius: 5px;
         border: none;
         padding-left: 30px;
@@ -51,6 +52,17 @@
         background-position: 7px center;
         background-size: 16px;
         background-attachment: scroll;
+        transition: all linear 500ms;
+    }
+    @media only screen and (max-width:720px){
+        &__input-search:focus{
+            width: 26.7vw;
+            transition: all linear 500ms;
+        }
+        &__input-search{
+            width: 24px;
+            transition: all linear 500ms;
+        }
     }
     &__login-btn{
         padding: 8px 16px;
@@ -58,6 +70,12 @@
         color: $color-on-primary;
         border-radius: 5px;
         height: 32px;
+    }
+    &__input-search:focus {
+        // width: 200px;
+        &__login-btn{
+           opacity: 0;
+        }
     }
 }
 

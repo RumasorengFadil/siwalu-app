@@ -16,11 +16,11 @@
                 <h1 class="nav__brand-name">Siwalu</h1>
             </div>
 
-            <ul class="nav__links">    
+            <ul class="nav__links"> 
                 <a href="#about-us" class="nav__link"><img src="icn/heart.svg" alt="" class="nav__icon"></a>
                 <a href="#about-product" class="nav__link"><img src="icn/message-square.svg" alt="" class="nav__icon"></a>
                 <a href="#collections" class="nav__link"><img src="icn/bell.svg" alt="" class="nav__icon"></a>
-                <input class="nav__link nav__input-search" type="search" name="input-search" id="inputSearch" placeholder="Cari “Laundry Terdekat”">
+                <input class="nav__link nav__input-search" type="search" name="inputSearch" id="inputSearch" placeholder="Cari “Laundry Terdekat”">
                 <a href="{{url("login")}}" class="nav__link nav__login-btn">Masuk</a>
             </ul>
         </nav>
@@ -54,6 +54,8 @@
         <div class="box">
             <h1 class="box__title">Laundry terpopuler!</h1>
             <div class="minibox">
+
+                
                 <div class="card">
                     <img src="img/laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
