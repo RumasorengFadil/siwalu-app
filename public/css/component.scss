@@ -243,13 +243,14 @@
     border-radius: 5px;
     display: flex;
     padding: 10px;
-    overflow-x: scroll;
+    overflow-x:scroll;
 
 }
 //doc: Card Style
 .card{
     width: fit-content;
     margin-right: 10px;
+
     &__laundry-img{
         width: 160px;
         border-top-left-radius: 5px;
