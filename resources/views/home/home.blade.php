@@ -80,7 +80,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/aquos-laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -105,7 +105,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/laundry-max-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -130,7 +130,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/megaclin-laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -161,7 +161,7 @@
             <h1 class="box__title">Cek laundry terdekatmu!</h1>
             <div class="minibox">
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/mm-laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -186,7 +186,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/oke-laundry-image.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -211,7 +211,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/simple-laundy-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
@@ -236,7 +236,7 @@
                     <p class="card__price">Rp. 4000/kg</p>
                 </div>
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/vins-laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">

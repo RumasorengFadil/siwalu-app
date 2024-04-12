@@ -41,6 +41,7 @@
     }
     &__input-search{
         height: 32px;
+        width: 80%;
         border-radius: 5px;
         border: none;
         padding-left: 30px;
@@ -189,8 +190,6 @@
     margin-bottom: 15px;
     overflow: hidden;
 
-
-    
   &__slide{
     position: absolute;
     transition: all linear 1000ms;
@@ -253,6 +252,9 @@
 
     &__laundry-img{
         width: 160px;
+        height: 61px;
+        object-fit: cover;
+        object-position: center;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
