@@ -16,8 +16,8 @@
         </nav>
     </header>
 
-    <main class="register-main">
-        <a  href="{{url('/')}}"><img class="register-main__back-icon" src="icn/chevron-left.svg" alt=""></a>
+    <main class="main register-main">
+        <a  href="{{url('/')}}"><img class="main__back-icon" src="icn/chevron-left.svg" alt=""></a>
         <form class="form" action="" method="post">
             <input class="form__input-email" type="email" name="" id="" placeholder="Email"><br>
             <input class="form__input-pass" type="password" name="" id="" placeholder="Password"><br>
