@@ -21,6 +21,12 @@
     <main class="main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="/icn/chevron-left.svg" alt=""></a>
 
+        <div class="box">
+            <h1 class="box__title">Lulu 'n Be Luxury Laundry</h1>
+            <img src="/img/laundry-img.png" alt="">
+            <h5 class="box__deskripsi">Deskripsi</h5>
+            p.box__
+        </div>
     </main>
 </body>
 </html>
