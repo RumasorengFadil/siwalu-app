@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laundry', function (Blueprint $table) {
-            $table->id("id_laundry");
-            $table->id("id_admin");
+        Schema::create('laundries', function (Blueprint $table) {
+            $table->id("id_laundry")->autoIncrement();
+            $table->foreignId("id_admin")->fore;
             $table->string("nama");
             $table->string("alamat");
             $table->string("nomor_telp");
             $table->time("jam_buka");
             $table->time("jam_tutup");
+            $table->string("jenis_layanan");
+            $table->integer("harga");
+            $table->float("rating");
+            $table->string("foto");
+            $table->float("lon");
+            $table->float("lan");
             $table->timestamps();
         });
     }
@@ -28,6 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laundry');
+        Schema::dropIfExists('laundries');
     }
 };
+

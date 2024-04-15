@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('home/home');
-});
+use App\Http\Controllers\LaundryController;
+// Route::get('/', function () {
+//     return view('home/home');
+// });
+Route::get('/', [LaundryController::class, "getLaundries"]);
 
 Route::get('/register', function () {
     return view('register/register');
