@@ -9,8 +9,9 @@
 <body>
         
     <header>
-    <?= print_r($laundries[0]["nama"]) ?>
-        {{"ygdghsgfhgfd"}}
+ 
+    {{-- 
+        {{"ygdghsgfhgfd"}} --}}
         <nav class="nav">
             <div class="nav__logo-cn">
                 <a href="{{url("/")}}">
@@ -57,214 +58,69 @@
         <div class="box">
             <h1 class="box__title">Laundry terpopuler!</h1>
             <div class="minibox">
-
                 
+            @foreach ($laundries as $laundry)
                 <div class="card">
                     <img src="img/laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
+                        <p class="card__laundry-name">{{$laundry->nama}}</p>
+                        <p class="card__laundry-rating">{{$laundry->rating}}</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
                     </div>
 
                     <div class="card__laundry-address-cn">
                         <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
+                        <p class="card__laundry-address">{{$laundry->alamat}}</p>
                     </div>
 
                     <div class="card__laundry-type-cn">
                         <a class="card__laundry-type card__laundry-type-cloth" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
+                            <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
                         </a>
                         <a class="card__laundry-type card__laundry-type-shoe" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
+                            <span class="card__laundry-type-text">Sepatu</span>
                         </a>
                     </div>
                     <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
+                    <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
                 </div>
-                <div class="card">
-                    <img src="img/aquos-laundry-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
-                <div class="card">
-                    <img src="img/laundry-max-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
-                <div class="card">
-                    <img src="img/megaclin-laundry-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
+            @endforeach
             </div>
         </div>
 
         <div class="box">
             <h1 class="box__title">Cek laundry terdekatmu!</h1>
             <div class="minibox">
+                @foreach ($laundries as $laundry)
                 <div class="card">
-                    <img src="img/mm-laundry-img.png" alt="" class="card__laundry-img">
+                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
+                        <p class="card__laundry-name">{{$laundry->nama}}</p>
+                        <p class="card__laundry-rating">{{$laundry->rating}}</p>
                         <img class="card__icn-star" src="icn/star.svg" alt="">
                     </div>
 
                     <div class="card__laundry-address-cn">
                         <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
+                        <p class="card__laundry-address">{{$laundry->alamat}}</p>
                     </div>
 
                     <div class="card__laundry-type-cn">
                         <a class="card__laundry-type card__laundry-type-cloth" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
+                            <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
                         </a>
                         <a class="card__laundry-type card__laundry-type-shoe" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
+                            <span class="card__laundry-type-text">Sepatu</span>
                         </a>
                     </div>
                     <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
+                    <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
                 </div>
-                <div class="card">
-                    <img src="img/oke-laundry-image.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
-                <div class="card">
-                    <img src="img/simple-laundy-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
-                <div class="card">
-                    <img src="img/vins-laundry-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">Lulu 'n Be Luxury Laundry</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">Purwokerto</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Pakaian</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. 4000/kg</p>
-                </div>
+            @endforeach
             </div>
         </div>
     </main>
