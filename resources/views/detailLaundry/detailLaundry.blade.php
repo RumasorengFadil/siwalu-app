@@ -21,8 +21,9 @@
     <main class="main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="/icn/chevron-left.svg" alt=""></a>
 
-        <div class="box">
-            <img class="box__img" src="/img/laundry-img.png" alt="">
+        <div class="detail-laundry">
+            <img class="detail-laundry__img" src="/img/laundry-img.png" alt="">
+            
             <div class="card__laundry-name-cn">
                 <h1 class="card__laundry-name-me">Lulu 'n Be Luxury Laundry</h1>
                 <img class="card__icn-heart icon" src="icn/heart.svg" alt="">
@@ -33,13 +34,13 @@
                 <p class="card__laundry-address-me">Purwokerto</p>
             </div>
 
-            <div class="card__laundry-rating-cn">
+            <div class="detail-laundry__rating card__laundry-rating-cn">
                 <img class="icon" src="/icn/half-star-gold.svg" alt="">
                 <p class="card__laundry-rating-me">4.5/5</p>
             </div>
             
-            <h5 class="box__deskripsi-title">Deskripsi</h5>
-            <p class="box__deksripsi">Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa 
+            <h5 class="detail-laundry__title">Deskripsi</h5>
+            <p class="detail-laundry__deksripsi">Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa 
                 Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih 
                 dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan 
                 layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah 
@@ -48,19 +49,26 @@
                 Anda
             </p>
             
-            <h5 class="box__layanan-laundry">Layanan Laundry</h5>
-            <select name="input-layanan" id="inputLayanan">
+            <h5 class="detail-laundry__title">Layanan Laundry</h5>
+            <select class="detail-laundry__select-service" name="input-layanan" id="inputLayanan">
                 <option value="value1">Laundry Kilat</option>
                 <option value="value2">Laundry Super</option>
                 <option value="value3">Regular</option>
             </select>
-            <h5 class="box__layanan-laundry">Estimasi Berat</h5>
-            <input type="number" name="input-weight" id="inputWeight" placeholder="dalam kilogram">
-            <p>Rp.5000/kg</p>
+            <h5 class="detail-laundry__title">Estimasi Berat</h5>
+            <input class="detail-laundry__input-estimasi" type="number" name="input-weight" id="inputWeight" placeholder="Dalam Kilogram">
+            <p class="detail-laundry__harga">Rp.5000/kg</p>
 
-            <div class="box__estimasi-result">
-                <p class="box__estimasi-biaya">Estimasi Biaya</p>
-                <p class="box__total-biaya">Rp.50.000</p>
+            <div class="detail-laundry__cost-estimation-cn">
+                <a class="detail-laundry__whatsapp-link" href="">
+                    <img class="detail-laundry__whatsapp-icon" src="/icn/whatsapp.svg" alt="">
+                </a>
+
+                <div class="detail-laundry__cost-estimation">
+                    <p class="detail-laundry__cost-estimation-label">Estimasi Biaya</p>
+                    <p class="detail-laundry__total-cost-estimation">Rp.50.000</p>
+                </div>
+              
             </div>
         </div>
     </main>

@@ -1,0 +1,81 @@
+.detail-laundry{
+    margin: 1.5rem 0;
+    width: 100%;
+
+    &__img{
+        width: 100%;
+        height: 15rem;
+        border-radius: 5px;
+    }
+    &__rating{
+        padding: 8px 0;
+    }
+    &__title{
+        font-size: 0.875rem;
+        font-weight: 900;
+        padding: 10px 0;
+    }
+    &__deksripsi{
+        width: 90%;
+        font-size: 0.75rem;
+        line-height: 150%;
+
+    }
+    &__select-service{
+        width: 14.75rem;
+        padding: 6px 0;
+        padding-left: 12px;
+        border-radius: 5px;
+        font-size: 0.75rem;
+
+    }
+    &__input-estimasi{
+        width: 14.75rem;
+        padding: 6px 0;
+        padding-left: 12px;
+        border-radius: 5px;
+        border: 1px solid black;
+        font-size: 0.75rem;
+    }
+    &__harga{
+        font-size: 8px;
+        padding: 3px 0;
+    }
+    &__cost-estimation-cn{
+        display: flex;
+        align-items: center;
+        padding: 6px 0;
+    }
+    &__cost-estimation{
+        display: flex;
+        background-color: #D1E9FF;
+        align-items: center;
+        padding: 6px;
+        flex: 1;
+        width: 30px;
+        border-radius: 5px;
+        border: 1px solid $color-primary;
+    }
+    &__cost-estimation-label{
+        flex: 1;
+        font-size: 0.75rem;
+        color: $color-primary;
+    }
+    &__total-cost-estimation{
+        font-size: 0.75rem;
+        color: $color-primary;
+        font-weight: bold;
+    }
+    &__whatsapp-link{
+        display: flex;
+        padding: 8px;
+        margin-right: 10px;
+        align-items: center;
+        border-radius: 5px;
+        justify-content: center;
+        background-color: $color-primary;
+    }
+    &__whatsapp-icon{
+        width: 0.75rem;
+    }
+}

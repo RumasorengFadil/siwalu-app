@@ -291,7 +291,7 @@
     }
     &__laundry-name-me{
         flex: 1;
-        font-size: 1rem;
+        font-size: 0.875rem;
         font-weight: 900;
     }
     &__icn-star{
@@ -306,13 +306,12 @@
         display: flex;
     }
     &__laundry-rating-me{
-        font-size: 1rem;
+        font-size: 0.75rem;
         display: flex;
     }
     &__laundry-address-cn{
         display: flex;
         align-items: center;
-        padding-bottom: 5px;
     }
     &__icn-address{
         width: 10px;
@@ -325,7 +324,7 @@
         color: #666C85;
     }
     &__laundry-address-me{
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     &__laundry-type-cn{
         display: flex;
