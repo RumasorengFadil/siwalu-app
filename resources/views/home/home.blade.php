@@ -61,32 +61,36 @@
                 
             @foreach ($laundries as $laundry)
                 <div class="card">
-                    <img src="img/laundry-img.png" alt="" class="card__laundry-img">
-                    <div class="card__laundry-name-cn">
-                        <p class="card__laundry-name">{{$laundry->nama}}</p>
-                        <div class="card__laundry-rating">
-                            <p class="card__laundry-rating">4.5/5</p>
-                            <img class="card__icn-star" src="/icn/star.svg" alt="">
+                    <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
+                        <div class="card">  
+                            <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                            <div class="card__laundry-name-cn">
+                                <p class="card__laundry-name">{{$laundry->nama}}</p>
+                                <div class="card__laundry-rating">
+                                    <p class="card__laundry-rating">4.5/5</p>
+                                    <img class="card__icn-star" src="/icn/star.svg" alt="">
+                                </div>
+                            </div>
+        
+                            <div class="card__laundry-address-cn">
+                                <img class="card__icn-address" src="icn/location.svg" alt="">
+                                <p class="card__laundry-address">{{$laundry->alamat}}</p>
+                            </div>
+        
+                            <div class="card__laundry-type-cn">
+                                <a class="card__laundry-type card__laundry-type-cloth" href="#">
+                                    <img src="icn/cloth.svg" alt="" class="card__type-icon">
+                                    <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
+                                </a>
+                                <a class="card__laundry-type card__laundry-type-shoe" href="#">
+                                    <img src="icn/cloth.svg" alt="" class="card__type-icon">
+                                    <span class="card__laundry-type-text">Sepatu</span>
+                                </a>
+                            </div>
+                            <p class="card__start-from">Start From</p>
+                            <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
                         </div>
-                    </div>
-
-                    <div class="card__laundry-address-cn">
-                        <img class="card__icn-address" src="icn/location.svg" alt="">
-                        <p class="card__laundry-address">{{$laundry->alamat}}</p>
-                    </div>
-
-                    <div class="card__laundry-type-cn">
-                        <a class="card__laundry-type card__laundry-type-cloth" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
-                        </a>
-                        <a class="card__laundry-type card__laundry-type-shoe" href="#">
-                            <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">Sepatu</span>
-                        </a>
-                    </div>
-                    <p class="card__start-from">Start From</p>
-                    <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
+                    </a>
                 </div>
             @endforeach
             </div>

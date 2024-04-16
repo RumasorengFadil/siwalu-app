@@ -12,4 +12,10 @@ class LaundryController extends Controller
             "laundries" => Laundry::getLaundries()
         ]);
     }
+
+    public function getLaundry($id){
+        return view("/detailLaundry/detailLaundry",[
+            "laundry" => Laundry::getLaundry($id),
+        ]);
+    }
 }

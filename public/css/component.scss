@@ -321,6 +321,7 @@
         display: flex;
         align-items: center;
         font-size: 10px;
+        margin-bottom: 5px;
         color: #666C85;
     }
     &__laundry-address-me{
@@ -363,6 +364,12 @@
     &__price{
         font-size: 14px;
         font-weight: 600;
+    }
+    &__link{
+        text-decoration: none;
+        color: $color-on-background;
+        background-color: #101828;
+        display: block;
     }
     
 }

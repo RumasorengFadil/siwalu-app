@@ -26,7 +26,12 @@ class Laundry extends Model
 
     
     public static function getLaundries(){
-        return Laundry::all();
+        return collect(Laundry::all());
+    }
+    public static function getLaundry($id){
+        $laundry = collect(Laundry::all());
+
+        return $laundry->firstWhere("id_laundry", $id);
     }
 }
 // $laundry = [
