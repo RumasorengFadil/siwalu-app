@@ -64,8 +64,10 @@
                     <img src="img/laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">{{$laundry->nama}}</p>
-                        <p class="card__laundry-rating">{{$laundry->rating}}</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
+                        <div class="card__laundry-rating">
+                            <p class="card__laundry-rating">4.5/5</p>
+                            <img class="card__icn-star" src="/icn/star.svg" alt="">
+                        </div>
                     </div>
 
                     <div class="card__laundry-address-cn">
@@ -98,8 +100,10 @@
                     <img src="img/laundry-img.png" alt="" class="card__laundry-img">
                     <div class="card__laundry-name-cn">
                         <p class="card__laundry-name">{{$laundry->nama}}</p>
-                        <p class="card__laundry-rating">{{$laundry->rating}}</p>
-                        <img class="card__icn-star" src="icn/star.svg" alt="">
+                        <div class="card__laundry-rating">
+                            <p class="card__laundry-rating">4.5/5</p>
+                            <img class="card__icn-star" src="/icn/star.svg" alt="">
+                        </div>
                     </div>
 
                     <div class="card__laundry-address-cn">
