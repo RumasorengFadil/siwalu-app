@@ -1,4 +1,3 @@
-{{$laundry}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,23 +22,77 @@
         <a  href="{{url('/')}}"><img class="main__back-icon" src="/icn/chevron-left.svg" alt=""></a>
 
         <div class="detail-laundry">
-            <img class="detail-laundry__img" src="/img/laundry-img.png" alt="">
+            <img class="detail-laundry__img" src="{{$laundry->foto}}" alt="">
             
             <div class="card__laundry-name-cn">
-                <h1 class="card__laundry-name-me">Lulu 'n Be Luxury Laundry</h1>
-                <img class="card__icn-heart icon" src="icn/heart.svg" alt="">
+                <h1 class="card__laundry-name-me">{{$laundry->nama}}</h1>
+                <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
             </div>
 
             <div class="card__laundry-address-cn">
-                <img class="card__icn-address icon" src="icn/location.svg" alt="">
-                <p class="card__laundry-address-me">Purwokerto</p>
+                <img class="card__icn-address icon" src="/icn/location.svg" alt="">
+                <p class="card__laundry-address-me">{{$laundry->alamat}}</p>
             </div>
 
             <div class="detail-laundry__rating card__laundry-rating-cn">
                 <img class="icon" src="/icn/half-star-gold.svg" alt="">
-                <p class="card__laundry-rating-me">4.5/5</p>
+                <p class="card__laundry-rating-me">{{$laundry->rating}}/5</p>
             </div>
             
+            <div class="review">
+                <div class="review__header">
+                    <h5 class="review__title">Review</h5>
+                    <a class="review__btn-review" href="">
+                        <img src="/icn/edit.svg" alt="" class="review__pencil-icon">
+                        <p class="review__btn-text">Tulis Ulasan</p>
+                    </a>
+                </div>
+                
+                <div class="review__body">
+                    <div class="review__card">
+                        <div class="review__card-header">
+                            <img class="review__img" src="/img/ari-wijaya.png" alt="">
+    
+                            <div class="review__author">
+                                <h5 class="review__author-text">
+                                    Latif Arif Putranto
+                                </h5>
+                                
+                                <div class="review__score">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                </div>
+                            </div>
+                            <h5 class="review__date-passed">21 Nov 2023</h5>
+                        </div>
+                    </div>
+                    <div class="review__card">
+                        <div class="review__card-header">
+                            <img class="review__img" src="/img/ari-wijaya.png" alt="">
+    
+                            <div class="review__author">
+                                <h5 class="review__author-text">
+                                    Latif Arif Putranto
+                                </h5>
+                                
+                                <div class="review__score">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                </div>
+                            </div>
+                            <h5 class="review__date-passed">21 Nov 2023</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
             <h5 class="detail-laundry__title">Deskripsi</h5>
             <p class="detail-laundry__deksripsi">Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa 
                 Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih 
@@ -58,7 +111,7 @@
             </select>
             <h5 class="detail-laundry__title">Estimasi Berat</h5>
             <input class="detail-laundry__input-estimasi" type="number" name="input-weight" id="inputWeight" placeholder="Dalam Kilogram">
-            <p class="detail-laundry__harga">Rp.5000/kg</p>
+            <p class="detail-laundry__harga">Rp.{{$laundry->harga}}/kg</p>
 
             <div class="detail-laundry__cost-estimation-cn">
                 <a class="detail-laundry__whatsapp-link" href="">

@@ -335,7 +335,6 @@
         width: fit-content;
         text-decoration: none;
         display: flex;
-        cursor: auto;
         align-items: center;
         border-radius: 5px;
         color: $color-on-primary;
@@ -368,12 +367,67 @@
     &__link{
         text-decoration: none;
         color: $color-on-background;
-        background-color: #101828;
         display: block;
     }
     
 }
 
+//doc: Review Style
+.review{
+    &__header{
+        display: flex;
+        align-items: center;
+    }
+    &__body{
+        overflow-x: scroll;
+        display: flex;
+    }
+    &__title{
+        font-size: 14px;
+        font-weight: bold;
+        flex: 1;
+    }
+    &__btn-review{
+        display: flex;
+        align-items: center;
+    }
+    &__pencil-icon{
+        width: 14px;
+        margin-right: 4px;
+    }
+    &__btn-text{
+        font-size: 11px;
+    }
+    &__card{
+        border: 1px solid #EAECF0;
+        padding: 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        width: max-content;
+        display: flex;
+    }
+    &__card-header{
+        display: flex;
+    }
+    &__author{
+        flex: 1;
+    }
+    &__author-text{
+        font-size: 13px;
+    }
+    &__date-passed{
+        font-size: 13px;
+        color: #344054;
+    }
+    &__img{
+        width: 47px;
+        height: 47px;
+        margin-right: 12px;
+    }
+    &__star-icn{
+        width: 17px;
+    }
+}
 .icon{
     width: 1rem;
     cursor: pointer;

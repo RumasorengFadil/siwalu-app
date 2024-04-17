@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string("nama");
             $table->string("alamat");
             $table->string("nomor_telp");
+            $table->string("deskripsi");
+            $table->json("jenis_layanan");
             $table->time("jam_buka");
             $table->time("jam_tutup");
             $table->string("jenis_layanan");
