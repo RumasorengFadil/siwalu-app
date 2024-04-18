@@ -149,12 +149,9 @@
     &__brand-name{
         color: $color-on-primary;
     }
-
     &__quick-links{
         width: fit-content;
         padding: 20px;
-
-
     }
     &__title{
         font-weight: bold;
@@ -291,7 +288,7 @@
     }
     &__laundry-name-me{
         flex: 1;
-        font-size: 0.875rem;
+        font-size: 13px;
         font-weight: 900;
     }
     &__icn-star{
@@ -306,7 +303,7 @@
         display: flex;
     }
     &__laundry-rating-me{
-        font-size: 0.75rem;
+        font-size: 12px;
         display: flex;
     }
     &__laundry-address-cn{
@@ -325,7 +322,7 @@
         color: #666C85;
     }
     &__laundry-address-me{
-        font-size: 0.75rem;
+        font-size: 12px;
     }
     &__laundry-type-cn{
         display: flex;
@@ -377,13 +374,14 @@
     &__header{
         display: flex;
         align-items: center;
+        margin-bottom: 10px;
     }
     &__body{
-        overflow-x: scroll;
         display: flex;
+        overflow-x: scroll;
     }
     &__title{
-        font-size: 14px;
+        font-size: 13px;
         font-weight: bold;
         flex: 1;
     }
@@ -403,21 +401,23 @@
         padding: 10px;
         border-radius: 5px;
         margin-right: 10px;
-        width: max-content;
-        display: flex;
+        width: min-content;
     }
     &__card-header{
         display: flex;
     }
     &__author{
         flex: 1;
+        margin-right: 53px;
     }
     &__author-text{
         font-size: 13px;
+        width: max-content;
     }
     &__date-passed{
         font-size: 13px;
         color: #344054;
+        width: max-content;
     }
     &__img{
         width: 47px;
@@ -426,6 +426,15 @@
     }
     &__star-icn{
         width: 17px;
+    }
+    &__comment{
+        margin-top: 10px;
+        font-size: 13px;
+        width: 100%;
+        line-height: 150%;
+    }
+    &__score{
+        width: max-content;
     }
 }
 .icon{

@@ -14,8 +14,13 @@ class LaundryController extends Controller
     }
 
     public function getLaundry($id){
+
         return view("/detailLaundry/detailLaundry",[
             "laundry" => Laundry::getLaundry($id),
         ]);
+    }
+
+    public function postLaundry(){
+        return view();
     }
 }

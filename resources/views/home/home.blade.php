@@ -62,6 +62,7 @@
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
                         <img src="img/laundry-img.png" alt="" class="card__laundry-img">
+                        
                         <div class="card__laundry-name-cn">
                             <p class="card__laundry-name">{{$laundry->nama}}</p>
                             <div class="card__laundry-rating">
@@ -69,7 +70,6 @@
                                 <img class="card__icn-star" src="/icn/star.svg" alt="">
                             </div>
                         </div>
-    
                         <div class="card__laundry-address-cn">
                             <img class="card__icn-address" src="icn/location.svg" alt="">
                             <p class="card__laundry-address">{{$laundry->alamat}}</p>

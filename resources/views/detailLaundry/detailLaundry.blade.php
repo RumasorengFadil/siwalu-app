@@ -41,7 +41,7 @@
             
             <div class="review">
                 <div class="review__header">
-                    <h5 class="review__title">Review</h5>
+                    <h5 class="review__title">Ulasan</h5>
                     <a class="review__btn-review" href="">
                         <img src="/icn/edit.svg" alt="" class="review__pencil-icon">
                         <p class="review__btn-text">Tulis Ulasan</p>
@@ -68,6 +68,10 @@
                             </div>
                             <h5 class="review__date-passed">21 Nov 2023</h5>
                         </div>
+
+                        <p class="review__comment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illum ea magnam natus nobis ex possimus laudantium neque rerum, suscipit aut, cumque corporis porro quas commodi dolor blanditiis deserunt culpa.
+                        </p>
                     </div>
                     <div class="review__card">
                         <div class="review__card-header">
@@ -88,6 +92,10 @@
                             </div>
                             <h5 class="review__date-passed">21 Nov 2023</h5>
                         </div>
+
+                        <p class="review__comment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illum ea magnam natus nobis ex possimus laudantium neque rerum, suscipit aut, cumque corporis porro quas commodi dolor blanditiis deserunt culpa.
+                        </p>
                     </div>
                 </div>
                 

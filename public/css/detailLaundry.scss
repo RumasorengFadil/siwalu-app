@@ -11,13 +11,13 @@
         padding: 8px 0;
     }
     &__title{
-        font-size: 0.875rem;
+        font-size: 13px;
         font-weight: 900;
         padding: 10px 0;
     }
     &__deksripsi{
-        width: 90%;
-        font-size: 0.75rem;
+        max-width: 600px;
+        font-size: 13px;
         line-height: 150%;
 
     }
@@ -26,7 +26,7 @@
         padding: 6px 0;
         padding-left: 12px;
         border-radius: 5px;
-        font-size: 0.75rem;
+        font-size:13px;
 
     }
     &__input-estimasi{
@@ -35,7 +35,7 @@
         padding-left: 12px;
         border-radius: 5px;
         border: 1px solid black;
-        font-size: 0.75rem;
+        font-size:13px;
     }
     &__harga{
         font-size: 8px;
@@ -58,11 +58,11 @@
     }
     &__cost-estimation-label{
         flex: 1;
-        font-size: 0.75rem;
+        font-size: 13px;
         color: $color-primary;
     }
     &__total-cost-estimation{
-        font-size: 0.75rem;
+        font-size: 13px;
         color: $color-primary;
         font-weight: bold;
     }
@@ -76,6 +76,6 @@
         background-color: $color-primary;
     }
     &__whatsapp-icon{
-        width: 0.75rem;
+        width: 0.875rem;
     }
 }
