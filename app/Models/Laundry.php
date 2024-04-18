@@ -4,12 +4,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Laundry extends Model
 {
 
     use HasFactory;
-    // use HasUuids;
+    use HasUuids;
 
     protected $fillable = [
         'id_admin',
@@ -29,7 +30,14 @@ class Laundry extends Model
     protected $casts = [
         'jenis_layanan' => 'array',
     ];
-
+    public function newUniqueId(): string
+    {
+        return (string) Uuid::uuid4();
+    }
+    public function uniqueIds(): array
+    {
+        return ['id_laundry'];
+    }
     public static function getLaundries(){
         return collect(Laundry::all());
     }
