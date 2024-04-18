@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,9 +114,9 @@
             
             <h5 class="detail-laundry__title">Layanan Laundry</h5>
             <select class="detail-laundry__select-service" name="input-layanan" id="inputLayanan">
-                <option value="value1">Laundry Kilat</option>
-                <option value="value2">Laundry Super</option>
-                <option value="value3">Regular</option>
+                @foreach ($laundry->jenis_layanan as $jenis_layanan)
+                    <option value="value">{{$jenis_layanan}}</option>
+                @endforeach
             </select>
             <h5 class="detail-laundry__title">Estimasi Berat</h5>
             <input class="detail-laundry__input-estimasi" type="number" name="input-weight" id="inputWeight" placeholder="Dalam Kilogram">

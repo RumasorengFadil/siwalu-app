@@ -78,7 +78,7 @@
                         <div class="card__laundry-type-cn">
                             <div class="card__laundry-type card__laundry-type-cloth">
                                 <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                                <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
+                                <span class="card__laundry-type-text">Pakaian</span>
                             </div>
                             <div class="card__laundry-type card__laundry-type-shoe">
                                 <img src="icn/cloth.svg" alt="" class="card__type-icon">
@@ -115,7 +115,7 @@
                     <div class="card__laundry-type-cn">
                         <a class="card__laundry-type card__laundry-type-cloth" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                            <span class="card__laundry-type-text">{{$laundry->jenis_layanan}}</span>
+                            <span class="card__laundry-type-text">Pakaian</span>
                         </a>
                         <a class="card__laundry-type card__laundry-type-shoe" href="#">
                             <img src="icn/cloth.svg" alt="" class="card__type-icon">

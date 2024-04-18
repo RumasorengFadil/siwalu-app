@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Laundry extends Model
 {
+
     use HasFactory;
     // use HasUuids;
 
@@ -25,8 +26,10 @@ class Laundry extends Model
         "lon",
         "lan"
     ];
+    protected $casts = [
+        'jenis_layanan' => 'array',
+    ];
 
-    
     public static function getLaundries(){
         return collect(Laundry::all());
     }
@@ -37,10 +40,10 @@ class Laundry extends Model
     }
     public static function postLaundry(){
         $jenisLayanan = array(
-            0 => "Express Laundry",
-            1 => "Regular",
-            2 => "Super Kilat"
-        );
+            "Express Laundry",
+            "Regular",
+            "Super Kilat");
+
         Laundry::create([
             "id_admin" => 0,
             "nama" => "Express Laundry",
@@ -49,7 +52,7 @@ class Laundry extends Model
             "deskripsi" => "Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda",
             "jam_buka" => "7.00",
             "jam_tutup" => "17.00",
-            "jenis_layanan" => json_encode($jenisLayanan),
+            "jenis_layanan" => $jenisLayanan,
             "harga" => 3000,
             "rating" => 4.9,
             "foto" => "/img/laundry-img.png",
@@ -87,3 +90,19 @@ class Laundry extends Model
 //     "lon" => 0,
 //     "lan" => 0
 // ])
+
+        // $laundry = new Laundry();
+        // $laundry->id_admin = 0;
+        // $laundry->nama = "Express Laundry";
+        // $laundry->alamat = "Purwokerto";
+        // $laundry->nomor_telp = "085244682919";
+        // $laundry->deskripsi = "Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda";
+        // $laundry->jam_buka = "7:00:00";
+        // $laundry->jam_tutup = "17:00:00";
+        // $laundry->jenis_layanan = $jenisLayanan;
+        // $laundry->harga = 3000;
+        // $laundry->rating = 4.9;
+        // $laundry->foto = '/img/laundry-img.png"';
+        // $laundry->lon = 0;
+        // $laundry->lan = 0;
+        // $laundry->save();
