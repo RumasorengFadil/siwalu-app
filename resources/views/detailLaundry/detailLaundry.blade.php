@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['public/css/main.scss'])
+    @vite(['public/css/main.scss', 'public/js/countEstimation.js'])
 </head>
 <body>
     <header>
@@ -121,7 +121,7 @@
             <h5 class="detail-laundry__title">Estimasi Berat</h5>
             <input class="detail-laundry__input-estimasi" type="number" name="input-weight" id="inputWeight" placeholder="Dalam Kilogram">
             <p class="detail-laundry__harga">Rp.{{$laundry->harga}}/kg</p>
-
+            
             <div class="detail-laundry__cost-estimation-cn">
                 <a class="detail-laundry__whatsapp-link" href="">
                     <img class="detail-laundry__whatsapp-icon" src="/icn/whatsapp.svg" alt="">
@@ -129,7 +129,7 @@
 
                 <div class="detail-laundry__cost-estimation">
                     <p class="detail-laundry__cost-estimation-label">Estimasi Biaya</p>
-                    <p class="detail-laundry__total-cost-estimation">Rp.50.000</p>
+                    <p class="detail-laundry__total-cost-estimation">Rp.0</p>
                 </div>
               
             </div>
