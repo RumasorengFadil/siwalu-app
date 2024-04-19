@@ -6,12 +6,8 @@
     <title>Document</title>
     @vite(['public/css/main.scss', 'public/js/slider.js'])
 </head>
-<body>
-        
+<body>    
     <header>
- 
-    {{-- 
-        {{"ygdghsgfhgfd"}} --}}
         <nav class="nav">
             <div class="nav__logo-cn">
                 <a href="{{url("/")}}">

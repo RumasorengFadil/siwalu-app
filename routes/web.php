@@ -14,3 +14,7 @@ Route::get('/login', function () {
     return view('login/login');
 });
 Route::get('/detailLaundry/{id}', [LaundryController::class, "getLaundry"]);
+Route::get('detailLaundry/{id}/rating', function ($id) {
+    dump($id);
+    return view('rating/ratingView');
+});
