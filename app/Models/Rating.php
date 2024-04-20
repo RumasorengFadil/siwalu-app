@@ -14,6 +14,5 @@ class Rating extends Model
         "id_user",
         "score",
         "rating_comments",
-        "post_at"
     ];
 }

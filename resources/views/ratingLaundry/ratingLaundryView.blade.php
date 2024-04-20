@@ -29,20 +29,21 @@
         </div>
 
         <div class="rating-body">
-            <form class="rating-body__form" action="/detailLaundry/ratingLaundry" method="post">
+            <form class="rating-body__form" action="/detailLaundry/{{$laundry->id_laundry}}" method="post">
                 @csrf <!-- {{ csrf_field() }} -->
                 <div class="rating-body__rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Excellent!"></label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good!"></label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Average!"></label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Not good!"></label>
-                    <input type="radio" id="star1" name="rating" checked value="1" /><label class = "full" for="star1" title="Terrible!"></label>
+                    <input type="radio" id="star5" name="score" value="5" /><label class = "full" for="star5" title="Excellent!"></label>
+                    <input type="radio" id="star4" name="score" value="4" /><label class = "full" for="star4" title="Pretty good!"></label>
+                    <input type="radio" id="star3" name="score" value="3" /><label class = "full" for="star3" title="Average!"></label>
+                    <input type="radio" id="star2" name="score" value="2" /><label class = "full" for="star2" title="Not good!"></label>
+                    <input type="radio" id="star1" name="score" checked value="1" /><label class = "full" for="star1" title="Terrible!"></label>
                 </div>
                 <label class="rating-body__satisfied_indicator" for="">Terrible!</label>
                 <p class="rating-body__message">Bantu pelanggan lain dengan ulasan yang kamu berikan.</p>
                 <input type="text" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" hidden>
                 <label for="reason" class="rating-body__reason-label">Apa alasan memberikan rating?</label> <br>
-                <textarea class="rating-body__reason-textarea" name="input-user-comment" id="" cols="30" rows="10" placeholder="Ceritakan pengalamanmu." ></textarea>
+                <textarea class="rating-body__reason-textarea" name="reason" id="" cols="30" rows="10" placeholder="Ceritakan pengalamanmu."></textarea>
+                <label class="error" for="">{{$errors->first("reason")}}</label>
                 <input type="submit" value="Submit" class="rating-body__submit-btn">
             </form>
         </div>

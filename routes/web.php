@@ -15,6 +15,6 @@ Route::get('/login', function () {
 });
 Route::controller(LaundryController::class)->group(function(){
     Route::get('/detailLaundry/{id}', 'renderDetailLaundryView');
-    Route::get('detailLaundry/{id}/ratingLaundry', "renderRatingLaundryView");
-    Route::post('detailLaundry/ratingLaundry', "postRatingLaundry");
+    Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView");
+    Route::post('detailLaundry/{id}', "postRatingLaundry");
 });

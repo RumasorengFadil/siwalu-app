@@ -13,13 +13,18 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id("id")->autoIncrement();
-            $table->foreignId("id_laundry");
+            $table->foreignUuid("id_laundry");
             $table->foreignId("id_user")->nullable();
             $table->integer("score");
             $table->longText("rating_comments");
-            $table->date('post_at');
             $table->timestamps();
         });
+
+        // Schema::table('ratings', function (Blueprint $table) {
+        //     // Menambahkan kolom dengan foreign key
+        //     $table->unsignedBigInteger('id_laundry');
+        //     $table->foreign('id_laundry')->references('id_laundry')->on('laundries');
+        // });
     }
 
     /**

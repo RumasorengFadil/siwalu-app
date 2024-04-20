@@ -1,3 +1,4 @@
+{{$laundry->ratings}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
             <div class="review">
                 <div class="review__header">
                     <h5 class="review__title">Ulasan</h5>
-                    <a class="review__btn-review" href="/detailLaundry/{{$laundry->id_laundry}}/ratingLaundry">
+                    <a class="review__btn-review" href="/detailLaundry/ratingLaundry/{{$laundry->id_laundry}}">
                         <img src="/icn/edit.svg" alt="" class="review__pencil-icon">
                         <p class="review__btn-text">Tulis Ulasan</p>
                     </a>

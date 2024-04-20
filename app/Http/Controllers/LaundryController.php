@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Laundry;
-
 use Illuminate\Http\Request;
 
 class LaundryController extends Controller
 {
     public function getLaundries(){
-        // Laundry::postLaundry();
+        Laundry::postLaundry();
         return view("/home/home",[
             "laundries" => Laundry::getLaundries()
         ]);
@@ -24,9 +23,18 @@ class LaundryController extends Controller
             "laundry" => Laundry::getLaundry($id),
         ]);
     }
-    public function postRatingLaundry(Request $request){
-        dd($request->all());
-        Laundry::postRatingLaundry();
-        return view("/detailLaundry/detailLaundry");
+    public function postRatingLaundry($id,Request $request){
+        // dd($request->all());
+        
+        $validate = $request->validate([
+            "score" => "required",
+            "input-laundry-id" => "required",
+            "reason" => "required"
+        ]);
+        Laundry::postRatingLaundry($request);
+
+        return view("/detailLaundry/detailLaundry", [
+            "laundry" => Laundry::getLaundry($id),
+        ])->withErrors($validate);
     }
 }
