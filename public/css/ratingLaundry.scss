@@ -1,0 +1,93 @@
+
+.rating-header{
+    background-color: #EFF8FF;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-radius: 5px;
+    margin: 21px 0;
+    &__img{
+       width: 40px; 
+       height: 40px;
+       border-radius: 5px;
+       margin-right: 5px;
+    }
+    &__name{
+        flex: 1;
+        font-weight: bold;
+    }
+}
+
+.rating-body{
+    // &__form{}
+    &__rating {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        margin: auto 0;
+        font-size: 33px;
+    }
+    &__rating input {
+        display: none;
+      }
+      
+      &__rating label {
+        float: right;
+      }
+      
+      &__rating label:before {
+        content: '\1F7CA';
+        margin-right: 10px;
+        color: grey;
+      }
+      
+      &__rating input:checked ~ label:before {
+        color: gold;
+      }
+      
+      &__rating label:hover:before,
+      &__rating label:hover ~ label:before {
+        color: gold;
+        transition: all linear 100ms;
+      }
+      &__rating label:nth-last-child(1)::before{
+        color: gold;
+      }
+      &__satisfied_indicator{
+        margin: 0 auto 5px auto;
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__message{
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 21px;
+      }
+      &__reason-label{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__reason-textarea{
+        resize: none;
+        width: 100%;
+        margin-top: 10px;
+        height: 196px;
+        padding: 15px;
+        line-height: 150%;
+      }
+
+      &__submit-btn{
+        all: unset;
+        background-color: $color-primary;
+        padding: 8px 0;
+        width: 100%;
+        text-align: center;
+        color: $color-on-primary;
+        margin: 21px 0;
+        border-radius: 5px;
+      }
+}
