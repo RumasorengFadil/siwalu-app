@@ -13,7 +13,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('login/login');
 });
-Route::get('/detailLaundry/{id}', [LaundryController::class, "getLaundry"]);
-Route::get('detailLaundry/{id}/ratingLaundry', function ($id) {
-    return view('ratingLaundry/ratingLaundryView');
+Route::controller(LaundryController::class)->group(function(){
+    Route::get('/detailLaundry/{id}', 'renderDetailLaundryView');
+    Route::get('detailLaundry/{id}/ratingLaundry', "renderRatingLaundryView");
 });

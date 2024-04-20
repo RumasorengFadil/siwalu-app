@@ -14,12 +14,16 @@ class LaundryController extends Controller
         ]);
     }
 
-    public function getLaundry($id){
+    public function renderDetailLaundryView($id){
         return view("/detailLaundry/detailLaundry",[
             "laundry" => Laundry::getLaundry($id),
         ]);
     }
-
+    public function renderRatingLaundryView($id){
+        return view("/ratingLaundry/ratingLaundryView", [
+            "laundry" => Laundry::getLaundry($id),
+        ]);
+    }
     public function postLaundry(){
         return view();
     }

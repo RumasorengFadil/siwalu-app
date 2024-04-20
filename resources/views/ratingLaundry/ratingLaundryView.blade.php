@@ -24,8 +24,8 @@
         <a  href="{{url('/')}}"><img class="main__back-icon" src="/icn/chevron-left.svg" alt=""></a>
         <div class="rating-header">
             <img src="/img/laundry-img.png" alt="" class="rating-header__img">
-            <p class="rating-header__name">Laundry Express</p>
-            <p class="rating-header__date">21 mei 2023</p>
+            <p class="rating-header__name">{{$laundry["nama"]}}</p>
+            <p class="rating-header__date">{{date("d F Y")}}</p>
         </div>
 
         <div class="rating-body">
