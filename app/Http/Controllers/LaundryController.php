@@ -24,7 +24,9 @@ class LaundryController extends Controller
             "laundry" => Laundry::getLaundry($id),
         ]);
     }
-    public function postLaundry(){
-        return view();
+    public function postRatingLaundry(Request $request){
+        dd($request->all());
+        Laundry::postRatingLaundry();
+        return view("/detailLaundry/detailLaundry");
     }
 }
