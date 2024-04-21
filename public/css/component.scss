@@ -89,14 +89,18 @@
     box-shadow: 0px 12px 16px -4px #10182814;
     margin-top: 42px;
 
-    &__input-pass,&__input-email{
+    .form__el{
+        margin-bottom: 10px;
+    }
+    &__input-username,&__input-pass,&__input-email{
         width: 17.4rem;
         height: 36.6px;
         padding-left: 12px;
         border: 1px solid #101828;
         box-shadow: 0px 2.55px 5.1px 0px #1018280D;
-        margin-bottom: 10px;
         border-radius: 5px;
+        margin-bottom: 3px;
+
     }
     &__submit-btn{
         all: unset;

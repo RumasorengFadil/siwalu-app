@@ -52,15 +52,7 @@ class Laundry extends Model
 
         return $laundry->firstWhere("id_laundry", $id);
     }
-    public static function postRatingLaundry($request){
-        Rating::create([
-            "id_laundry" => $request["input-laundry-id"],
-            "score" => $request["score"],
-            "rating_comments" => $request["reason"],
-            "post_at" => date("d F Y")
-        ]);
-
-    }
+    
     static public function postLaundry(){
         Laundry::create([
             "id_admin" => 0,

@@ -18,11 +18,23 @@
 
     <main class="main register-main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="icn/chevron-left.svg" alt=""></a>
-        <form class="form" action="" method="post">
-            <input class="form__input-email" type="email" name="" id="" placeholder="Email"><br>
-            <input class="form__input-pass" type="password" name="" id="" placeholder="Password"><br>
-            <input class="form__submit-btn" type="submit" value="Daftar">
+        <form class="form" action="/register" method="post">
+            @csrf <!-- {{ csrf_field() }} -->
 
+            <div class="form__el">
+                <input class="form__input-username" type="text" name="input-username" id="" value="{{ old('input-username') }}" placeholder="Username"><br>
+                <label class="error">{{$errors->first("input-username")}}</label>
+            </div>
+            <div class="form__el">
+                <input class="form__input-email" type="email" name="input-email" id="" value="{{ old('input-email') }}" placeholder="Email"><br>
+                <label class="error">{{$errors->first("input-email")}}</label>
+            </div>
+            <div class="form__el">
+                <input class="form__input-pass" type="password" name="input-password" id=""  placeholder="Password"><br>
+                <label class="error">{{$errors->first("input-password")}}</label>
+            </div>
+
+            <input class="form__submit-btn" type="submit" value="Daftar">
             <p class="form__privacy-policy">Dengan membuat akun kamu telah menyetujui <a href="">Syarat & Ketentuan</a> dan <a href="">Kebijakan Privasi</a></p>
             <p class="form__link">Udah punya akun? <a href="{{url('login')}}">masuk disini!</a></p>
         </form>

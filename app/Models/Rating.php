@@ -15,4 +15,15 @@ class Rating extends Model
         "score",
         "rating_comments",
     ];
+
+
+    public static function postRatingLaundry($request){
+        Rating::create([
+            "id_laundry" => $request["input-laundry-id"],
+            "score" => $request["score"],
+            "rating_comments" => $request["reason"],
+            "post_at" => date("d F Y")
+        ]);
+
+    }
 }

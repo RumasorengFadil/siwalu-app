@@ -1,4 +1,3 @@
-{{$laundry->ratings}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,54 +49,30 @@
                 </div>
                 
                 <div class="review__body">
-                    <div class="review__card">
-                        <div class="review__card-header">
-                            <img class="review__img" src="/img/ari-wijaya.png" alt="">
-    
-                            <div class="review__author">
-                                <h5 class="review__author-text">
-                                    Latif Arif Putranto
-                                </h5>
-                                
-                                <div class="review__score">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                    @foreach ($ratings as $rating)
+                        <div class="review__card">
+                            <div class="review__card-header">
+                                <img class="review__img" src="/img/ari-wijaya.png" alt="">
+        
+                                <div class="review__author">
+                                    <h5 class="review__author-text">
+                                        Latif Arif Putranto
+                                    </h5>
+                                    
+                                    <div class="review__score">
+                                        @for($i = 0; $i<$rating["score"]; $i++)
+                                            <img src="/icn/star-full.svg" class="review__star-icn" alt="">
+                                        @endfor
+                                    </div>
                                 </div>
+                                <h5 class="review__date-passed">{{date("d F Y", strtotime($rating["created_at"]))}}</h5>
                             </div>
-                            <h5 class="review__date-passed">21 Nov 2023</h5>
-                        </div>
 
-                        <p class="review__comment">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illum ea magnam natus nobis ex possimus laudantium neque rerum, suscipit aut, cumque corporis porro quas commodi dolor blanditiis deserunt culpa.
-                        </p>
-                    </div>
-                    <div class="review__card">
-                        <div class="review__card-header">
-                            <img class="review__img" src="/img/ari-wijaya.png" alt="">
-    
-                            <div class="review__author">
-                                <h5 class="review__author-text">
-                                    Latif Arif Putranto
-                                </h5>
-                                
-                                <div class="review__score">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                    <img src="/icn/star-full.svg" class="review__star-icn" alt="">
-                                </div>
-                            </div>
-                            <h5 class="review__date-passed">21 Nov 2023</h5>
+                            <p class="review__comment">
+                                {{$rating["rating_comments"]}}
+                            </p>
                         </div>
-
-                        <p class="review__comment">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error illum ea magnam natus nobis ex possimus laudantium neque rerum, suscipit aut, cumque corporis porro quas commodi dolor blanditiis deserunt culpa.
-                        </p>
-                    </div>
+                    @endforeach
                 </div>
                 
                 

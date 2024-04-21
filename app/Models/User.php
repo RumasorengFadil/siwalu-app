@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -19,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        "photo",
         'password',
     ];
 
@@ -43,5 +46,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public static function register($register){
+        // dd($register["input-username"]);
+        User::create([
+            "name" => $register["input-username"],
+            "email" => $register["input-email"],
+            "photo" => "ari-wijaya.png",
+            "password" => $register["input-password"]
+        ]);
     }
 }
