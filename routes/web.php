@@ -21,9 +21,10 @@ Route::controller(LaundryController::class)->group(function(){
 });
 
 Route::controller(RatingController::class)->group(function(){
-    Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView");
+    Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")->name("ratingLaundryView");
     Route::post('detailLaundry/{id}', "postRatingLaundry");
 });
 
 
 Route::post("/register",[UserController::class, "register"])->name("register");
+Route::get("/login",[UserController::class, "login"])->name("login");
