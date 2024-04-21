@@ -19,16 +19,17 @@
 
     <main class="main register-main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="icn/chevron-left.svg" alt=""></a>
-        <form class="form" action="" method="post">
+        <form class="form" action="/login" method="post">
+            @csrf <!-- {{ csrf_field() }} -->
             <div class="form__el">
-                <input class="form__input-email" type="email" name="input-email" id="" value="{{ old('input-email') }}" placeholder="Email"><br>
+                <input class="form__input-email" type="email" name="input-email" id="" value="{{ old('input-email') }}" placeholder="Email" autofocus><br>
                 <label class="error">{{$errors->first("input-email")}}</label>
             </div>
             <div class="form__el">
                 <input class="form__input-pass" type="password" name="input-password" id=""  placeholder="Password"><br>
-                <label class="error">{{$errors->first("input-password")}}</label>
+                <label class="error">{{$errors->first("input-password")}} {{$errors->first("error")}}</label>
             </div>
-            
+
             <input class="form__submit-btn" type="submit" value="Login">
 
             <p class="form__link">Belum punya akun? <a href="{{url('register')}}">daftar yuk!</a></p>

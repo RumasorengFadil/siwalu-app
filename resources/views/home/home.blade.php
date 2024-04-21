@@ -1,3 +1,4 @@
+{{-- {{dd(auth())}} --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,13 @@
                 <a href="#about-product" class="nav__link"><img src="icn/message-square.svg" alt="" class="nav__icon"></a>
                 <a href="#collections" class="nav__link"><img src="icn/bell.svg" alt="" class="nav__icon"></a>
                 <input class="nav__link nav__input-search" type="search" name="inputSearch" id="inputSearch" placeholder="Cari “Laundry Terdekat”">
-                <a href="{{url("login")}}" class="nav__link nav__login-btn">Masuk</a>
+
+                @guest
+                    <a href="{{url("login")}}" class="nav__link nav__login-btn">Masuk</a>
+                @endguest
+                @auth
+                    <a href="{{url("logout")}}" class="nav__link nav__logout-btn">Keluar</a>
+                @endauth
             </ul>
         </nav>
     </header>

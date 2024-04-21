@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LaundryController extends Controller
 {
-    public function getLaundries(){
+    public function renderHomeView(){
         Laundry::postLaundry();
         return view("/home/home",[
             "laundries" => Laundry::getLaundries()

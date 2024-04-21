@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Laundry;
 
 class UserController extends Controller
 {
-    public function register(Request $request){
-        // dd($request->all());
-
+    public function register(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'input-username' => 'required|max:30',
             'input-email' => "required|email:rfc,dns",
@@ -30,7 +30,8 @@ class UserController extends Controller
         return redirect("register");
     }
 
-    public function login(Request $request): RedirectResponse{
+    public function login(Request $request): RedirectResponse
+    {
         $credentials = Validator::make($request->all(), [
             'input-email' => "required|email:rfc,dns",
             'input-password' => "required",
@@ -41,14 +42,32 @@ class UserController extends Controller
             'input-email' => "email",
         ])->validate();
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(["email" => $credentials["input-email"], "password" => $credentials["input-password"]])) {
             $request->session()->regenerate();
  
-            return redirect()->intended('/home');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
-            'input-email' => 'The provided credentials do not match our records.',
+            'error' => 'The provided credentials do not match our records.',
         ])->onlyInput('input-email');
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
+    }
+    //todo render
+    public function renderRegisterView(){
+        return view('register/register');
+    }
+    public function renderLoginView(){
+        return view('login/login');
     }
 }

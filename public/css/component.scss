@@ -41,6 +41,7 @@
         text-decoration: none;
         margin: 0 8px;
     }
+
     &__input-search{
         height: 32px;
         width: 100%;
@@ -55,19 +56,16 @@
         background-attachment: scroll;
         transition: all linear 500ms;
     }
-    @media only screen and (max-width:720px){
-        &__input-search:focus{
-            width: 26.7vw;
-            transition: all linear 500ms;
-        }
-        &__input-search{
-            width: 24px;
-            transition: all linear 500ms;
-        }
-    }
     &__login-btn{
         padding: 8px 16px;
         background-color: $color-primary;
+        color: $color-on-primary;
+        border-radius: 5px;
+        height: 32px;
+    }
+    &__logout-btn{
+        padding: 8px 16px;
+        background-color: red;
         color: $color-on-primary;
         border-radius: 5px;
         height: 32px;
@@ -76,6 +74,16 @@
         // width: 200px;
         &__login-btn{
            opacity: 0;
+        }
+    }
+    @media only screen and (max-width:720px){
+        &__input-search:focus{
+            width: 26.7vw;
+            transition: all linear 500ms;
+        }
+        &__input-search{
+            width: 24px;
+            transition: all linear 500ms;
         }
     }
 }
