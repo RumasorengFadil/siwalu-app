@@ -56,16 +56,16 @@ class Laundry extends Model
     static public function postLaundry(){
         Laundry::create([
             "id_admin" => 0,
-            "nama" => "Express Laundry",
+            "nama" => "Aquos Laundry",
             "alamat" => "Purwokerto",
             "nomor_telp" => "085244682919",
-            "deskripsi" => "Lulu 'n Be Luxury Laundry adalah layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda",
-            "jam_buka" => "7.00",
-            "jam_tutup" => "17.00",
+            "deskripsi" => "Aquos Laundry layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda",
+            "jam_buka" => "10.00",
+            "jam_tutup" => "18.00",
             "jenis_layanan" => ["Express","Regular", "Super"],
-            "harga" => 3000,
-            "rating" => 4.9,
-            "foto" => "/img/laundry-img.png",
+            "harga" => 4500,
+            "rating" => 4.5,
+            "foto" => "/img/aquos-laundry-img.png",
             "lon" => 0,
             "lan" => 0
         ]);
