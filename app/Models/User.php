@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Rating;
 
 class User extends Authenticatable
 {
@@ -56,5 +57,16 @@ class User extends Authenticatable
             "photo" => "ari-wijaya.png",
             "password" => $register["input-password"]
         ]);
+    }
+
+    public static function getUser($email){
+        $laundry = collect(User::all());
+
+        return $laundry->firstWhere("email", $email);
+    }
+
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class, "id", "id");
     }
 }

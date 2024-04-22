@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Laundry;
+
 
 class UserController extends Controller
 {
@@ -27,7 +27,7 @@ class UserController extends Controller
         
         User::register($validator);
 
-        return redirect("register");
+        return redirect("login");
     }
 
     public function login(Request $request): RedirectResponse
@@ -41,10 +41,13 @@ class UserController extends Controller
             'input-password' => "email",
             'input-email' => "email",
         ])->validate();
-
+        
         if (Auth::attempt(["email" => $credentials["input-email"], "password" => $credentials["input-password"]])) {
             $request->session()->regenerate();
- 
+            $user = User::getUser($credentials["input-email"]);
+
+            $request->session()->put('user', $user);
+
             return redirect()->intended('/');
         }
 

@@ -27,7 +27,24 @@
                     <a href="{{url("login")}}" class="nav__link nav__login-btn">Masuk</a>
                 @endguest
                 @auth
-                    <a href="{{url("logout")}}" class="nav__link nav__logout-btn">Keluar</a>
+                    <div class="nav__user-icon-cn">
+                        <img src="/icn/user.svg" alt="" class="nav__icon nav__user-icon">
+                        <img src="/icn/chevron-down.svg" alt="" class="nav__icon nav__chev-down-icon">
+
+                        <ul class="nav__dropdown">
+                        <a class="nav__link nav__dr-link">
+                            <img src="/icn/user-no-circle.svg" alt="" class="nav__icon">
+                            <p class="nav__my-profile-text">Profile Saya</p>
+                        </a>
+                        <a href="{{url("logout")}}" class="nav__link nav__dr-link">
+                            <img src="/icn/logout.svg" alt="" class="nav__icon">
+                            <p class="nav__logout-text">Keluar</p>
+                        </a>
+                    </ul>
+                    </div>
+
+                    
+                    {{-- <a href="{{url("logout")}}" class="nav__link nav__logout-btn">Keluar</a> --}}
                 @endauth
             </ul>
         </nav>

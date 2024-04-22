@@ -50,13 +50,14 @@
                 
                 <div class="review__body">
                     @foreach ($ratings as $rating)
+                    
                         <div class="review__card">
                             <div class="review__card-header">
-                                <img class="review__img" src="/img/ari-wijaya.png" alt="">
+                                <img class="review__img" src="/img/{{$rating->user->photo}}" alt="">
         
                                 <div class="review__author">
                                     <h5 class="review__author-text">
-                                        Latif Arif Putranto
+                                        {{$rating->user->name}}
                                     </h5>
                                     
                                     <div class="review__score">
