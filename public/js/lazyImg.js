@@ -14,8 +14,14 @@ const createSkeletonText = function({width=70} = {width : 70}){
     return skeletonText;
 }
 
+const loaderClear = function(loader){
+    loader.style.display = "none";
+}
 document.addEventListener("DOMContentLoaded", function(){
-    const lazyImages = document.querySelectorAll(".lazy-image")
+    const lazyImages = document.querySelectorAll(".lazy-image");
+
+
+    // if(loader) return;
 
     lazyImages.forEach(img => {
         const skeletonImage = JSON.parse(img.getAttribute("skeleton-image"));
@@ -44,8 +50,11 @@ document.addEventListener("DOMContentLoaded", function(){
         }
    
         img.parentElement.appendChild(container);
-        img.addEventListener("load", function(){
-            container.style.display = "none"
-        })
+        img.addEventListener("load", loaderClear.bind(this,container));
     })
 })
+
+window.addEventListener("load", function(){
+    document.querySelectorAll(".container")
+    .forEach(loader => loaderClear(loader));
+});
