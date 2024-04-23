@@ -9,7 +9,8 @@ export default defineConfig({
                 'public/css/main.scss', 
                 'public/js/slider.js', 
                 'public/js/countEstimation.js',
-                'public/js/rating.js'
+                'public/js/rating.js',
+                'public/js/lazyImg.js'
             ],
             refresh: true,
         }),

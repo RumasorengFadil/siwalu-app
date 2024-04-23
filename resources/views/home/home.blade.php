@@ -54,17 +54,32 @@
         <div class="slider">
             <div slide-number = "0" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image0 lazy-image" skeleton-txt=0 src="img/slide-0.png" alt="html"></img>
+                    <img 
+                        class="slider__image slider__image0 lazy-image"
+                        skeleton-image='[{"height":"100"}]'   
+                        src="img/slide-0.png" alt="html">
+                    </img>
                 </a>
             </div>
             <div slide-number = "1" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image1 lazy-image" skeleton-txt=0 img_set=[fadil,sdss] src="img/slide-0.png" alt="html"></img>
+                    <img 
+                        class="slider__image slider__image1 lazy-image" 
+                        skeleton-image='[{"height":"100"}]'  
+                        img_set=[fadil,sdss] 
+                        src="img/slide-0.png" 
+                        alt="html">
+                    </img>
                 </a>
             </div>
             <div slide-number = "2" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image1 lazy-image" skeleton-txt=0 src="img/slide-0.png" alt="html"></img>
+                    <img 
+                        class="slider__image slider__image1 lazy-image"
+                        skeleton-image='[{"height":"100"}]'   
+                        src="img/slide-0.png" 
+                        alt="html">
+                    </img>
                 </a>
             </div>
 
@@ -82,7 +97,13 @@
             @foreach ($laundries as $laundry)
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
-                        <img src="{{$laundry->foto}}" alt="" class="card__laundry-img lazy-image">
+                        <img 
+                            src="{{$laundry->foto}}" 
+                            skeleton-image='[{"height":"100"}]' 
+                            skeleton-text='[{"width":"70"}]' 
+                            alt="" 
+                            class="card__laundry-img lazy-image"
+                        >
                         <div class="card__laundry-name-cn">
                             <p class="card__laundry-name">{{$laundry->nama}}</p>
                             <div class="card__laundry-rating">
@@ -121,7 +142,13 @@
                 @foreach ($laundries as $laundry)
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
-                        <img src="{{$laundry->foto}}" alt="" class="card__laundry-img">
+                        <img 
+                            src="{{$laundry->foto}}" 
+                            skeleton-image='[{"height":"100"}]' 
+                            skeleton-text='[{"width":"70"}]' 
+                            alt="" 
+                            class="card__laundry-img lazy-image"
+                        >
                         
                         <div class="card__laundry-name-cn">
                             <p class="card__laundry-name">{{$laundry->nama}}</p>
