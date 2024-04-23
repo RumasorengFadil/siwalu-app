@@ -58,3 +58,16 @@ document.addEventListener("DOMContentLoaded", function(){
     setInterval(nextSlide, SLIDER_TIME);
 
 })
+
+
+
+
+
+
+window.addEventListener("load", function(){
+    console.log(1);
+})
+// window.addEventListener("load", function(){
+//     console.log('woi');
+//     document.body.style.opacity = 1;
+// })

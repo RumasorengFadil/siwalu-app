@@ -22,7 +22,9 @@
         <a  href="{{url('/')}}"><img class="main__back-icon" src="/icn/chevron-left.svg" alt=""></a>
 
         <div class="detail-laundry">
-            <img class="detail-laundry__img" src="{{$laundry->foto}}" alt="">
+            <div class="detail-laundry__img-cn">
+                <img class="detail-laundry__img" src="{{$laundry->foto}}" alt="">
+            </div>
             
             <div class="card__laundry-name-cn">
                 <h1 class="card__laundry-name-me">{{$laundry->nama}}</h1>
@@ -50,7 +52,6 @@
                 
                 <div class="review__body">
                     @foreach ($ratings as $rating)
-                    
                         <div class="review__card">
                             <div class="review__card-header">
                                 <img class="review__img" src="/img/{{$rating->user->photo}}" alt="">

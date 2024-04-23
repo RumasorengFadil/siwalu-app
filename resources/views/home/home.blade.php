@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['public/css/main.scss', 'public/js/slider.js'])
+    @vite(['public/css/main.scss', 'public/js/slider.js', 'public/js/lazyImg.js'])
 </head>
 <body>    
     <header>
@@ -54,17 +54,17 @@
         <div class="slider">
             <div slide-number = "0" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image0" src="img/slide-0.png" alt="html"></img>
+                    <img class="slider__image slider__image0 lazy-image" skeleton-txt=0 src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
             <div slide-number = "1" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
+                    <img class="slider__image slider__image1 lazy-image" skeleton-txt=0 img_set=[fadil,sdss] src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
             <div slide-number = "2" class="slider__slide">
                 <a class="slider__link">
-                    <img class="slider__image slider__image1" src="img/slide-0.png" alt="html"></img>
+                    <img class="slider__image slider__image1 lazy-image" skeleton-txt=0 src="img/slide-0.png" alt="html"></img>
                 </a>
             </div>
 
@@ -73,6 +73,7 @@
                 <div nav-number = 1 class="slider__nav-item"></div>
                 <div nav-number = 2 class="slider__nav-item"></div>
             </div>
+            
         </div>
 
         <div class="box">
@@ -81,8 +82,7 @@
             @foreach ($laundries as $laundry)
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
-                        <img src="{{$laundry->foto}}" alt="" class="card__laundry-img">
-                        
+                        <img src="{{$laundry->foto}}" alt="" class="card__laundry-img lazy-image">
                         <div class="card__laundry-name-cn">
                             <p class="card__laundry-name">{{$laundry->nama}}</p>
                             <div class="card__laundry-rating">
@@ -107,6 +107,8 @@
                         </div>
                         <p class="card__start-from">Start From</p>
                         <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
+
+                        
                     </a>
                 </div>
             @endforeach
