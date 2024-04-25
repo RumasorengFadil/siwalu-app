@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function register(Request $request)
+    public function register(Request $request):RedirectResponse
     {
         $validator = Validator::make($request->all(), [
             'input-username' => 'required|max:30',
@@ -25,9 +26,18 @@ class UserController extends Controller
             'input-email' => "email",
         ])->validate();
         
-        User::register($validator);
+        $user = User::create([
+            'name' => $request["input-username"],
+            'email' => $request["input-email"],
+            'password' => Hash::make($request["input-password"]),
+        ]);
+        
+        $request->session()->put('user', $user);
+        event(new Registered($user));
 
-        return redirect("login");
+        Auth::login($user);
+        
+        return redirect(route('verification.notice', absolute: false));
     }
 
     public function login(Request $request): RedirectResponse
@@ -46,7 +56,6 @@ class UserController extends Controller
             $request->session()->regenerate();
             $user = User::getUser($credentials["input-email"]);
 
-            $request->session()->put('user', $user);
 
             return redirect()->intended('/');
         }
