@@ -5,8 +5,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
+                'public/css/main.scss', 
+                'public/js/slider.js',
+                'public/js/countEstimation.js',
+                'public/js/favorite.js',
+                'public/js/lazyImg.js'
             ],
             refresh: true,
         }),
