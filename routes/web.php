@@ -27,3 +27,13 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/login', "renderLoginView")->middleware("guest");
 });
 
+Route::prefix('admin')->group(function () {
+
+    // dashboard
+    Route::get('', [App\Http\Controllers\Admin\IndexController::class, 'index'])->name('dashboard');
+
+    // route product
+    Route::resource('product', App\Http\Controllers\Admin\AddLaundryController::class);
+    Route::resource('voucher', App\Http\Controllers\Admin\VoucherController::class);
+
+});

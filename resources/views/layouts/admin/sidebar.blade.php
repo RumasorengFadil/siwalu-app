@@ -1,0 +1,33 @@
+<div class="sidebar-menu">
+    <ul class="menu">
+
+        <li class="sidebar-item {{ request()->is('admin') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>Accept Laundry</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item {{ request()->is('admin/product/create') ? 'active' : '' }}">
+            <a href="{{ route('product.create') }}" class='sidebar-link'>
+                <i class="bi bi-box-arrow-in-up"></i>
+                <span>Tambah Laundry</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item {{ request()->is('admin/voucher') ? 'active' : '' }}">
+            <a href="{{ route('product.index') }}" class='sidebar-link'>
+                <i class="bi bi-percent"></i>
+                <span>Hapus Laundry</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item {{ request()->is('admin/voucher') ? 'active' : '' }}">
+            <a href="{{ route('voucher.index') }}" class='sidebar-link'>
+                <i class="bi bi-percent"></i>
+                <span>Update Laundry</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
