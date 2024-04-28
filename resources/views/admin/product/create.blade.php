@@ -17,7 +17,7 @@
                             <div class="col-md-5">
                                 <div class="mb-3">
                                     <label for="cari" class="form-label">Cari Laundry</label>
-                                    <input type="text" name="cari" class="form-control" autocomplete="off" id="cari">
+                                    <input type="text" name="cari" class="form-control" autocomplete="off" id="cari" placeholder="Cari Laundry">
                                 </div>
                                 <img src="{{ asset('assets/no-image.jpeg') }}" class="img-fluid shadow-sm"
                                     style="border-radius: 14px;" id="blah">
@@ -39,9 +39,9 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Product Name</label>
+                                    <label class="form-label">Nama Laundry<span style="color: red;">*</span></label>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                        name="title" value="{{ old('title') }}" autocomplete="off">
+                                        name="title" value="{{ old('title') }}" autocomplete="off" placeholder="Nama Laundry">
                                     @error('title')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -49,9 +49,9 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Lokasi</label>
+                                    <label class="form-label">Lokasi<span style="color: red;">*</span></label>
                                     <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                        name="harga" value="{{ old('alamat') }}" autocomplete="off">
+                                        name="harga" value="{{ old('alamat') }}" autocomplete="off" placeholder="Lokasi">
                                     @error('harga')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Deskripsi</label>
                                     <input type="text" class="form-control @error('deskripsi') is-invalid @enderror"
-                                        name="harga" value="{{ old('deskripsi') }}" autocomplete="off">
+                                        name="harga" value="{{ old('deskripsi') }}" autocomplete="off" placeholder="Deskripsi">
                                     @error('status')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                                     <fieldset class="form-group">
                                         <select class="form-select @error('status') is-invalid @enderror" id="basicSelect"
                                             name="status">
-                                            <option value="">-- Choose one --</option>
+                                            <option value="">-- Pilih Fasilitas --</option>
                                             <option {{ old('status') == 'publish' ? 'selected' : '' }} value="publish">
                                                 Reguler</option>
                                             <option {{ old('status') == 'draft' ? 'selected' : '' }} value="draft">Express
@@ -95,9 +95,9 @@
                                     <label class="form-check-label" for="Sepatu">Sepatu</label><br>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Harga</label>
+                                    <label class="form-label">Harga<span style="color: red;">*</span></label>
                                     <input type="number" class="form-control @error('harga') is-invalid @enderror"
-                                        name="harga" value="{{ old('harga') }}" autocomplete="off">
+                                        name="harga" value="{{ old('harga') }}" autocomplete="off" placeholder="\kg">
                                     @error('harga')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
