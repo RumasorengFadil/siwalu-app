@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Masukan Thumbnail Laundry</label>
+                                    <label class="form-label">Masukan Foto Laundry</label>
                                     <input type="file" class="form-control @error('image') is-invalid @enderror"
                                         name="image" autocomplete="off" id="imgInp">
                                     @error('image')
@@ -50,8 +50,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Lokasi</label>
-                                    <input type="text" class="form-control @error('') is-invalid @enderror"
-                                        name="harga" value="{{ old('harga') }}" autocomplete="off">
+                                    <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                        name="harga" value="{{ old('alamat') }}" autocomplete="off">
                                     @error('harga')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -60,8 +60,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Deskripsi</label>
-                                    <input type="text" class="form-control @error('') is-invalid @enderror"
-                                        name="harga" value="{{ old('harga') }}" autocomplete="off">
+                                    <input type="text" class="form-control @error('deskripsi') is-invalid @enderror"
+                                        name="harga" value="{{ old('deskripsi') }}" autocomplete="off">
                                     @error('status')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -85,6 +85,14 @@
                                             </span>
                                         @enderror
                                     </fieldset>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="checkbox" id="Pakaian" class="form-check-input @error('Pakaian') is-invalid @enderror" name="Pakaian" value="{{ old('Pakaian') }}" autocomplete="off">
+                                    <label class="form-check-label" for="Pakaian">Pakaian</label><br>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="checkbox" id="Sepatu" class="form-check-input @error('Sepatu') is-invalid @enderror" name="Sepatu" value="{{ old('Sepatu') }}" autocomplete="off">
+                                    <label class="form-check-label" for="Sepatu">Sepatu</label><br>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Harga</label>
