@@ -32,14 +32,6 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
 
-Route::get("/admin/acc", function(){
-        return view('admin.index');
-})->name("dashboard");
-
-Route::get("/admin/addLaundry", function(){
-    return view('admin.addLaundryView');
-})->name("addLaundry");
-
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
