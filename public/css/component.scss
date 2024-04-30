@@ -537,3 +537,22 @@
   .lazy-image {
     transition: opacity 0.3s ease-in-out;
   }
+
+//doc: Sidebar
+.sidebar{
+    background-color: $color-primary;
+    color: $color-on-primary;
+    width: max-content;
+    padding: 27px 19px;
+    font-size: 10px;
+    height: 100%;
+    position: absolute;
+
+    &__link{
+        display: flex;
+    }
+    &__icon{
+        width: 13px;
+        height: 13px;
+    }
+}
