@@ -24,13 +24,22 @@ Route::controller(RatingController::class)->group(function(){
 
 Route::controller(UserController::class)->group(function(){
     Route::post("/register", "register")->name("register");
-    Route::get('/register', "renderRegisterView")->name("register");
     
     Route::post("/login", "login")->name("login");
-    Route::get("/logout", "logout")->name("logout");
-
+    Route::post("/logout", "logout")->name("logout");
+    
+    
+    Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
+
+Route::get("/admin/acc", function(){
+        return view('admin.index');
+})->name("dashboard");
+
+Route::get("/admin/addLaundry", function(){
+    return view('admin.addLaundryView');
+})->name("addLaundry");
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)

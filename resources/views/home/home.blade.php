@@ -36,10 +36,14 @@
                             <img src="/icn/user-no-circle.svg" alt="" class="nav__icon">
                             <p class="nav__my-profile-text">Profile Saya</p>
                         </a>
-                        <a href="{{url("logout")}}" class="nav__link nav__dr-link">
-                            <img src="/icn/logout.svg" alt="" class="nav__icon">
-                            <p class="nav__logout-text">Keluar</p>
-                        </a>
+                        
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button class="nav__link nav__dr-link nav__logout-btn">
+                                <img src="/icn/logout.svg" alt="" class="nav__icon">
+                                <p class="nav__logout-text">Keluar</p>
+                            </button>
+                        </form>
                     </ul>
                     </div>
 
