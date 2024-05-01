@@ -15,6 +15,8 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        dd($request);
         return $next($request);
     }
 }
