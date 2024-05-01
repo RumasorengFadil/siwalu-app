@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Rating;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -51,13 +53,22 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public static function register($register){
+    public static function register($request){
+        // dd($register["input-username"]);
+        return User::create([
+            'name' => $request["input-username"],
+            'email' => $request["input-email"],
+            'password' => Hash::make($request["input-password"]),
+            'role' => "user"
+        ]);
+    }
+    public static function registerAdmin(){
         // dd($register["input-username"]);
         User::create([
-            "name" => $register["input-username"],
-            "email" => $register["input-email"],
-            "photo" => "ari-wijaya.png",
-            "password" => $register["input-password"]
+            'name' => "admin",
+            'email' => "siwalu90@gmail.com",
+            'password' => Hash::make("Admin@321"),
+            'role' => "admin"
         ]);
     }
 
@@ -66,7 +77,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $laundry->firstWhere("email", $email);
     }
-
+    public function isAdmin(){
+        return Auth::user()->original["role"] == "admin";
+    }
     public function ratings(): HasMany
     {
         return $this->hasMany(Rating::class, "id", "id");

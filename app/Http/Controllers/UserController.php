@@ -26,12 +26,8 @@ class UserController extends Controller
             'input-email' => "email",
         ])->validate();
         
-        $user = User::create([
-            'name' => $request["input-username"],
-            'email' => $request["input-email"],
-            'password' => Hash::make($request["input-password"]),
-            'role' => "user"
-        ]);
+        // User::registerAdmin();
+        $user = User::register($request);
         
         $request->session()->put('user', $user);
         event(new Registered($user));
