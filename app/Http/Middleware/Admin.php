@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -15,8 +16,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        dd($request);
+        if(!Auth::user()->isAdmin()){
+            return redirect(route('home', absolute: false));
+        };
         return $next($request);
     }
+    
 }

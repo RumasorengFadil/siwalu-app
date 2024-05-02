@@ -35,11 +35,11 @@ Route::controller(UserController::class)->group(function(){
 
 Route::get("/admin/acc", function(){
         return view('admin.index');
-})->name("dashboard");
+})->middleware('admin')->name("dashboard");
 
 Route::get("/admin/addLaundry", function(){
     return view('admin.addLaundryView');
-})->name("addLaundry");
+})->middleware('admin')->name("addLaundry");
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)

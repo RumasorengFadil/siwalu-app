@@ -23,7 +23,7 @@
                     <img src="/icn/acc.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__linkText">Accept Laundry</p>
                 </a>
-                <a class="sidebar__link">
+                <a class="sidebar__link sidebar__link-active">
                     <img src="/icn/add.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__linkText">Tambah Laundry</p>
                 </a>

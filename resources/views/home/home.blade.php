@@ -39,7 +39,7 @@
 
                             @if (Auth::user()->isAdmin())
                             <a href="{{route("addLaundry")}}" class="nav__link nav__dr-link">
-                                <img src="/icn/user-no-circle.svg" alt="" class="nav__icon">
+                                <img src="/icn/dashboard.svg" alt="" class="nav__icon">
                                 <p class="nav__my-profile-text">Dashboard Admin</p>
                             </a>
                             @endif

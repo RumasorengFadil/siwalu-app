@@ -562,8 +562,11 @@
         cursor: pointer;
     }
     &__link:hover{
-        background-color: $color-secondary;
         transition: all linear 100ms;
+        background-color: $color-secondary;
+    }
+    &__link-active{
+        background-color: $color-secondary;
     }
     &__icon{
         width: 13px;
