@@ -548,8 +548,8 @@
     color: $color-on-primary;
     width: max-content;
     font-size: 10px;
-    height: 100%;
-    position: absolute;
+    height: 100vh;
+    float: left;
 
     & .nav__logo-cn{
     padding: 11px 25px;

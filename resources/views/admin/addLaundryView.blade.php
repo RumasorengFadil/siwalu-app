@@ -38,5 +38,13 @@
             </ul>
         </nav>
     </header>
+
+    <main class="main">
+        <form action="" class="form form-addlaundry">
+            <div class="form__el">
+                <image type="file" src="/img/image-placeholder" alt="" accept="image/*">
+            </div>
+        </form> 
+    </main>
 </body>
 </html>
