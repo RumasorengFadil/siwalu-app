@@ -11,6 +11,9 @@ class AdminController extends Controller
     public function renderAddLaundryView(){
         return view('admin.addLaundryView');
     }
+    public function renderAccLaundryView(){
+        return view('admin.accLaundryView');
+    }
     public function postLaundry(Request $request){
         $request["id-admin"] = auth()->user()->only(['id'])['id'];
         $request["id-mitra"] = null;

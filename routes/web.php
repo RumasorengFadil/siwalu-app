@@ -34,14 +34,17 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
 Route::controller(AdminController::class)->group(function(){
-    Route::get("/admin/addLaundry", "renderAddLaundryView")->middleware('admin')->name("addLaundry.show");
+    Route::get("/admin/addLaundry", "renderAddLaundryView")
+    ->middleware('admin')
+    ->name("addLaundry.show");
+    
+    Route::get("/admin/accLaundry", "renderAccLaundryView")
+    ->middleware('admin')
+    ->name("accLaundry.show");
     
     Route::post("/admin/addLaundry", "postLaundry")->middleware('admin')->name("laundry.post");
 });
 
-Route::get("/admin/acc", function(){
-        return view('admin.index');
-})->middleware('admin')->name("dashboard");
 
 
 

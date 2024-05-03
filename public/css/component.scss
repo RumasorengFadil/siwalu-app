@@ -597,7 +597,6 @@
 .sidebar{
     background-color: $color-primary;
     color: $color-on-primary;
-    font-size: 10px;
     width: 200px;
     position: absolute;
     height: 100%;
@@ -610,7 +609,13 @@
         display: flex;
         padding: 11px 25px;
         align-items: center;
+        text-decoration: none;
         cursor: pointer;
+        color: $color-on-primary;
+        width: 100%;
+        border: unset;
+        font-size: 10px;
+        background-color: unset;
     }
     &__link:hover{
         transition: all linear 100ms;
