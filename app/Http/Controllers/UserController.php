@@ -53,6 +53,7 @@ class UserController extends Controller
             $request->session()->regenerate();
             $user = User::getUser($credentials["input-email"]);
 
+            $request->session()->put('user', $user);
 
             return redirect()->intended('/');
         }

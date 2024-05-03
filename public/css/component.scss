@@ -156,6 +156,14 @@
         line-height: 150%;
         max-height: 108px;
     }
+    &__input-checkbox{
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+    }
+    &__label-jenis-cucian{
+        font-size: 11px;
+    }
     &__input-username,&__input-pass,&__input-email{
         width: 17.4rem;
         height: 36.6px;
@@ -593,7 +601,6 @@
     color: $color-on-primary;
     width: max-content;
     font-size: 10px;
-    height: 100vh;
     float: left;
 
     & .nav__logo-cn{

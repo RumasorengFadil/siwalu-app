@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -32,18 +33,17 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
+Route::controller(AdminController::class)->group(function(){
+    Route::get("/admin/addLaundry", "renderAddLaundryView")->middleware('admin')->name("addLaundry");
+    
+    Route::post("/admin/addLaundry", "postLaundry")->middleware('admin')->name("addLaundry");
+});
 
 Route::get("/admin/acc", function(){
         return view('admin.index');
 })->middleware('admin')->name("dashboard");
 
-Route::get("/admin/addLaundry", function(){
-    return view('admin.addLaundryView');
-})->middleware('admin')->name("addLaundry");
 
-Route::post("/admin/addLaundry", function(){
-    return view('admin.addLaundryView');
-})->middleware('admin')->name("addLaundry");
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)

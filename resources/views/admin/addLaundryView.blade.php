@@ -69,15 +69,29 @@
             <div class="form__el">
                 <label class="form__label" for="service">Service *</label><br>
                 <!-- Input file -->
-                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
+                <input class="form__input form__input-service" type="text" name="service" id="inpuService" placeholder="Masukan service" required>
                 
             </div>  
             <div class="form__el">
-                <label class="form__label" for="service">Service *</label><br>
+                <label class="form__label" for="harga">Harga *</label><br>
                 <!-- Input file -->
-                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
-                
+                <input class="form__input form__input-harga" type="number" name="harga" id="inpuHarga" placeholder="Masukan harga" required>
             </div>  
+            <div class="form__el">
+                <label class="form__label" for="whatsappNumber">Nomor Whatsapp *</label><br>
+                <!-- Input file -->
+                <input class="form__input form__input-whatsappNumber" type="number" name="whatsappNumber" id="inputWhatsappNumber" placeholder="Masukan nomor whatsapp" required>
+            </div>  
+            <div class="form__el">
+                <label class="form__label" for="typeoflaundry">Jenis Cucian *</label><br>
+                <!-- Input file -->
+
+                <input class="form__input-checkbox" type="checkbox" name="pakaian" id="" value="Pakaian">
+                <label class="form__label-jenis-cucian">Pakaian</label>
+                <input class="form__input-checkbox" type="checkbox" name="sepatu" id="" value="Sepatu">
+                <label class="form__label-jenis-cucian">Sepatu</label>
+            </div>  
+            
             <div class="form__el">
                 <!-- Input file -->
                 <input class="form__submit-btn form__submit-btn-sm" type="submit" value="Tambah">

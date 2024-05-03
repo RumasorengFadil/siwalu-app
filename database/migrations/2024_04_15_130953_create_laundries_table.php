@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('laundries', function (Blueprint $table) {
             $table->uuid("id_laundry")->autoIncrement();
-            $table->foreignId("id_admin");
+            $table->foreignId("id_admin")->nullable();
+            $table->foreignId("id_mitra")->nullable();
             $table->string("nama");
             $table->string("alamat");
             $table->string("nomor_telp");
             $table->longText("deskripsi");
             $table->json("jenis_layanan");
+            $table->json("jenis_cucian");
             $table->time("jam_buka");
             $table->time("jam_tutup");
             $table->integer("harga");

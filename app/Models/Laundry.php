@@ -17,6 +17,7 @@ class Laundry extends Model
 
     protected $fillable = [
         'id_admin',
+        'id_mitra',
         'nama',
         'alamat',
         "nomor_telp",
@@ -24,6 +25,7 @@ class Laundry extends Model
         "jam_buka",
         "jam_tutup",
         "jenis_layanan",
+        "jenis_cucian",
         "harga",
         "rating",
         "foto",
@@ -32,6 +34,7 @@ class Laundry extends Model
     ];
     protected $casts = [
         'jenis_layanan' => 'array',
+        'jenis_cucian' => 'array',
     ];
     public function newUniqueId(): string
     {
@@ -53,17 +56,19 @@ class Laundry extends Model
         return $laundry->firstWhere("id_laundry", $id);
     }
     
-    static public function postLaundry(){
+    static public function postLaundry($request){
         Laundry::create([
-            "id_admin" => 0,
-            "nama" => "Aquos Laundry",
-            "alamat" => "Purwokerto",
-            "nomor_telp" => "085244682919",
-            "deskripsi" => "Aquos Laundry layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda",
+            "id_admin" => $request["id_admin"],
+            "id_mitra" => $request["id_mitra"],
+            "nama" => $request["name"],
+            "alamat" => $request["location"],
+            "nomor_telp" => $request["whatsappNumber"],
+            "deskripsi" => $request["description"],
             "jam_buka" => "10.00",
             "jam_tutup" => "18.00",
-            "jenis_layanan" => ["Express","Regular", "Super"],
-            "harga" => 4500,
+            "jenis_layanan" => $request["service"],
+            "jenis_cucian" => [$request["sepatu"]??null, $request["pakaian"]??null],
+            "harga" => $request["harga"],
             "rating" => 4.5,
             "foto" => "/img/aquos-laundry-img.png",
             "lon" => 0,
@@ -90,6 +95,23 @@ class Laundry extends Model
 //     "lan" => 0
 // ]
 
+// Laundry::create([
+//     "id_admin" => $request["id_admin"],
+//     "id_mitra" => $request["id_mitra"],
+//     "nama" => $request["name"],
+//     "alamat" => $request["location"],
+//     "nomor_telp" => "085244682919",
+//     "deskripsi" => "Aquos Laundry layanan laundry yang berbasis di Purwokerto, Jawa Tengah, dan telah beroperasi sejak tahun 2012. Mereka menggunakan teknologi canggih dan memiliki tenaga profesional yang siap melayani pelanggan. Lulu 'n Be menawarkan layanan pick-up dan delivery melalui telepon, sehingga pelanggan dapat dengan mudah mengatur antar-jemput pakaian mereka. Dengan fokus pada kualitas dan kepuasan pelanggan, Lulu 'n Be Luxury Laundry adalah pilihan yang tepat untuk kebutuhan laundry Anda",
+//     "jam_buka" => "10.00",
+//     "jam_tutup" => "18.00",
+//     "jenis_layanan" => ["Express","Regular", "Super"],
+//     "jenis_cucian" => ["Pakaian", "Sepatu"],
+//     "harga" => 4500,
+//     "rating" => 4.5,
+//     "foto" => "/img/aquos-laundry-img.png",
+//     "lon" => 0,
+//     "lan" => 0
+// ]);
 // $laundry::insert([
 //     "id_admin" => 0,
 //     "nama" => "Express Laundry",
