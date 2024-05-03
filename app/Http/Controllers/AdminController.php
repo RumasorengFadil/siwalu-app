@@ -16,17 +16,30 @@ class AdminController extends Controller
         $request["id-mitra"] = null;
 
         
-        $validator = Validator::make($request->all(), [
-            "name" => ["required"],
-            "location" => ["required"],
-            "description" => ["required"],
-            "service" => ["required"],
-            "harga" => ["required", "number"],
-            "whatsappNumber" => ["required", "number"],
+        $validator = $request->validate([
+            "gambar" => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            "name" => "required",
+            "location" => "required",
+            "description" => "required",
+            "service" => "required",
+            "harga" => "required", "number",
+            "whatsappNumber" => "required", "number",
         ]);
+        
+        //Mengambil Input
+        $image = $request->gambar;
+        $fileName = time().".".$image->getClientOriginalName();
+        $location = public_path("uploads");
 
+        //Menyimpan gambar di lokal
+        $image->move($location, $fileName);
+
+        //Memasukan nama file ke request
+        $request["filename"] = $fileName;
+
+        //Upload data laundry ke database
         Laundry::postLaundry($request);
 
-        return redirect()->route("addLaundry");
+        return redirect()->back();
     }
 }

@@ -26,7 +26,7 @@
                 <img 
                     skeleton-image='[{"height":"100"}]' 
                     class="detail-laundry__img lazy-image" 
-                    src="{{$laundry->foto}}" 
+                    src="/uploads/{{$laundry->foto}}" 
                     alt=""
                 >
             </div>

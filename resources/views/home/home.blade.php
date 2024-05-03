@@ -38,7 +38,7 @@
                             </a>
 
                             @if (Auth::user()->isAdmin())
-                            <a href="{{route("addLaundry")}}" class="nav__link nav__dr-link">
+                            <a href="{{route("addLaundry.show")}}" class="nav__link nav__dr-link">
                                 <img src="/icn/dashboard.svg" alt="" class="nav__icon">
                                 <p class="nav__my-profile-text">Dashboard Admin</p>
                             </a>
@@ -109,7 +109,7 @@
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
                         <img 
-                            src="{{$laundry->foto}}" 
+                            src="/uploads/{{$laundry->foto}}" 
                             skeleton-image='[{"height":"100"}]' 
                             skeleton-text='[{"width":"70"}]' 
                             alt="" 
@@ -154,7 +154,7 @@
                 <div class="card">
                     <a href="/detailLaundry/{{$laundry->id_laundry}}" class="card__link">
                         <img 
-                            src="{{$laundry->foto}}" 
+                            src="/uploads/{{$laundry->foto}}" 
                             skeleton-image='[{"height":"100"}]' 
                             skeleton-text='[{"width":"70"}]' 
                             alt="" 

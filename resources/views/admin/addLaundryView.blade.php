@@ -42,7 +42,7 @@
             </ul>
         </nav>
 
-        <form action="{{route('addLaundry')}}" class="form form-addlaundry" method="POST">
+        <form action="{{route('laundry.post')}}" class="form form-addlaundry" method="POST"  enctype="multipart/form-data">
            @csrf
             <div class="form__el">
                 <label for="gambar">
@@ -50,37 +50,45 @@
                 </label>
                 <!-- Input file -->
                 <input class="form__input-file" type="file" id="gambar" name="gambar" accept="image/*" style="display: none;">
+                <label class="error" for="">{{$errors->first("gambar")}}</label>
             </div>
             <div class="form__el">
                 <label class="form__label" for="name">Nama Laundry *</label><br>
                 <!-- Input file -->
-                <input class="form__input" type="text" name="name" id="inputName" placeholder="Masukan nama laundry" required>
+                <input class="form__input" type="text" name="name" id="inputName" value="{{old("name")}}" placeholder="Masukan nama laundry">
+                <label class="error" for="">{{$errors->first("name")}}</label>
+
             </div>  
             <div class="form__el">
                 <label class="form__label" for="location">Lokasi *</label><br>
                 <!-- Input file -->
-                <input class="form__input" type="text" name="location" id="inpuLocation" placeholder="Masukan lokasi" required>
+                <input class="form__input" type="text" name="location" id="inpuLocation" value="{{old("location")}}" placeholder="Masukan lokasi">
+                <label class="error" for="">{{$errors->first("location")}}</label>
             </div>  
             <div class="form__el">
                 <label class="form__label" for="description">Deskripsi *</label><br>
                 <!-- Input file -->
-                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
+                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi">{{old("description")}}</textarea>
+                <label class="error" for="">{{$errors->first("description")}}</label>
             </div>  
             <div class="form__el">
-                <label class="form__label" for="service">Service *</label><br>
+                <label class="form__label" for="service">Layanan *</label><br>
                 <!-- Input file -->
-                <input class="form__input form__input-service" type="text" name="service" id="inpuService" placeholder="Masukan service" required>
-                
+                <input class="form__input form__input-service" type="text" name="service" value="{{old("service")}}" id="inpuService" placeholder="Masukan service">
+                <label class="error" for="">{{$errors->first("service")}}</label>
             </div>  
             <div class="form__el">
                 <label class="form__label" for="harga">Harga *</label><br>
                 <!-- Input file -->
-                <input class="form__input form__input-harga" type="number" name="harga" id="inpuHarga" placeholder="Masukan harga" required>
+                <input class="form__input form__input-harga" type="number" name="harga" value="{{old("harga")}}" id="inpuHarga" placeholder="Masukan harga">
+                <label class="error" for="">{{$errors->first("harga")}}</label>
             </div>  
             <div class="form__el">
                 <label class="form__label" for="whatsappNumber">Nomor Whatsapp *</label><br>
                 <!-- Input file -->
-                <input class="form__input form__input-whatsappNumber" type="number" name="whatsappNumber" id="inputWhatsappNumber" placeholder="Masukan nomor whatsapp" required>
+                <input class="form__input form__input-whatsappNumber" type="number" name="whatsappNumber" value="{{old("whatsappNumber")}}" id="inputWhatsappNumber" placeholder="Masukan nomor whatsapp">
+                <label class="error" for="">{{$errors->first("whatsappNumber")}}</label>
+
             </div>  
             <div class="form__el">
                 <label class="form__label" for="typeoflaundry">Jenis Cucian *</label><br>

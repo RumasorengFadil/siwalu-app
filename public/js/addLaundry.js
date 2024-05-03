@@ -4,7 +4,7 @@
  const placeholder = document.querySelector('.form__image-placeholder');
  //Mendapatkan elemen input service
  const inputService = document.querySelector('.form__input-service');
- 
+
  // Menambahkan event listener untuk perubahan pada input file
  inputGambar.addEventListener('change', function(event) {
      // Mengecek apakah ada file yang dipilih
@@ -18,5 +18,4 @@
          reader.readAsDataURL(file);
      }
  });
-
 

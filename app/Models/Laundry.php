@@ -71,7 +71,7 @@ class Laundry extends Model
             "jenis_cucian" => [$request["pakaian"]??null, $request["sepatu"]??null],
             "harga" => $request["harga"],
             "rating" => 4.5,
-            "foto" => "/img/aquos-laundry-img.png",
+            "foto" => $request["filename"],
             "lon" => 0,
             "lan" => 0
         ]);
