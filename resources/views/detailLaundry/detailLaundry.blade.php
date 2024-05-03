@@ -96,9 +96,11 @@
             
             <h5 class="detail-laundry__title">Layanan Laundry</h5>
             <select class="detail-laundry__select-service" name="input-layanan" id="inputLayanan">
-                @foreach ($laundry->jenis_layanan as $jenis_layanan)
+                {{-- @foreach ($laundry->jenis_layanan as $jenis_layanan)
                     <option value="value">{{$jenis_layanan}}</option>
-                @endforeach
+                @endforeach --}}
+                <option value="value">{{$laundry->jenis_layanan}}</option>
+
             </select>
             <h5 class="detail-laundry__title">Estimasi Berat</h5>
             <input class="detail-laundry__input-estimasi" type="number" name="input-weight" id="inputWeight" placeholder="Dalam Kilogram">

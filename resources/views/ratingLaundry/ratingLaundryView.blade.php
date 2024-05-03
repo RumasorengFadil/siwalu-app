@@ -30,7 +30,7 @@
 
         <div class="rating-body">
             <form class="rating-body__form" action="/detailLaundry/{{$laundry->id_laundry}}" method="post">
-                @csrf <!-- {{ csrf_field() }} -->
+                @csrf
                 <div class="rating-body__rating">
                     <input type="radio" id="star5" name="score" value="5" /><label class = "full" for="star5" title="Excellent!"></label>
                     <input type="radio" id="star4" name="score" value="4" /><label class = "full" for="star4" title="Pretty good!"></label>

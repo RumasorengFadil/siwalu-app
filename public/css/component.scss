@@ -437,6 +437,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
+        margin-right: 5px;
         border-radius: 5px;
         color: $color-on-primary;
         background-color: $color-primary;
@@ -452,9 +453,6 @@
     }
     &__laundry-type-shoe{
         background-color: #FDB022;
-    }
-    &__laundry-type-cloth{
-        margin-right: 5px;
     }
     &__start-from{
         margin-top: 20px;

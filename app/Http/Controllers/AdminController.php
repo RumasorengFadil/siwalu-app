@@ -16,8 +16,7 @@ class AdminController extends Controller
         $request["id-mitra"] = null;
 
         
-        dd($request->all());
-        $validator = Validator()::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             "name" => ["required"],
             "location" => ["required"],
             "description" => ["required"],
@@ -28,7 +27,6 @@ class AdminController extends Controller
 
         Laundry::postLaundry($request);
 
-        return redirect()->route("addLaundry")
-        ->withErrors($validator);
+        return redirect()->route("addLaundry");
     }
 }

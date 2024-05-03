@@ -26,7 +26,6 @@ class UserController extends Controller
             'input-email' => "email",
         ])->validate();
         
-        // User::registerAdmin();
         $user = User::register($request);
         
         $request->session()->put('user', $user);

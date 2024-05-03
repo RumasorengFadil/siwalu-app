@@ -128,14 +128,14 @@
                         </div>
     
                         <div class="card__laundry-type-cn">
-                            <div class="card__laundry-type card__laundry-type-cloth">
-                                <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                                <span class="card__laundry-type-text">Pakaian</span>
-                            </div>
-                            <div class="card__laundry-type card__laundry-type-shoe">
-                                <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                                <span class="card__laundry-type-text">Sepatu</span>
-                            </div>
+                            @foreach ($laundry->jenis_cucian as $jenis_cucian)
+                                @if($jenis_cucian)
+                                    <div class="card__laundry-type card__laundry-type-{{$jenis_cucian === "Pakaian" ? 'cloth' : 'shoe'}}">
+                                        <img src="icn/{{$jenis_cucian === "Pakaian" ? 'cloth' : 'sepatu'}}.svg" alt={{$jenis_cucian}} class="card__type-icon">
+                                        <span class="card__laundry-type-text">{{$jenis_cucian}}</span>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <p class="card__start-from">Start From</p>
                         <p class="card__price">Rp. {{$laundry->harga}}/kg</p>
@@ -174,14 +174,14 @@
                         </div>
     
                         <div class="card__laundry-type-cn">
-                            <div class="card__laundry-type card__laundry-type-cloth">
-                                <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                                <span class="card__laundry-type-text">Pakaian</span>
-                            </div>
-                            <div class="card__laundry-type card__laundry-type-shoe">
-                                <img src="icn/cloth.svg" alt="" class="card__type-icon">
-                                <span class="card__laundry-type-text">Sepatu</span>
-                            </div>
+                            @foreach ($laundry->jenis_cucian as $jenis_cucian)
+                                @if($jenis_cucian)
+                                    <div class="card__laundry-type card__laundry-type-{{$jenis_cucian === "Pakaian" ? 'cloth' : 'shoe'}}">
+                                        <img src="icn/{{$jenis_cucian === "Pakaian" ? 'cloth' : 'sepatu'}}.svg" alt={{$jenis_cucian}} class="card__type-icon">
+                                        <span class="card__laundry-type-text">{{$jenis_cucian}}</span>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <p class="card__start-from">Start From</p>
                         <p class="card__price">Rp. {{$laundry->harga}}/kg</p>

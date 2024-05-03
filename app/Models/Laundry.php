@@ -57,9 +57,10 @@ class Laundry extends Model
     }
     
     static public function postLaundry($request){
+
         Laundry::create([
-            "id_admin" => $request["id_admin"],
-            "id_mitra" => $request["id_mitra"],
+            "id_admin" => $request["id-admin"],
+            "id_mitra" => $request["id-mitra"],
             "nama" => $request["name"],
             "alamat" => $request["location"],
             "nomor_telp" => $request["whatsappNumber"],
@@ -67,7 +68,7 @@ class Laundry extends Model
             "jam_buka" => "10.00",
             "jam_tutup" => "18.00",
             "jenis_layanan" => $request["service"],
-            "jenis_cucian" => [$request["sepatu"]??null, $request["pakaian"]??null],
+            "jenis_cucian" => [$request["pakaian"]??null, $request["sepatu"]??null],
             "harga" => $request["harga"],
             "rating" => 4.5,
             "foto" => "/img/aquos-laundry-img.png",
