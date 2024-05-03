@@ -5,6 +5,7 @@
 
 .form-addlaundry{
     margin: 0;
+    margin-left: 200px;
     box-shadow: none;
     float:inline-start;
     text-align: left;
@@ -12,4 +13,9 @@
     flex-grow: 1;
     overflow-y: scroll;
     height: 100vh;
+    transition: all ease 300ms;
+
+    @media only screen and (max-width:$sm-device){
+        margin-left: 0;
+    }
 }

@@ -597,8 +597,11 @@
 .sidebar{
     background-color: $color-primary;
     color: $color-on-primary;
-    width: max-content;
     font-size: 10px;
+    width: 200px;
+    position: absolute;
+    height: 100%;
+    transition: all ease 300ms;
     & .nav__logo-cn{
     padding: 11px 25px;
 
@@ -620,5 +623,31 @@
         width: 13px;
         height: 13px;
         margin-right: 5px;
+    }
+    &__toggle-btn{
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background-color: $color-primary;
+        transform: translate(50%,-50%);
+        border-radius: 100px;
+        cursor: pointer;
+    }
+    &__chev-left-icon{
+        width: 24px;
+        margin-left: 5px;
+        transition: all linear 300ms;
+    }
+    
+    @media only screen and (max-width:$sm-device){
+        left: -200px;
+
+        &__chev-left-icon{
+            width: 24px;
+            margin-left: 5px;
+            rotate: 180deg;
+        }
     }
 }

@@ -40,6 +40,9 @@
                     <p class="sidebar__linkText">Delete Laundry</p>
                 </a>  
             </ul>
+            <div class="sidebar__toggle-btn">
+                <img src="/icn/chevron-left-white.svg" alt="" class="sidebar__chev-left-icon">
+            </div>
         </nav>
 
         <form action="{{route('laundry.post')}}" class="form form-addlaundry" method="POST"  enctype="multipart/form-data">
