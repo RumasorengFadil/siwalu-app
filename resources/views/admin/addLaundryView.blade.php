@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    @vite(['public/css/main.scss'])
+    @vite(['public/css/main.scss', 'public/js/addLaundry.js'])
 </head>
 <body>
     <header class="header">
+        
+    </header>
+
+    <main class="main main-addlaundry">
         <nav class="sidebar">
             <div class="nav__logo-cn">
                 <a href="{{url("/")}}">
@@ -37,13 +41,49 @@
                 </a>  
             </ul>
         </nav>
-    </header>
 
-    <main class="main">
-        <form action="" class="form form-addlaundry">
+        <form action="{{route('addLaundry')}}" class="form form-addlaundry" method="POST">
+           @csrf
             <div class="form__el">
-                <image type="file" src="/img/image-placeholder" alt="" accept="image/*">
+                <label for="gambar">
+                    <img class="form__image-placeholder" title="pilih file" src="/img/image-placeholder.png" alt="Placeholder">
+                </label>
+                <!-- Input file -->
+                <input class="form__input-file" type="file" id="gambar" name="gambar" accept="image/*" style="display: none;">
             </div>
+            <div class="form__el">
+                <label class="form__label" for="name">Nama Laundry *</label><br>
+                <!-- Input file -->
+                <input class="form__input" type="text" name="name" id="inputName" placeholder="Masukan nama laundry" required>
+            </div>  
+            <div class="form__el">
+                <label class="form__label" for="location">Lokasi *</label><br>
+                <!-- Input file -->
+                <input class="form__input" type="text" name="location" id="inpuLocation" placeholder="Masukan lokasi" required>
+            </div>  
+            <div class="form__el">
+                <label class="form__label" for="description">Deskripsi *</label><br>
+                <!-- Input file -->
+                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
+            </div>  
+            <div class="form__el">
+                <label class="form__label" for="service">Service *</label><br>
+                <!-- Input file -->
+                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
+                
+            </div>  
+            <div class="form__el">
+                <label class="form__label" for="service">Service *</label><br>
+                <!-- Input file -->
+                <textarea class="form__input form__input-textarea" name="description" id="inpuDescription" placeholder="Masukan Deskripsi" required></textarea>
+                
+            </div>  
+            <div class="form__el">
+                <!-- Input file -->
+                <input class="form__submit-btn form__submit-btn-sm" type="submit" value="Tambah">
+                
+            </div>  
+        
         </form> 
     </main>
 </body>

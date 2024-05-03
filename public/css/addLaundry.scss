@@ -1,5 +1,13 @@
+.main-addlaundry{
+    display: flex;
+    padding: 0;
+}
+
 .form-addlaundry{
-    margin: 0 auto;
+    margin: 0;
     box-shadow: none;
     float:inline-start;
+    text-align: left;
+    width: max-content;
+    flex-grow: 1;
 }

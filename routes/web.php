@@ -41,6 +41,10 @@ Route::get("/admin/addLaundry", function(){
     return view('admin.addLaundryView');
 })->middleware('admin')->name("addLaundry");
 
+Route::post("/admin/addLaundry", function(){
+    return view('admin.addLaundryView');
+})->middleware('admin')->name("addLaundry");
+
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
