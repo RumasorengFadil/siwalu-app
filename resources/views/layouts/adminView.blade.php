@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,24 @@
     @vite(['public/css/main.scss', 'public/js/toggleSidebar.js'])
 
 </head>
+
 <body>
     <main class="main main__admin" style="padding: 0">
 
         <nav class="sidebar">
             <div class="nav__logo-cn">
-                <a href="{{url("/")}}">
+                <a href="{{ url('/') }}">
                     <img class="nav__logo" src="/img/logo-white.svg" alt="">
                 </a>
                 <h1 class="nav__brand-name">Siwalu</h1>
             </div>
-        
+
             <ul class="sidebar__links">
-                <a href="{{route("accLaundry.show")}}" class="sidebar__link sidebar__link-active">
+                <a href="{{ route('accLaundry.show') }}" class="sidebar__link sidebar__link-active">
                     <img src="/icn/acc.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Accept Laundry</p>
                 </a>
-                <a href="{{route("addLaundry.show")}}" class="sidebar__link">
+                <a href="{{ route('addLaundry.show') }}" class="sidebar__link">
                     <img src="/icn/add.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Tambah Laundry</p>
                 </a>
@@ -35,23 +37,24 @@
                 <a class="sidebar__link">
                     <img src="/icn/update.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Delete Laundry</p>
-                </a>  
-                <form  method="POST" action="/logout">
+                </a>
+                <form method="POST" action="/logout">
                     @csrf
                     <button class="sidebar__link">
                         <img src="/icn/logout-white.svg" alt="" class="sidebar__icon">
                         <p class="sidebar__link-text">Logout</p>
                     </button>
-                </form> 
+                </form>
             </ul>
             <div class="sidebar__toggle-btn">
                 <img src="/icn/chevron-left-white.svg" alt="" class="sidebar__chev-left-icon">
             </div>
         </nav>
-        
+
         <div class="content">
             @yield('content')
         </div>
     </main>
 </body>
+
 </html>
