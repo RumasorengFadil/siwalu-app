@@ -656,3 +656,16 @@
         }
     }
 }
+
+.content{
+    margin-left: 200px;
+    width: max-content;
+    flex-grow: 1;
+    overflow-y: scroll;
+    height: 100vh;
+    transition: all ease 300ms;
+
+    @media only screen and (max-width:$sm-device){
+        margin-left: 0;
+    }
+}
