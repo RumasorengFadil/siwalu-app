@@ -8,11 +8,20 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function renderAddLaundryView(){
-        return view('admin.addLaundryView');
+    public function renderDashboardView(){
+        return view('admin.index');
     }
     public function renderAccLaundryView(){
         return view('admin.accLaundryView');
+    }
+    public function renderAddLaundryView(){
+        return view('admin.addLaundryView');
+    }
+    public function renderUpdateLaundryView(){
+        return view('admin.updateLaundryView');
+    }
+    public function renderDeleteLaundryView(){
+        return view('admin.deleteLaundryView');
     }
     public function postLaundry(Request $request){
         $request["id-admin"] = auth()->user()->only(['id'])['id'];

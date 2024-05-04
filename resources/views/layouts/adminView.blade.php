@@ -1,3 +1,4 @@
+{{-- {{dd()}} --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,16 +23,21 @@
             </div>
 
             <ul class="sidebar__links">
-                <a href="{{ route('accLaundry.show') }}" class="sidebar__link sidebar__link-active">
+                <a href="{{ route('dashboard.show') }}"
+                    class="sidebar__link {{ Request::route()->named('dashboard.show') ? 'sidebar__link-active' : '' }}">
+                    <img src="/icn/dashboard-white.svg" alt="" class="sidebar__icon">
+                    <p class="sidebar__link-text">Dashboard</p>
+                </a>
+                <a href="{{ route('accLaundry.show') }}" class="sidebar__link {{ Request::route()->named('accLaundry.show') ? 'sidebar__link-active' : '' }}">
                     <img src="/icn/acc.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Accept Laundry</p>
                 </a>
-                <a href="{{ route('addLaundry.show') }}" class="sidebar__link">
+                <a href="{{ route('addLaundry.show') }}" class="sidebar__link {{ Request::route()->named('addLaundry.show') ? 'sidebar__link-active' : '' }}">
                     <img src="/icn/add.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Tambah Laundry</p>
                 </a>
-                <a class="sidebar__link">
-                    <img src="/icn/delete.svg" alt="" class="sidebar__icon">
+                <a href="{{route('updateLaundry.show')}}" class="sidebar__link {{ Request::route()->named('updateLaundry.show') ? 'sidebar__link-active' : '' }}">
+                    <img src="/icn/delete.svg" alt="" class="sidebar__icon {{ Request::route()->named('deleteLaundry.show') ? 'sidebar__link-active' : '' }}">
                     <p class="sidebar__link-text">Perbarui Laundry</p>
                 </a>
                 <a class="sidebar__link">
