@@ -9,7 +9,7 @@
     @vite(['public/css/main.scss', 'public/js/addLaundry.js', 'public/js/toggleSidebar.js'])
 </head>
 <body>
-    <main class="main main-addlaundry">
+    <main class="main main__admin">
         <nav class="sidebar">
             <div class="nav__logo-cn">
                 <a href="{{url("/")}}">
@@ -49,7 +49,7 @@
         </nav>
 
         <div class="content">
-            <form action="{{route('laundry.post')}}" class="form form-addlaundry" method="POST"  enctype="multipart/form-data">
+            <form action="{{route('laundry.post')}}" class="form form__admin" method="POST"  enctype="multipart/form-data">
                 @csrf
                  <div class="form__el">
                      <label for="gambar">

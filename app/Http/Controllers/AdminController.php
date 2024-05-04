@@ -12,7 +12,7 @@ class AdminController extends Controller
         return view('admin.addLaundryView');
     }
     public function renderAccLaundryView(){
-        return view('admin.sidebar');
+        return view('admin.accLaundryView');
     }
     public function postLaundry(Request $request){
         $request["id-admin"] = auth()->user()->only(['id'])['id'];

@@ -1,3 +1,18 @@
+//doc: Main Style
+.main{
+    padding: 0 1.5rem;
+
+    &__back-icon{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    &__admin{
+        display: flex;
+        padding: 0;
+    }
+}
+
 // doc: Navbar Style
 .nav{
     width: 100%;
@@ -223,6 +238,11 @@
     &__link{
         width: 17.4rem;
         font-size: 8px;
+    }
+    &__admin{
+        margin: 0;
+        text-align: left;
+        box-shadow: none;
     }
 }
 

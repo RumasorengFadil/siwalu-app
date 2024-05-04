@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <main class="main" style="padding: 0">
+    <main class="main main__admin" style="padding: 0">
 
         <nav class="sidebar">
             <div class="nav__logo-cn">
