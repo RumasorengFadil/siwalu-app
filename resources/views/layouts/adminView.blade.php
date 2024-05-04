@@ -37,10 +37,10 @@
                     <p class="sidebar__link-text">Tambah Laundry</p>
                 </a>
                 <a href="{{route('updateLaundry.show')}}" class="sidebar__link {{ Request::route()->named('updateLaundry.show') ? 'sidebar__link-active' : '' }}">
-                    <img src="/icn/delete.svg" alt="" class="sidebar__icon {{ Request::route()->named('deleteLaundry.show') ? 'sidebar__link-active' : '' }}">
+                    <img src="/icn/delete.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Perbarui Laundry</p>
                 </a>
-                <a class="sidebar__link">
+                <a href="{{route('deleteLaundry.show')}}" class="sidebar__link {{ Request::route()->named('deleteLaundry.show') ? 'sidebar__link-active' : '' }}">
                     <img src="/icn/update.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Delete Laundry</p>
                 </a>
