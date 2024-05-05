@@ -8,8 +8,10 @@ export default defineConfig({
                 'public/css/main.scss', 
                 'public/js/slider.js',
                 'public/js/countEstimation.js',
-                'public/js/favorite.js',
-                'public/js/lazyImg.js'
+                'public/js/lazyImg.js',
+                'public/js/addLaundry.js', 
+                'public/js/rating.js', 
+                'public/js/toggleSidebar.js', 
             ],
             refresh: true,
         }),

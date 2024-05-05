@@ -17,8 +17,14 @@ Route::controller(LaundryController::class)->group(function(){
 });
 
 Route::controller(RatingController::class)->group(function(){
-    Route::middleware(["auth", "verified"])->group(function () {
-        Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")->name("ratingLaundryView");
+    // Route::middleware(["auth", "verified"])->group(function () {
+    //     Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")
+    //     ->name("ratingLaundryView");
+    //     Route::post('detailLaundry/{id}', "postRatingLaundry");
+    // });
+    Route::middleware(["auth"])->group(function () {
+        Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")
+        ->name("ratingLaundryView");
         Route::post('detailLaundry/{id}', "postRatingLaundry");
     });
 });
