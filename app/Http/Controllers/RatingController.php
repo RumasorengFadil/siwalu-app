@@ -9,12 +9,13 @@ class RatingController extends Controller
 {
 
     public function renderRatingLaundryView($id, Request $request){
+        // dd($request->session()->all()["user"]);
         return view("/ratingLaundry/ratingLaundryView", [
             "laundry" => Laundry::getLaundry($id),
-            "user" => $request->session()->all()["user"]
+            "user_id" => auth()->user()->only(['id'])['id']
         ]);
     }
-
+    
     public function postRatingLaundry($id,Request $request){
         $validate = $request->validate([
             "score" => "required",

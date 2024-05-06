@@ -41,7 +41,7 @@
                 <label class="rating-body__satisfied_indicator" for="">Terrible!</label>
                 <p class="rating-body__message">Bantu pelanggan lain dengan ulasan yang kamu berikan.</p>
                 <input type="hidden" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}">
-                <input type="hidden" name="input-user-id" id="inputUserId" value="{{$user->id}}">
+                <input type="hidden" name="input-user-id" id="inputUserId" value="{{$user_id}}">
                 <label for="reason" class="rating-body__reason-label">Apa alasan memberikan rating?</label> <br>
                 <textarea class="rating-body__reason-textarea" name="reason" id="" cols="30" rows="10" placeholder="Ceritakan pengalamanmu."></textarea>
                 <label class="error" for="">{{$errors->first("reason")}}</label>

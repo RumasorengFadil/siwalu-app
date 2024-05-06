@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    @vite(['public/css/main.scss', 'public/js/toggleSidebar.js'])
+    @vite(['public/css/main.scss', 'public/js/toggleSidebar.js', 'public/js/addLaundry.js'])
 
 </head>
 
