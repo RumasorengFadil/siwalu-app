@@ -488,7 +488,9 @@
         color: $color-on-background;
         display: block;
     }
-    
+    &__favor-btn{
+        all: unset;
+    }
 }
 
 //doc: Review Style

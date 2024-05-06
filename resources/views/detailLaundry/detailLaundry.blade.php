@@ -30,10 +30,14 @@
                     alt=""
                 >
             </div>
-
+            {{-- heart --}}
             <div class="card__laundry-name-cn">
                 <h1 class="card__laundry-name-me">{{$laundry->nama}}</h1>
-                <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
+                <form action="/favorite" method="POST">
+                    <button type="submit" class="card__favor-btn">
+                        <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
+                    </button>
+                </form>
             </div>
 
             <div class="card__laundry-address-cn">

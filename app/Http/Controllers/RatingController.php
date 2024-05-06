@@ -17,6 +17,7 @@ class RatingController extends Controller
     }
     
     public function postRatingLaundry($id,Request $request){
+        // dd($request);
         $validate = $request->validate([
             "score" => "required",
             "input-user-id" => "required",

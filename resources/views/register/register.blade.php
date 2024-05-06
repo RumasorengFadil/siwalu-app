@@ -19,7 +19,7 @@
     <main class="main register-main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="icn/chevron-left.svg" alt=""></a>
         <form class="form" action="/register" method="post">
-            @csrf <!-- {{ csrf_field() }} -->
+            @csrf
 
             <div class="form__el">
                 <input class="form__input-username" type="text" name="input-username" id="" value="{{ old('input-username') }}" placeholder="Username"><br>

@@ -29,6 +29,8 @@ Route::controller(RatingController::class)->group(function(){
     });
 });
 
+
+
 Route::controller(UserController::class)->group(function(){
     Route::post("/register", "register")->name("register");
     
