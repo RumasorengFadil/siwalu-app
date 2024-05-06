@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Favorite extends Model
+{
+    use HasFactory;
+
+    protected $fillable = 
+    [
+        "id",
+        "id_laundry",
+        "confirmed",
+    ];
+
+    public static function storeFavorite($request){
+        //dd($request->all());
+        $id_laundry = $request->all()["input-laundry-id"];
+        $id_user = $request->all()["id_user"];
+        $favorite = Favorite::find($id_user);
+        //dd(Favorite::find($id_user));
+        
+        if($favorite != null){
+            if($favorite->confirmed == true){
+                $favorite->confirmed = false;
+            }else{
+                $favorite->confirmed = true;
+            }
+            $favorite->save();
+        }else{
+            Favorite::create([
+                "id" => $id_user,
+                "id_laundry" => $id_laundry,
+                "confirmed" => true
+            ]);
+        }
+    } 
+    
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "id", "id");
+    }
+
+    public function laundry(): BelongsTo
+    {
+        return $this->belongsTo(Laundry::class, "id_laundry", "id_laundry");
+    }
+}
+

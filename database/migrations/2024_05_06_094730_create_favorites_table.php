@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('favorites', function (Blueprint $table) {
-            $table->id();
+            $table->id("id_favorite")->autoIncrement();
+            $table->foreignId("id");
+            $table->foreignUuid("id_laundry");
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
         });
     }

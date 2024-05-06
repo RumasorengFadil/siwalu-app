@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaundryController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -43,9 +44,9 @@ Route::controller(UserController::class)->group(function(){
 });
 
 Route::controller(FavoriteController::class)->group(function() {
-    Route::post('favorite/store/{id}', "storeFavorite")->name("favorite.store");
-    Route::delete('favorite/delete/{id}',"");
-    Route::get('favorite', "renderFavoriteView")->name("favorite");
+    Route::post('favorite/store', "storeFavorite")->middleware("auth")->name("favorite.store");
+    // Route::put('favorite/update/{id}',"updateFavorite")->name("favorite.update");
+    // Route::get('favorite', "renderFavoriteView")->name("favorite");
 });
 
 Route::controller(AdminController::class)->group(function(){
