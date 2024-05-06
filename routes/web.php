@@ -41,6 +41,13 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
+
+Route::controller(FavoriteController::class)->group(function() {
+    Route::post('favorite/store/{id}', "storeFavorite")->name("favorite.store");
+    Route::delete('favorite/delete/{id}',"");
+    Route::get('favorite', "renderFavoriteView")->name("favorite");
+});
+
 Route::controller(AdminController::class)->group(function(){
     Route::get("/admin/dashboard", "renderDashboardView")
     ->middleware('admin')
