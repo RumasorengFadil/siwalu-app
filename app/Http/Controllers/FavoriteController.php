@@ -13,7 +13,8 @@ class FavoriteController extends Controller
         Favorite::storeFavorite($request);
         return redirect()->back();
     }
-    public function updateFavorite() {
+
+    public function renderFavorite(){
         
     }
     
