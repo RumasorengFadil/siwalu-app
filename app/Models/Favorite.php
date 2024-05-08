@@ -17,21 +17,29 @@ class Favorite extends Model
         "confirmed",
     ];
 
+    public static function getFavorites(){
+        return Favorite::where('confirmed', true)->get();
+    }
+
     public static function storeFavorite($request){
         //dd($request->all());
-        $id_laundry = $request->all()["input-laundry-id"];
-        $id_user = $request->all()["id_user"];
-        $favorite = Favorite::find($id_user);
-        //dd(Favorite::find($id_user));
+        $id_laundry = $request->input("input-laundry-id");
+        $id_user = $request->input("id_user");
+        $favorite = Favorite::where('id', $id_user)
+                            ->where('id_laundry', $id_laundry)
+                            ->first();
         
-        if($favorite != null){
-            if($favorite->confirmed == true){
-                $favorite->confirmed = false;
-            }else{
+
+        if($favorite !== null) {
+            //dd($favorite->confirmed);
+            if($favorite->confirmed) {
+                $favorite->confirmed = !$favorite->confirmed;
+                $favorite->save();
+            } else {
                 $favorite->confirmed = true;
+                $favorite->save();
             }
-            $favorite->save();
-        }else{
+        } else {
             Favorite::create([
                 "id" => $id_user,
                 "id_laundry" => $id_laundry,

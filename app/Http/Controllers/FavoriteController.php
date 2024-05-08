@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Favorite;
+use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
@@ -14,8 +14,10 @@ class FavoriteController extends Controller
         return redirect()->back();
     }
 
-    public function renderFavorite(){
-        
+    public function renderFavoriteView(){
+        return view("/favorite/favoriteView",[
+            "favorites" => Favorite::getFavorites()
+        ]);
     }
     
 }

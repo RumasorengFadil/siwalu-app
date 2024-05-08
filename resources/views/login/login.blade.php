@@ -26,7 +26,7 @@
                 <label class="error">{{$errors->first("input-email")}}</label>
             </div>
             <div class="form__el">
-                <input class="form__input-pass" name="input-password" id=""  placeholder="Password"><br>
+                <input class="form__input-pass" type="password" name="input-password" id=""  placeholder="Password"><br>
                 <label class="error">{{$errors->first("input-password")}} {{$errors->first("error")}}</label>
             </div>
 
