@@ -46,7 +46,7 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(FavoriteController::class)->group(function() {
     Route::post('favorite/store', "storeFavorite")->middleware("auth")->name("favorite.store");
     // Route::put('favorite/update/{id}',"updateFavorite")->name("favorite.update");
-    // Route::get('favorite', "renderFavoriteView")->name("favorite");
+    Route::get('favorite', "renderFavoriteView")->name("favorite");
 });
 
 Route::controller(AdminController::class)->group(function(){

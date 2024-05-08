@@ -35,9 +35,20 @@
                 <h1 class="card__laundry-name-me">{{$laundry->nama}}</h1>
                 <form action="{{route("favorite.store")}}" method="POST">
                     @csrf
-                    <button type="submit" class="card__favor-btn" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" >
-                        <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
-                    </button>
+                    @if ($favorite == null)
+                            <button type="submit" class="card__favor-btn" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" >
+                                <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
+                            </button>
+                        
+                        @elseif($favorite->confirmed)
+                            <button type="submit" class="card__favor-btn" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" >
+                                <img class="card__icn-heart icon" src="/icn/check-heart.svg" alt="">
+                            </button>
+                        @else
+                            <button type="submit" class="card__favor-btn" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" >
+                                <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
+                            </button>
+                    @endif
                 </form>
             </div>
 

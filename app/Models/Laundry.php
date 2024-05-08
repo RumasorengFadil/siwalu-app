@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Rating;  
@@ -81,9 +82,9 @@ class Laundry extends Model
     {
         return $this->hasMany(Rating::class, "id_laundry", "id_laundry");
     }
-    public function favorites(): HasMany
+    public function favorites(): HasOne
     {
-        return $this->hasMany(Favorite::class, "id_laundry", "id_laundry");
+        return $this->hasOne(Favorite::class, "id_laundry", "id_laundry") ;
     }
 }
 // $laundry = [

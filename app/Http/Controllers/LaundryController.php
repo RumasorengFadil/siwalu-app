@@ -19,9 +19,8 @@ class LaundryController extends Controller
     public function renderDetailLaundryView($id){
         return view("/detailLaundry/detailLaundry",[
             "laundry" => Laundry::getLaundry($id),
-            "ratings" => Laundry::getLaundry($id)->ratings
+            "ratings" => Laundry::getLaundry($id)->ratings,
+            "favorite" => Laundry::getLaundry($id)->favorites
         ]);
     }
-
-    
 }
