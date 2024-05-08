@@ -12,7 +12,7 @@ class Favorite extends Model
 
     protected $fillable = 
     [
-        "id",
+        "id_user",
         "id_laundry",
         "confirmed",
     ];
@@ -25,7 +25,7 @@ class Favorite extends Model
         //dd($request->all());
         $id_laundry = $request->input("input-laundry-id");
         $id_user = $request->input("id_user");
-        $favorite = Favorite::where('id', $id_user)
+        $favorite = Favorite::where('id_user', $id_user)
                             ->where('id_laundry', $id_laundry)
                             ->first();
         
@@ -41,7 +41,7 @@ class Favorite extends Model
             }
         } else {
             Favorite::create([
-                "id" => $id_user,
+                "id_user" => $id_user,
                 "id_laundry" => $id_laundry,
                 "confirmed" => true
             ]);

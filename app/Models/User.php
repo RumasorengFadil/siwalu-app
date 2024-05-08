@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Rating;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -87,6 +88,6 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function favorites(): HasMany
     {
-        return $this->hasMany(Rating::class, "id", "id");
+        return $this->hasMany(Favorite::class, "id_user", "id");
     }
 }

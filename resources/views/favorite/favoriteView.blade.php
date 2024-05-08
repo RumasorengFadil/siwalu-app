@@ -26,16 +26,17 @@
                 {{-- menampilkan data filter dari id local storage --}}
                 @foreach ($favorites as $favorite)
                 <div class="card-favorite">
-                    <a href="/detailLaundry/{{$favorite->id_laundry}}" class="card-favorite__link">
+                    {{-- {{ var_dump($favorite->laundry) }} --}}
+                    <a href="/detailLaundry/{{$favorite->laundry->id_laundry}}" class="card-favorite__link">
                         <img 
-                            src="{{$favorite->foto}}" 
+                            src="/uploads/{{$favorite->laundry->foto}}" 
                             skeleton-image='[{"height":"500"}]' 
                             skeleton-text='[{"width":"120"}]' 
                             alt="" 
                             class="card-favorite__laundry-img"
                         >
                         <div class="card-favorite__laundry-name-cn">
-                            <p class="card-favorite__laundry-name">{{$favorite->nama}}</p>
+                            <p class="card-favorite__laundry-name">{{$favorite->laundry->nama}}</p>
                             <div class="card-favorite__laundry-rating">
                                 <p class="card-favorite__laundry-rating">4.5/5</p>
                                 <img class="card-favorite__icn-star" src="/icn/star.svg" alt="">
@@ -43,7 +44,7 @@
                         </div>
                         <div class="card-favorite__laundry-address-cn">
                             <img class="card-favorite__icn-address" src="icn/location.svg" alt="">
-                            <p class="card-favorite__laundry-address">{{$favorite->alamat}}</p>
+                            <p class="card-favorite__laundry-address">{{$favorite->laundry->alamat}}</p>
                         </div>
     
                         <div class="card-favorite__laundry-type-cn">
@@ -57,7 +58,7 @@
                             </div>
                         </div>
                         <p class="card-favorite__start-from">Start From</p>
-                        <p class="card-favorite__price">Rp. {{$favorite->harga}}/kg</p>
+                        <p class="card-favorite__price">Rp. {{$favorite->laundry->harga}}/kg</p>
 
                         
                     </a>
