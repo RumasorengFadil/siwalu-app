@@ -77,6 +77,10 @@ class Laundry extends Model
             "lan" => 0
         ]);
     }
+
+    public function getFavorite(){
+        
+    }
     public function ratings(): HasMany
     {
         return $this->hasMany(Rating::class, "id_laundry", "id_laundry");
