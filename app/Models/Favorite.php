@@ -52,7 +52,9 @@ class Favorite extends Model
             ]);
         }
     }
-
+    public static function isEmpty(){
+        dd("hallo");
+    }
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, "id", "id");

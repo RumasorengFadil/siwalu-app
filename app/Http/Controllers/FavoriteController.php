@@ -17,7 +17,15 @@ class FavoriteController extends Controller
     public function renderFavoriteView()
     {
         return view("/favorite/favoriteView", [
-            "favorites" => auth()->user()->favorites
+            "favorites" => auth()
+                ->user()
+                ->favorites,
+            "isEmpty" => auth()
+                ->user()
+                ->favorites
+                ->contains(function (Favorite $value, int $key) {
+                    return $value->confirmed === 1;
+                })
         ]);
     }
 

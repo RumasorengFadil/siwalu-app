@@ -692,3 +692,12 @@
         margin-left: 0;
     }
 }
+
+.message{
+    &__empty{
+        padding: 30px 40px;
+        text-align: center;
+        width: 100%;
+        font-size: 0.875rem;
+    }
+}

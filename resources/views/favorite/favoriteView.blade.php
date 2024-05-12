@@ -24,39 +24,44 @@
     <main class="main">
         <div class="box">
             <h1 class="box__title">Favorite List</h1>
-            <div class="minibox-favorite">
+            <div class="minibox">
                 {{-- menampilkan data filter dari id local storage --}}
+                @if (!$isEmpty)
+                    <p class="message__empty">
+                        Tidak ada favorite yang tersimpan
+                    </p>
+                @endif
                 @foreach ($favorites as $favorite)
                     @if ($favorite->confirmed)
-                        <div class="card-favorite">
+                        <div class="card">
                             {{-- {{ var_dump($favorite->laundry) }} --}}
-                            <a href="/detailLaundry/{{ $favorite->laundry->id_laundry }}" class="card-favorite__link">
+                            <a href="/detailLaundry/{{ $favorite->laundry->id_laundry }}" class="card__link">
                                 <img src="/uploads/{{ $favorite->laundry->foto }}" skeleton-image='[{"height":"500"}]'
-                                    skeleton-text='[{"width":"120"}]' alt="" class="card-favorite__laundry-img">
-                                <div class="card-favorite__laundry-name-cn">
-                                    <p class="card-favorite__laundry-name">{{ $favorite->laundry->nama }}</p>
-                                    <div class="card-favorite__laundry-rating">
-                                        <p class="card-favorite__laundry-rating">4.5/5</p>
-                                        <img class="card-favorite__icn-star" src="/icn/star.svg" alt="">
+                                    skeleton-text='[{"width":"120"}]' alt="" class="card__laundry-img">
+                                <div class="card__laundry-name-cn">
+                                    <p class="card__laundry-name">{{ $favorite->laundry->nama }}</p>
+                                    <div class="card__laundry-rating">
+                                        <p class="card__laundry-rating">4.5/5</p>
+                                        <img class="card__icn-star" src="/icn/star.svg" alt="">
                                     </div>
                                 </div>
-                                <div class="card-favorite__laundry-address-cn">
-                                    <img class="card-favorite__icn-address" src="icn/location.svg" alt="">
-                                    <p class="card-favorite__laundry-address">{{ $favorite->laundry->alamat }}</p>
+                                <div class="card__laundry-address-cn">
+                                    <img class="card__icn-address" src="icn/location.svg" alt="">
+                                    <p class="card__laundry-address">{{ $favorite->laundry->alamat }}</p>
                                 </div>
 
-                                <div class="card-favorite__laundry-type-cn">
-                                    <div class="card-favorite__laundry-type card-favorite__laundry-type-cloth">
-                                        <img src="icn/cloth.svg" alt="" class="card-favorite__type-icon">
-                                        <span class="card-favorite__laundry-type-text">Pakaian</span>
+                                <div class="card__laundry-type-cn">
+                                    <div class="card__laundry-type card__laundry-type-cloth">
+                                        <img src="icn/cloth.svg" alt="" class="card__type-icon">
+                                        <span class="card__laundry-type-text">Pakaian</span>
                                     </div>
-                                    <div class="card-favorite__laundry-type card-favorite__laundry-type-shoe">
-                                        <img src="icn/cloth.svg" alt="" class="card-favorite__type-icon">
-                                        <span class="card-favorite__laundry-type-text">Sepatu</span>
+                                    <div class="card__laundry-type card__laundry-type-shoe">
+                                        <img src="icn/cloth.svg" alt="" class="card__type-icon">
+                                        <span class="card__laundry-type-text">Sepatu</span>
                                     </div>
                                 </div>
-                                <p class="card-favorite__start-from">Start From</p>
-                                <p class="card-favorite__price">Rp. {{ $favorite->laundry->harga }}/kg</p>
+                                <p class="card__start-from">Start From</p>
+                                <p class="card__price">Rp. {{ $favorite->laundry->harga }}/kg</p>
                             </a>
                         </div>
                     @endif
