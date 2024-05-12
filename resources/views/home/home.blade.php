@@ -18,7 +18,7 @@
             </div>
 
             <ul class="nav__links"> 
-                <a href="#about-us" class="nav__link"><img src="icn/heart.svg" alt="" class="nav__icon"></a>
+                <a href="{{route("favorite.show")}}" class="nav__link"><img src="icn/heart.svg" alt="" class="nav__icon"></a>
                 <a href="#about-product" class="nav__link"><img src="icn/message-square.svg" alt="" class="nav__icon"></a>
                 <a href="#collections" class="nav__link"><img src="icn/bell.svg" alt="" class="nav__icon"></a>
                 <input class="nav__link nav__input-search" type="search" name="inputSearch" id="inputSearch" placeholder="Cari “Laundry Terdekat”">

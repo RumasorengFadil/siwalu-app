@@ -1,3 +1,4 @@
+{{-- {{dd($favorite)}} --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +36,14 @@
                 <h1 class="card__laundry-name-me">{{$laundry->nama}}</h1>
                 <form action="{{route("favorite.store")}}" method="POST">
                     @csrf
+                    @if ($favorite !== null)
+                        
+                    @endif
                     <button type="submit" class="card__favor-btn" name="input-laundry-id" id="inputLaundryId" value="{{$laundry->id_laundry}}" >
-                        <img class="card__icn-heart icon" src="/icn/heart.svg" alt="">
+                        <img 
+                        class="card__icn-heart icon" 
+                        src="/icn/heart{{$favorite === null || !$favorite->confirmed ? "":"-fill"}}.svg" 
+                        alt="">
                     </button>
                 </form>
             </div>

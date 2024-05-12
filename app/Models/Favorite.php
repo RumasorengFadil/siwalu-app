@@ -10,7 +10,7 @@ class Favorite extends Model
 {
     use HasFactory;
 
-    protected $fillable = 
+    protected $fillable =
         [
             "id_user",
             "id_laundry",
@@ -21,14 +21,18 @@ class Favorite extends Model
     {
         return Favorite::where('confirmed', true)->get();
     }
-    public static function storeFavorite($request)
+    public static function getFavorite($id_laundry, $id_user)
     {
-        //dd($request->all());
-        $id_laundry = $request->input("input-laundry-id");
-        $id_user = $request->input("id_user");
-        $favorite = Favorite::where('id_user', $id_user)
+        return Favorite::where('id_user', $id_user)
             ->where('id_laundry', $id_laundry)
             ->first();
+    }
+
+    public static function storeFavorite($request)
+    {
+        $id_laundry = $request->input("input-laundry-id");
+        $id_user = $request->input("id_user");
+        $favorite = self::getFavorite($id_laundry, $id_user);
 
 
         if ($favorite !== null) {
