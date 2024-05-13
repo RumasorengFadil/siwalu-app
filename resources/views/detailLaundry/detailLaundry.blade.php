@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['public/css/main.scss', 'public/js/countEstimation.js', 'public/js/lazyImg.js'])
+    @vite(['public/css/main.scss', 'public/js/countEstimation.js', 'public/js/lazyImg.js', 'public/js/sendMessage'])
 </head>
 <body>
     <header>
@@ -119,7 +119,7 @@
             <p class="detail-laundry__harga">Rp.{{$laundry->harga}}/kg</p>
             
             <div class="detail-laundry__cost-estimation-cn">
-                <a class="detail-laundry__whatsapp-link" href="">
+                <a class="detail-laundry__whatsapp-link" >
                     <img class="detail-laundry__whatsapp-icon" src="/icn/whatsapp.svg" alt="">
                 </a>
 
@@ -130,6 +130,34 @@
               
             </div>
         </div>
+
+        <div class="cn hidden">
+            <div href="" class="cn__icn-exit">
+                <img src="/icn/close.svg" alt="">
+            </div>
+            <form action="/send-to-whatsapp" method="POST" class="cn__form-send-massage">
+                @csrf
+                <div class="cn__form-el">
+                    <label for="" class="cn__form-lb">Nama</label><br>
+                    <input type="text" name="name-sender" placeholder="Masukkan nama Anda">
+                </div>
+                <div class="cn__form-el">
+                    <label for="" class="cn__form-lb">Pesan</label> <br>
+                    <textarea class="cn__form-input" type="text" name="message" placeholder="Masukkan pesan Anda"></textarea>
+                </div>
+                <div class="cn__form-el">
+                    <label for="" class="cn__form-lb">Service</label> <br>
+                    <input name="service-laundry" id="service-laundry" value="{{$laundry->jenis_layanan}}">
+                </div>
+                <div class="cn__form-el">
+                    <label for="" class="cn__form-lb">Laundry</label> <br>
+                    <input name="laundry-name" id="laundry-name" value="{{$laundry->nama}}">
+                </div>
+                <button type="submit">Kirim ke WhatsApp</button>
+            </form>
+        </div>
+
+        <div class="overlay hidden"></div>
     </main>
 </body>
 </html>

@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 Route::controller(LaundryController::class)->group(function(){
     Route::get('/', "renderHomeView")->name("home");
     Route::get('/detailLaundry/{id}', 'renderDetailLaundryView')->name("detailLaundry");
+    Route::post('/send-to-whatsapp', 'sendMessage')->name("send.massage");
 });
 
 Route::controller(RatingController::class)->group(function(){
@@ -29,8 +30,6 @@ Route::controller(RatingController::class)->group(function(){
         Route::post('detailLaundry/{id}', "postRatingLaundry");
     });
 });
-
-
 
 Route::controller(UserController::class)->group(function(){
     Route::post("/register", "register")->name("register");
