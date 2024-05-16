@@ -1,10 +1,11 @@
-//doc: Main Style
+//css => Main Style
 .main{
     padding: 0 1.5rem;
 
     &__back-icon{
         width: 1.5rem;
         height: 1.5rem;
+        margin-bottom: 42px;
     }
     
     &__admin{
@@ -13,7 +14,7 @@
     }
 }
 
-// doc: Navbar Style
+// css => Navbar Style
 .nav{
     width: 100%;
     display: flex;
@@ -141,35 +142,53 @@
     }
 }
 
-// doc: Form Style
+// css => Form Style
 .form{
     padding: 1.25rem 1.68rem;
     text-align: center;
     box-shadow: 0px 4px 6px -2px #10182808;
     border-radius: 10.6px;
     box-shadow: 0px 12px 16px -4px #10182814;
-    margin-top: 42px;
 
+    &__prompt{
+        text-align: left;
+    }
     &__el{
         margin-bottom: 10px;
     }
     &__label{
         font-size: 11px;
+
+        &-send{
+            @extend .form__label;
+            margin-left: 5px;
+        }
     }
     &__input{
         width: 50%;
-        height: 33px;
+        padding: 10px 0;
         padding-left: 8px;
         margin-top: 2px;
         font-size: 11px;
         border: 1px solid #98A2B3;
         border-radius: 5px;
 
+        &-max-parent{
+            @extend .form__input;
+            width: 100%;
+        }
     }
+    
     &__input-textarea{
+        width: 100%;
         resize: vertical;
         line-height: 150%;
         max-height: 108px;
+        
+        &-max-parent{
+            @extend .form__input-textarea;
+            width: 100%;
+        }
     }
     &__input-checkbox{
         width: 11px;
@@ -180,8 +199,8 @@
         font-size: 11px;
     }
     &__input-username,&__input-pass,&__input-email{
-        width: 17.4rem;
-        height: 36.6px;
+        width: 100%;
+        padding: 10px 0;
         padding-left: 12px;
         border: 1px solid #101828;
         box-shadow: 0px 2.55px 5.1px 0px #1018280D;
@@ -201,8 +220,8 @@
     }
     &__submit-btn{
         all: unset;
-        width: 17.4rem;
-        height: 36.6px;
+        width: 100%;
+        padding: 10px 0;
         border: 1px solid #101828;
         background-color: $color-primary;
         color: $color-on-primary;
@@ -211,25 +230,22 @@
         margin-bottom: 10px;
         text-align: center;
         cursor: pointer;
+        font-size: 11px;
         box-shadow: 0px 1px 2px 0px #1018280D;
 
+        &-wrap{
+            @extend .form__submit-btn;
+            padding: 5px 10px;
+            width: max-content;
+        }
+        &-flex{
+            @extend .form__submit-btn;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
-    &__submit-btn{
-        all: unset;
-        width: 4rem;
-        height: 33px;
-        border: 1px solid #101828;
-        background-color: $color-primary;
-        color: $color-on-primary;
-        display: inline-block;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 12px;
-        cursor: pointer;
-        box-shadow: 0px 1px 2px 0px #1018280D;
 
-    }
     &__privacy-policy{
         width: 17.4rem;
         font-size: 8px;
@@ -246,7 +262,7 @@
     }
 }
 
-// doc: Footer Style
+// css => Footer Style
 .footer{
     background-color: $color-primary;
     padding: 26px 40px;
@@ -318,7 +334,7 @@
     }
 }
 
-//doc: Slider Style
+//css => Slider Style
 .slider{
     margin-top: 1.5rem;
     width: 100%;
@@ -364,7 +380,7 @@
   }
 }
 
-//doc: Box Style
+//css => Box Style
 .box{
     margin: 1.5rem 0;
     width: 100%;
@@ -379,7 +395,7 @@
     }
 }
 
-//doc: Minibox Style
+//css => Minibox Style
 .minibox{
     border: 2px solid #EAEBF0;
     border-radius: 5px;
@@ -388,7 +404,7 @@
     overflow-x:scroll;
 
 }
-//doc: Card Style
+//css => Card Style
 .card{
     width: fit-content;
     margin-right: 10px;
@@ -493,7 +509,7 @@
     }
 }
 
-//doc: Review Style
+//css => Review Style
 .review{
     &__header{
         display: flex;
@@ -615,7 +631,7 @@
     transition: opacity 0.3s ease-in-out;
   }
 
-//doc: Sidebar
+//css => Sidebar
 .sidebar{
     background-color: $color-primary;
     color: $color-on-primary;
@@ -669,7 +685,39 @@
         margin-left: 5px;
         transition: all linear 300ms;
     }
-    
+    .prompt{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 20rem;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    z-index: 10;
+    &__form-lb{
+        font-size: 13px;
+        font-weight: bold;
+    }
+    &__form-input{
+        resize: vertical;
+        max-height: 77px;
+
+    }
+    &__form-send-massage{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__icn-exit{
+        width: 30px;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}
     @media only screen and (max-width:$sm-device){
         left: -200px;
 
@@ -700,4 +748,28 @@
         width: 100%;
         font-size: 0.875rem;
     }
+}
+
+// css => Prompt
+.prompt{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 15rem;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    z-index: 10;
+
+    &__icn-close-cn{
+        position: absolute;
+        right: 0;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    &__icn-close{
+    }
+
+    
 }

@@ -1,4 +1,3 @@
-{{-- {{dd($favorite)}} --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,29 +130,20 @@
             </div>
         </div>
 
-        <div class="cn hidden">
-            <div href="" class="cn__icn-exit">
-                <img src="/icn/close.svg" alt="">
+        <div class="prompt hidden">
+            <div href="" class="prompt__icn-close-cn">
+                <img class="prompt__icn-close" src="/icn/close.svg" alt="">
             </div>
-            <form action="/send-to-whatsapp" method="POST" class="cn__form-send-massage">
+            <form action="/send-to-whatsapp" method="POST" class="form form__prompt">
                 @csrf
-                <div class="cn__form-el">
-                    <label for="" class="cn__form-lb">Nama</label><br>
-                    <input type="text" name="name-sender" placeholder="Masukkan nama Anda">
+                <div class="form__el">
+                    <label for="" class="form__label">Nama</label><br>
+                    <input class="form__input-max-parent" type="text" name="name-sender" value="{{auth()->user()->name??""}}" placeholder="Masukkan nama Anda">
                 </div>
-                <div class="cn__form-el">
-                    <label for="" class="cn__form-lb">Pesan</label> <br>
-                    <textarea class="cn__form-input" type="text" name="message" placeholder="Masukkan pesan Anda"></textarea>
-                </div>
-                <div class="cn__form-el">
-                    <label for="" class="cn__form-lb">Service</label> <br>
-                    <input name="service-laundry" id="service-laundry" value="{{$laundry->jenis_layanan}}">
-                </div>
-                <div class="cn__form-el">
-                    <label for="" class="cn__form-lb">Laundry</label> <br>
-                    <input name="laundry-name" id="laundry-name" value="{{$laundry->nama}}">
-                </div>
-                <button type="submit">Kirim ke WhatsApp</button>
+                <button class="form__submit-btn-flex" type="submit">
+                    <img class="detail-laundry__whatsapp-icon" src="/icn/send.svg" alt="">
+                    <label for="" class="form__label-send">Kirim</label>
+                </button>
             </form>
         </div>
 

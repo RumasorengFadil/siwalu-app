@@ -1,17 +1,14 @@
-const container =  document.querySelector('.cn');
-const overlay = document.querySelector('.overlay');
-const icnWa = document.querySelector('.detail-laundry__cost-estimation-cn');
-const icnExit = document.querySelector('.cn__icn-exit')
+const container = document.querySelector(".prompt");
+const overlay = document.querySelector(".overlay");
+const icnWa = document.querySelector(".detail-laundry__cost-estimation-cn");
+const icnExit = document.querySelector(".prompt__icn-close-cn");
 
-function closeFormMessage(){
-    container.classList.add('hidden');
-    overlay.classList.add('hidden');
+function togglePrompt(e) {
+    if (e.type === "scroll" && container.classList.contains("hidden")) return;
+    container.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
 }
-
-icnWa.addEventListener("click",function(e){
-    container.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-})
-
-overlay.addEventListener("click",closeFormMessage);
-icnExit.addEventListener("click",closeFormMessage);
+icnWa.addEventListener("click", togglePrompt);
+overlay.addEventListener("click", togglePrompt);
+icnExit.addEventListener("click", togglePrompt);
+document.addEventListener("scroll", togglePrompt);
