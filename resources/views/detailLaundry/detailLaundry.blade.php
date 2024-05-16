@@ -134,11 +134,19 @@
             <div href="" class="prompt__icn-close-cn">
                 <img class="prompt__icn-close" src="/icn/close.svg" alt="">
             </div>
-            <form action="/send-to-whatsapp" method="POST" class="form form__prompt">
+            <form action="{{route("send.massage")}}" method="POST" class="form form__prompt">
                 @csrf
                 <div class="form__el">
                     <label for="" class="form__label">Nama</label><br>
-                    <input class="form__input-max-parent" type="text" name="name-sender" value="{{auth()->user()->name??""}}" placeholder="Masukkan nama Anda">
+                    <input class="form__input-max-parent" type="text" name="inputName" value="{{auth()->user()->name??""}}" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form__el hidden">
+                    <label for="" class="form__label">Laundry</label><br>
+                    <input class="form__input-max-parent" type="text" name="inputLaundry" value="{{$laundry->nama}}" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form__el hidden">
+                    <label for="" class="form__label">Nomor Wa Laundry</label><br>
+                    <input class="form__input-max-parent" type="text" name="inputLaundryWaNumber" value="{{$laundry->nomor_telp}}" placeholder="Masukkan nama Anda" required>
                 </div>
                 <button class="form__submit-btn-flex" type="submit">
                     <img class="detail-laundry__whatsapp-icon" src="/icn/send.svg" alt="">
