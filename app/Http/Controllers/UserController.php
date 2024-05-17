@@ -39,7 +39,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input-username' => 'required|max:30',
-            'input-email' => "required|email:rfc,dns",
+            'input-email' => "required|email:rfc,dns|unique:users,email",
             'input-password' => ['required',Password::min(8)->mixedCase()->symbols()->uncompromised()],
         ], $messages = [
             'required' => 'The :attribute field is required.',
