@@ -99,6 +99,9 @@ class UserController extends Controller
     public function renderRegisterView(){
         return view('register/register');
     }
+    public function renderMitraRegistrationView(){
+        return view('register/mitraRegistrationView');
+    }
     public function renderLoginView(){
         return view('login/login');
     }

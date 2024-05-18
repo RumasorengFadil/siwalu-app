@@ -150,6 +150,11 @@
     border-radius: 10.6px;
     box-shadow: 0px 12px 16px -4px #10182814;
 
+    &__title{
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 14px;
+    }
     &__prompt{
         text-align: left;
     }

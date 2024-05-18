@@ -78,7 +78,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $laundry->firstWhere("email", $email);
     }
     public function isAdmin(){
-        return Auth::user()->original["role"] == "admin";
+        return Auth::user()->role == "admin";
+    }
+    public function isUser(){
+        return Auth::user()->role == "user";
     }
     public function ratings(): HasMany
     {

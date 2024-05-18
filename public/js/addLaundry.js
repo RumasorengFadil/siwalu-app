@@ -7,7 +7,12 @@
 
  
  // Menambahkan event listener untuk perubahan pada input file
- inputGambar.addEventListener('change', function(event) {
+ document.addEventListener('change', function(event) {
+    // console.log(event.target);
+    // console.log(event.target.closest(".form__el"));
+    // console.log(2);
+    const placeholder = event.target.closest(".form__el").querySelector(".form__image-placeholder");
+    if(!event.target.classList.contains("form__input-file")) return;
      // Mengecek apakah ada file yang dipilih
      if (event.target.files.length > 0) {
          // Mengganti sumber gambar placeholder dengan gambar yang dipilih

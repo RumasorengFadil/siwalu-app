@@ -43,7 +43,12 @@
                                 <p class="nav__my-profile-text">Dashboard Admin</p>
                             </a>
                             @endif
-
+                            @if (Auth::user()->isUser())
+                            <a href="{{route("mitraRegistration.show")}}" class="nav__link nav__dr-link">
+                                <img src="/icn/handshake.svg" alt="" class="nav__icon">
+                                <p class="nav__my-profile-text">Daftar sebagai Mitra</p>
+                            </a>
+                            @endif
                             <form method="POST" action="/logout">
                                 @csrf
                                 <button class="nav__link nav__dr-link nav__logout-btn">

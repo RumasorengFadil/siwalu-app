@@ -39,6 +39,7 @@ Route::controller(UserController::class)->group(function(){
     
     
     Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
+    Route::get('/mitraRegistration', "renderMitraRegistrationView")->middleware("auth")->name("mitraRegistration.show");
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
 
