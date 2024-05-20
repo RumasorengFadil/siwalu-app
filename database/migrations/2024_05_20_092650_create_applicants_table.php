@@ -12,8 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applicants', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id("id")->autoIncrement();
+            $table->foreignId("id_user");
+            $table->foreignId("id_admin")->nullable();
+            $table->string("nama");
+            $table->string("alamat");
+            $table->string("nomor_telp");
+            $table->longText("deskripsi");
+            $table->json("jenis_layanan");
+            $table->json("jenis_cucian");
+            $table->integer("harga");
+            $table->enum('status', ['accept', 'denied']);
+            $table->string("foto_ktp");
+            $table->string("foto_laundry");
         });
     }
 

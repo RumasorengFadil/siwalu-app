@@ -58,7 +58,6 @@ class Laundry extends Model
     }
     
     static public function postLaundry($request){
-
         Laundry::create([
             "id_admin" => $request["id-admin"],
             "id_mitra" => $request["id-mitra"],
@@ -78,9 +77,6 @@ class Laundry extends Model
         ]);
     }
 
-    public function getFavorite(){
-        
-    }
     public function ratings(): HasMany
     {
         return $this->hasMany(Rating::class, "id_laundry", "id_laundry");
