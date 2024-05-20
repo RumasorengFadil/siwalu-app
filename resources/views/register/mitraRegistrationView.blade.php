@@ -17,7 +17,7 @@
     </header>
 
     <main class="main">
-        <form action="{{ route('laundry.post') }}" class="form form__admin" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('registerMitra.store') }}" class="form form__admin" method="POST" enctype="multipart/form-data">
             @csrf
             <h1 class="form__title">Form Pendaftaran Mitra</h1>
             
@@ -92,7 +92,7 @@
                 <!-- Input file -->
                 <input class="form__input-file" type="file" id="fotoLaundry" name="inputFotoLaundry" accept="image/*"
                     style="display: none;">
-                <label class="error" for="">{{ $errors->first('gambar') }}</label>
+                <label class="error" for="">{{ $errors->first('inputFotoLaundry') }}</label>
             </div>
             
             <div class="form__el">
@@ -103,12 +103,12 @@
                 <!-- Input file -->
                 <input class="form__input-file" type="file" id="fotoKtp" name="inputFotoKtp" accept="image/*"
                     style="display: none;">
-                <label class="error" for="">{{ $errors->first('gambar') }}</label>
+                <label class="error" for="">{{ $errors->first('inputFotoKtp') }}</label>
             </div>
             
             <div class="form__el">
                 <!-- Input file -->
-                <input class="form__submit-btn form__submit-btn-sm" type="submit" value="Tambah">
+                <input class="form__submit-btn-wrap" type="submit" value="Tambah">
     
             </div>
         </form>

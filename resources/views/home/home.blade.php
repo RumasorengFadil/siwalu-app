@@ -44,7 +44,7 @@
                             </a>
                             @endif
                             @if (Auth::user()->isUser())
-                            <a href="{{route("mitraRegistration.show")}}" class="nav__link nav__dr-link">
+                            <a href="{{route("registerMitra.show")}}" class="nav__link nav__dr-link">
                                 <img src="/icn/handshake.svg" alt="" class="nav__icon">
                                 <p class="nav__my-profile-text">Daftar sebagai Mitra</p>
                             </a>

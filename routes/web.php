@@ -32,15 +32,16 @@ Route::controller(RatingController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
+    Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
+    Route::get('/registerMitra', "renderRegisterMitraView")->middleware("auth")->name("registerMitra.show");
+    Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
+    
     Route::post("/register", "register")->name("register");
+    Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
     
     Route::post("/login", "login")->name("login");
     Route::post("/logout", "logout")->name("logout");
     
-    
-    Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
-    Route::get('/mitraRegistration', "renderMitraRegistrationView")->middleware("auth")->name("mitraRegistration.show");
-    Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
 });
 
 Route::controller(FavoriteController::class)->group(function() {
