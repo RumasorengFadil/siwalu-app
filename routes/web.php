@@ -6,7 +6,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\EnsureTokenIsValid;
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -42,6 +42,11 @@ Route::controller(UserController::class)->group(function(){
     Route::post("/login", "login")->name("login");
     Route::post("/logout", "logout")->name("logout");
     
+});
+Route::controller(ApplicantController::class)->group(function(){
+    Route::get('/registerMitra', "renderRegisterMitraView")->middleware("auth")->name("registerMitra.show");
+
+    Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
 });
 
 Route::controller(FavoriteController::class)->group(function() {

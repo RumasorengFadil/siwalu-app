@@ -25,21 +25,27 @@ class Applicant extends Model
             "foto_laundry"
         ];
 
+    protected $casts = [
+        'jenis_layanan' => 'array',
+        'jenis_cucian' => 'array',
+    ];
 
-    static public function postApplicant($request){
+
+    static public function postApplicant($request)
+    {
         Applicant::create([
-            "id_user"=> $request->id_user,
-            "id_admin"=> $request->id_admin??null,
-            "nama"=> $request->nama,
-            "alamat"=> $request->alamat,
-            "nomor_telp"=> $request->nomor_telp,
-            "deskripsi"=> $request->deskripsi,
-            "jenis_layanan"=> $request->jenis_layanan,
-            "jenis_cucian"=> $request->jenis_cucian,
-            "harga"=> $request->harga,
-            "status"=> $request->status,
-            "foto_ktp"=> $request->foto_ktp,
-            "foto_laundry"=> $request->foto_laundry,
+            "id_user" => $request["id_user"],
+            "id_admin" => $request["id_admin"] ?? null,
+            "nama" => $request["name"],
+            "alamat" => $request["location"],
+            "nomor_telp" => $request["whatsappNumber"],
+            "deskripsi" => $request["description"],
+            "jenis_layanan" => $request["service"],
+            "jenis_cucian" => [$request["pakaian"] ?? null, $request["sepatu"] ?? null],
+            "harga" => $request["harga"],
+            "status" => "waiting",
+            "foto_ktp" => $request["inputFotoKtp"]->filename,
+            "foto_laundry" => $request["inputFotoLaundry"]->filename,
         ]);
     }
 }

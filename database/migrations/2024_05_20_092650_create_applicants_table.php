@@ -22,9 +22,10 @@ return new class extends Migration
             $table->json("jenis_layanan");
             $table->json("jenis_cucian");
             $table->integer("harga");
-            $table->enum('status', ['accept', 'denied']);
+            $table->enum('status', ['accept', 'denied', 'waiting', 'finish']);
             $table->string("foto_ktp");
             $table->string("foto_laundry");
+            $table->timestamps();
         });
     }
 

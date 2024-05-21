@@ -84,20 +84,6 @@ class UserController extends Controller
             'error' => 'The provided credentials do not match our records.',
         ])->onlyInput('input-email');
     }
-    public function registerMitra(Request $request){
-
-        $validate = $request->validate([
-            "name" => "required|max:30",
-            "location" => "required",
-            "description" => "required",
-            "service" => "required",
-            "harga" => "required",
-            "whatsappNumber" => "required",
-            "inputFotoLaundry" => "required",
-            "inputFotoKtp" => "required",
-        ]);
-        dd($request);
-    }
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
@@ -111,9 +97,6 @@ class UserController extends Controller
     //todo render
     public function renderRegisterView(){
         return view('register/register');
-    }
-    public function renderRegisterMitraView(){
-        return view('register/mitraRegistrationView');
     }
     public function renderLoginView(){
         return view('login/login');

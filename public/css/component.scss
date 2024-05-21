@@ -781,3 +781,19 @@
 
     
 }
+
+// css => Alert
+.alert{
+    max-width: 600px;
+    &__text{
+        text-align: center
+    }
+
+    &-center{
+        @extend .alert;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+}
