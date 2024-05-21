@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\User;
 use App\Models\Rating;
 use App\Models\Favorite;
+use App\Models\Applicant;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $laundry->firstWhere("email", $email);
     }
+    public static function updates($id_user, $column, $value){
+        $user = User::find($id_user);
+        dd($user[$column]);
+        $user[$column] = $value;
+
+        $user->save();
+    }
     public function isAdmin(){
         return Auth::user()->role == "admin";
     }
@@ -90,5 +98,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function favorites(): HasMany
     {
         return $this->hasMany(Favorite::class, "id_user", "id");
+    }
+    public function applicants(): HasMany
+    {
+        return $this->hasMany(Applicant::class, "id", "id");
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Laundry;
+use App\Models\Applicant;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -12,7 +14,10 @@ class AdminController extends Controller
         return view('admin.index');
     }
     public function renderAccLaundryView(){
-        return view('admin.accLaundryView');
+        return view('admin.accLaundryView', [
+            'user' => auth()->user(),
+            'applicants'=> Applicant::getApplicants(),
+        ]);
     }
     public function renderAddLaundryView(){
         return view('admin.addLaundryView');
@@ -52,6 +57,16 @@ class AdminController extends Controller
         //Upload data laundry ke database
         Laundry::postLaundry($request);
 
+        return redirect()->back();
+    }   
+    public function rejectApplicant(Request $request){
+        Applicant::updates($request->id_applicant, "status", "denied");
+        return redirect()->back();
+    }
+    public function acceptApplicant(Request $request){
+
+        User::updates($request->id_user, "role","laundry");
+        Applicant::updates($request->id_applicant, "status", "accept");
         return redirect()->back();
     }
 }

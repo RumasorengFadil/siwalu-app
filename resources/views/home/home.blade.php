@@ -107,7 +107,7 @@
             
         </div>
 
-        <div class="box">
+        <div class="box box-mar24-vertical">
             <h1 class="box__title">Laundry terpopuler!</h1>
             <div class="minibox">
             @foreach ($laundries as $laundry)

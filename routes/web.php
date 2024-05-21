@@ -37,7 +37,7 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
     
     Route::post("/register", "register")->name("register");
-    Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
+    // Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
     
     Route::post("/login", "login")->name("login");
     Route::post("/logout", "logout")->name("logout");
@@ -45,6 +45,7 @@ Route::controller(UserController::class)->group(function(){
 });
 Route::controller(ApplicantController::class)->group(function(){
     Route::get('/registerMitra', "renderRegisterMitraView")->middleware("auth")->name("registerMitra.show");
+    Route::put('/registerMitra', "finishApplicant")->middleware("auth")->name("registerMitra.finish");
 
     Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
 });
@@ -63,6 +64,7 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("accLaundry.show");
 
+
     Route::get("/admin/addLaundry", "renderAddLaundryView")
     ->middleware('admin')
     ->name("addLaundry.show");
@@ -75,6 +77,13 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("deleteLaundry.show");
     
+    Route::put("/admin/accLaundry", "rejectApplicant")
+    ->middleware('admin')
+    ->name("accLaundry.reject");
+
+    Route::post("/admin/accLaundry", "acceptApplicant")
+    ->middleware('admin')
+    ->name("accLaundry.accept");
     
     Route::post("/admin/addLaundry", "postLaundry")->middleware('admin')->name("laundry.post");
 });

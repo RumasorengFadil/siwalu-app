@@ -11,9 +11,7 @@ class ApplicantController extends Controller
     public function renderRegisterMitraView()
     {
         $user = auth()->user();
-        $applicant = Applicant::all()
-            ->where("id_user", $user->id)
-            ->first();
+        $applicant = Applicant::getFirstApplicant($user->id);
 
         return view(
             'register/mitraRegistrationView',
@@ -50,5 +48,13 @@ class ApplicantController extends Controller
 
 
         return redirect()->back();
+    }
+    public function finishApplicant(Request $request)
+    {
+        $applicant = Applicant::getFirstApplicant($request->id_user);
+        Applicant::updates($applicant->id, "status", "finish");
+
+
+        return redirect(route("registerMitra.show"));
     }
 }

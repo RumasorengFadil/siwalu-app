@@ -21,7 +21,7 @@
     <main class="main">
 
         @if ($applicant === null || $applicant->status === 'finish')
-            <form action="{{ route('registerMitra.store') }}" class="form form__admin" method="POST"
+            <form action="{{route('registerMitra.store')}}" class="form form__admin" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <h1 class="form__title">Form Pendaftaran Mitra</h1>
@@ -119,12 +119,22 @@
         
         @if ($applicant && $applicant->status === "waiting")
         <div class="alert-center">
-            <h5 class="alert__text">Pengajuan Anda akan diperiksa oleh tim kami mohon untuk menunggu</h5>
+            <h5 class="title title-txtalligncenter">Pengajuan Anda akan diperiksa oleh tim kami mohon untuk menunggu</h5>
         </div>
         @endif
-        @if ($applicant && $applicant->status === "danied")
-            
-            Pengajuan Anda ditolak
+        @if ($applicant && $applicant->status === "denied")
+            <div class="box box-wrap box-centervertical">
+                <h5 class="title title-mar8-bottom title-txtalligncenter">Pengajuan Anda ditolak</h5>
+                <div class="box box-center box-wrap box-marauto-horizontal box-mar0-vertical">
+                    <form action="{{route("registerMitra.finish")}}" method="POST" style="display: inline">
+                        @csrf
+                        @method("PUT")
+                        <button class="btn btn-cursorpointer btn-colorprimary" name="id_user" value="{{$user->id}}"><p class="text text-size12 text-coloronprimary">Ajukan lagi</p></button>
+                    </form>
+                    
+                    <a href="{{route("home")}}" class="btn btn-displayinlineblock btn-cursorpointer text-decornone btn-colorsecondary btn-bordercolorprimary"><p class="text text-size12 text-coloronprimary text-colorroyalblue">Home</p></a>
+                </div>
+            </div>
         @endif
         @if ($applicant && $applicant->status === "accept")
             
