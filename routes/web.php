@@ -44,7 +44,7 @@ Route::controller(UserController::class)->group(function(){
     
 });
 Route::controller(ApplicantController::class)->group(function(){
-    Route::get('/registerMitra', "renderRegisterMitraView")->middleware("auth")->name("registerMitra.show");
+    Route::get('/registerMitra', "renderRegisterMitraView")->middleware(["auth"])->name("registerMitra.show");
     Route::put('/registerMitra', "finishApplicant")->middleware("auth")->name("registerMitra.finish");
 
     Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");

@@ -80,7 +80,6 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public static function updates($id_user, $column, $value){
         $user = User::find($id_user);
-        dd($user[$column]);
         $user[$column] = $value;
 
         $user->save();
@@ -90,6 +89,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function isUser(){
         return Auth::user()->role == "user";
+    }
+    public function isLaundry(){
+        return Auth::user()->role == "laundry";
     }
     public function ratings(): HasMany
     {

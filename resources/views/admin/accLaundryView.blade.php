@@ -31,7 +31,7 @@
 
                             <form class="box box-displayinline" action="{{route('accLaundry.accept')}}" method="POST">
                                 @csrf
-                                <input class="hidden" type="text" name="id_user" value="{{$user->id}}" id="">
+                                <input class="hidden" type="text" name="id_admin" value="{{$user->id}}" id="">
                                 <button class="btn btn-cursorpointer btn-colorprimary btn-width48" name="id_applicant" value="{{ $applicant->id }}" type="submit">
                                     <p class="text-coloronprimary btn-bordercolorprimary text-size8">Terima</p>
                                 </button>

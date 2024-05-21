@@ -49,6 +49,12 @@
                                 <p class="nav__my-profile-text">Daftar sebagai Mitra</p>
                             </a>
                             @endif
+                            @if (Auth::user()->isLaundry())
+                            <a href="" class="nav__link nav__dr-link">
+                                <img src="/icn/dashboard.svg" alt="" class="nav__icon">
+                                <p class="nav__my-profile-text">Dashboard</p>
+                            </a>
+                            @endif
                             <form method="POST" action="/logout">
                                 @csrf
                                 <button class="nav__link nav__dr-link nav__logout-btn">
