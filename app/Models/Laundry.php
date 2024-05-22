@@ -72,13 +72,23 @@ class Laundry extends Model
         }
 
         // Update only if the value is different
-        $laundry->nama = $request->input('name') !== $laundry->nama ? $request->input('name') : $laundry->nama;
-        $laundry->alamat = $request->input('location') !== $laundry->alamat ? $request->input('location') : $laundry->alamat;
-        $laundry->deskripsi = $request->input('description') !== $laundry->deskripsi ? $request->input('description') : $laundry->deskripsi;
-        $laundry->jenis_layanan = $request->input('service') !== $laundry->jenis_layanan ? $request->input('service') : $laundry->jenis_layanan;
-        $laundry->harga = $request->input('harga') !== $laundry->harga ? $request->input('harga') : $laundry->harga;
-        $laundry->nomor_telp = $request->input('whatsappNumber') !== $laundry->nomor_telp ? $request->input('whatsappNumber') : $laundry->nomor_telp;
-        // $laundry->jenis_cucian = $request->input('jenis_cucian') !== $laundry->jenis_cucian ? $request->input('jenis_cucian') : $laundry->jenis_cucian;
+        //dd($request);
+        $laundry->nama = $request["name"] !== $laundry->nama ? $request["name"] : $laundry->nama;
+        $laundry->alamat = $request["location"] !== $laundry->alamat ?  $request["location"] : $laundry->alamat;
+        $laundry->deskripsi = $request["description"] !== $laundry->deskripsi ? $request["description"] : $laundry->deskripsi;
+        $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
+        $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
+        $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
+       
+        $jenisCucian = [];
+        if ($request->has('pakaian')) {
+            $jenisCucian[] = 'Pakaian';
+        }
+        
+        if ($request->has('sepatu')) {
+            $jenisCucian[] = 'Sepatu';
+        }
+        $laundry->jenis_cucian = $jenisCucian;
 
         $laundry->save();
     }    

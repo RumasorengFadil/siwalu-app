@@ -38,9 +38,8 @@ class AdminController extends Controller
         ]);
     }
     public static function postFormUpdateLaundryView(Request $request){
-
         $validate = $request->validate([
-            "gambar" => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
             "name" => "required",
             "location" => "required",
             "description" => "required",
@@ -64,9 +63,8 @@ class AdminController extends Controller
         $request["id-admin"] = auth()->user()->only(['id'])['id'];
         $request["id-mitra"] = null;
 
-
         $validator = $request->validate([
-            "gambar" => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
             "name" => "required",
             "location" => "required",
             "description" => "required",
