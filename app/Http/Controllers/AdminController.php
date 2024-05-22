@@ -28,7 +28,32 @@ class AdminController extends Controller
     }
     public function renderUpdateLaundryView()
     {
-        return view('admin.updateLaundryView');
+        return view('admin.updateLaundryView',[
+            "laundries" => Laundry::getLaundries()
+        ]);
+    }
+    public static function renderFormUpdateLaundryView($id){
+        return view('admin.formUpdateLaundryView',[
+            "laundry" => Laundry::getLaundry($id)
+        ]);
+    }
+    public static function postFormUpdateLaundryView(Request $request){
+
+        $validate = $request->validate([
+            "gambar" => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            "name" => "required",
+            "location" => "required",
+            "description" => "required",
+            "service" => "required",
+            "harga" => "required",
+            "number",
+            "whatsappNumber" => "required",
+            "number",
+        ]);
+
+        Laundry::updateLaundry($request);
+
+        return redirect()->route('updateLaundry.show');
     }
     public function renderDeleteLaundryView()
     {

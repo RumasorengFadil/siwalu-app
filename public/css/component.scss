@@ -818,6 +818,9 @@
     &-colorblue{
         background-color: $color-primary;
     }
+    &-coloryellow{
+        background-color: $color-secondary;
+    }
     &-colorwhite{
         background-color: #FFFFFF;
     }
@@ -959,6 +962,9 @@
 
     &-colorprimary{
         background-color: $btn-color-primary;
+    }
+    &-colortertiary{
+        background-color: $btn-color-tertiary;
     }
     &-colorsecondary{
         background-color: $btn-color-secondary;
