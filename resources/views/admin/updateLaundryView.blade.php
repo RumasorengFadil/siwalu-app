@@ -17,15 +17,14 @@
                             <p class="text text-mar8-bottom text-size8 text-colorgray">{{ $laundry->alamat }}</p>
 
                             <div class="box-container">
-                                <div class="box box-rad4 box-mar8-bottom box-pad4 box-wrap box-displayflex box-colorblue">
-                                    <img class="icon icon-size12" src="/icn/cloth.svg" alt="">
-                                    <p class="text text-size8 text-colorwhite">Pakaian</p>
-                                </div>
-
-                                <div class="box box-rad4 box-mar8-bottom box-pad4 box-wrap box-displayflex box-coloryellow">
-                                    <img class="icon icon-size12" src="/icn/sepatu.svg" alt="">
-                                    <p class="text text-size8 text-colorwhite">Sepatu</p>
-                                </div>
+                                @foreach ($laundry->jenis_cucian as $jenis_cucian)
+                                    @if($jenis_cucian)
+                                        <div class="box box-rad4 box-mar8-bottom box-pad4 box-wrap box-displayflex box-{{$jenis_cucian === "Pakaian" ? 'colorblue' : 'coloryellow'}}">
+                                            <img class="icon icon-size12" src="/icn/{{$jenis_cucian === "Pakaian" ? 'cloth' : 'sepatu'}}.svg" alt={{$jenis_cucian}}.svg" alt="">
+                                            <p class="text text-size8 text-colorwhite">{{$jenis_cucian}}</p>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
 
                             <p class="text text-size8 text-colorcadetblue">Mulai dari</p>

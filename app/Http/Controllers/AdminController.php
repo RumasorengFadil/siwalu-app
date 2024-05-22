@@ -33,7 +33,7 @@ class AdminController extends Controller
         ]);
     }
     public static function renderFormUpdateLaundryView($id){
-        return view('admin.formUpdateLaundryView',[
+        return view('admin.formUpdatelaundry',[
             "laundry" => Laundry::getLaundry($id)
         ]);
     }

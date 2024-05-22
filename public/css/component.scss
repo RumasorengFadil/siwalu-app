@@ -759,7 +759,11 @@
 }
 
 
-//css => Box Style
+//css => Box 
+.box-container {
+    display: flex;
+    gap: 8px;
+}
 .box {
     width: 100%;
     &__title {
