@@ -19,12 +19,7 @@ Route::controller(LaundryController::class)->group(function(){
 });
 
 Route::controller(RatingController::class)->group(function(){
-    // Route::middleware(["auth", "verified"])->group(function () {
-    //     Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")
-    //     ->name("ratingLaundryView");
-    //     Route::post('detailLaundry/{id}', "postRatingLaundry");
-    // });
-    Route::middleware(["auth"])->group(function () {
+    Route::middleware(["auth", "verified"])->group(function () {
         Route::get('detailLaundry/ratingLaundry/{id}', "renderRatingLaundryView")
         ->name("ratingLaundryView");
         Route::post('detailLaundry/{id}', "postRatingLaundry");
@@ -44,10 +39,10 @@ Route::controller(UserController::class)->group(function(){
     
 });
 Route::controller(ApplicantController::class)->group(function(){
-    Route::get('/registerMitra', "renderRegisterMitraView")->middleware(["auth"])->name("registerMitra.show");
-    Route::put('/registerMitra', "finishApplicant")->middleware("auth")->name("registerMitra.finish");
+    Route::get('/registerMitra', "renderRegisterMitraView")->middleware(["auth","user"])->name("registerMitra.show");
+    Route::put('/registerMitra', "finishApplicant")->middleware(["auth","user"])->name("registerMitra.finish");
 
-    Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
+    Route::post('/registerMitra', "registerMitra")->middleware(["auth","user"])->name("registerMitra.store");
 });
 
 Route::controller(FavoriteController::class)->group(function() {

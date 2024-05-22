@@ -12,34 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // public function register(Request $request):RedirectResponse
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'input-username' => 'required|max:30',
-    //         'input-email' => "required|email:rfc,dns",
-    //         'input-password' => ['required',Password::min(8)->mixedCase()->symbols()->uncompromised()],
-    //     ], $messages = [
-    //         'required' => 'The :attribute field is required.',
-    //     ],[
-    //         'input-username' => "username",
-    //         'input-password' => "email",
-    //         'input-email' => "email",
-    //     ])->validate();
-        
-    //     $user = User::register($request);
-        
-    //     $request->session()->put('user', $user);
-    //     event(new Registered($user));
-
-    //     Auth::login($user);
-        
-    //     return redirect(route('verification.notice', absolute: false));
-    // }
     public function register(Request $request):RedirectResponse
     {
         $validator = Validator::make($request->all(), [
             'input-username' => 'required|max:30',
-            'input-email' => "required|email:rfc,dns|unique:users,email",
+            'input-email' => "required|email:rfc,dns",
             'input-password' => ['required',Password::min(8)->mixedCase()->symbols()->uncompromised()],
         ], $messages = [
             'required' => 'The :attribute field is required.',
@@ -56,7 +33,7 @@ class UserController extends Controller
 
         Auth::login($user);
         
-        return redirect(route('home', absolute: false));
+        return redirect(route('verification.notice', absolute: false));
     }
 
     public function login(Request $request): RedirectResponse
