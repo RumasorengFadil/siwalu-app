@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\FavoriteController;
@@ -24,6 +25,7 @@ Route::controller(RatingController::class)->group(function(){
         ->name("ratingLaundryView");
         Route::post('detailLaundry/{id}', "postRatingLaundry");
     });
+
 });
 
 Route::controller(UserController::class)->group(function(){
