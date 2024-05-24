@@ -19,7 +19,7 @@
 
     <main class="main register-main">
         <a  href="{{url('/')}}"><img class="main__back-icon" src="icn/chevron-left.svg" alt=""></a>
-        <form class="form" action="/login" method="post">
+        <form class="box box-textcenter" action="/login" method="post">
             @csrf <!-- {{ csrf_field() }} -->
             <div class="form__el">
                 <input class="form__input-email" type="email" name="input-email" id="" value="{{ old('input-email') }}" placeholder="Email" autofocus><br>

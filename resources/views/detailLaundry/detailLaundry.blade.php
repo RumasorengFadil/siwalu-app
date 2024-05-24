@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['public/css/main.scss', 'public/js/countEstimation.js', 'public/js/lazyImg.js', 'public/js/sendMessage'])
+    @vite(['public/css/main.scss', 'public/js/countEstimation.js', 'public/js/lazyImg.js', 'public/js/sendMessage.js'])
 </head>
 <body>
     <header>
