@@ -70,6 +70,14 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("updateLaundry.show");
 
+    Route::get("/admin/updateLaundry/{id}", "renderFormUpdateLaundryView")
+    ->middleware('admin')
+    ->name("formUpdateLaundry.show");
+
+    Route::post("/admin/updateLaundry", "postFormUpdateLaundryView")
+    ->middleware('admin')
+    ->name("formUpdateLaundry.post");
+    
     Route::get("/admin/deleteLaundry", "renderDeleteLaundryView")
     ->middleware('admin')
     ->name("deleteLaundry.show");

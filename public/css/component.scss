@@ -798,6 +798,9 @@
     &-mar16-bottom{
         margin-bottom: 16px
     }
+    &-mar8-right{
+        margin-right: 8px;
+    }
     &-displayflex{
         display: flex;
     }
@@ -811,6 +814,9 @@
     &-colorblue{
         background-color: $color-primary;
     }
+    &-coloryellow{
+        background-color: #fdb022;
+    }
     &-colorwhite{
         background-color: #FFFFFF;
     }
@@ -820,9 +826,6 @@
     }
     &-rad4{
         border-radius: 4px;
-    }
-    &-mar8-bottom{
-        margin-bottom: 8px;
     }
     &-border{
         border: 1px solid black;
