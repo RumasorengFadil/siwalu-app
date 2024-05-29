@@ -84,6 +84,46 @@ class User extends Authenticatable implements MustVerifyEmail
 
         $user->save();
     }
+    public static function updatePhoto($request)
+    {
+        $id_user = $request->input("id_user");
+        $user = User::find($id_user);
+        // Update only if the value is different
+        //dd($request);
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('uploads');
+            $image->move($location, $fileName);
+            $user->photo = $fileName;
+        }
+        $user->save();
+    }
+    public static function updateUsername($id_user, $newUsername)
+    {
+        $user = User::find($id_user);
+    
+        if ($user) {
+            if ($user->name !== $newUsername) {
+                $user->name = $newUsername;
+                $user->save();
+            }
+        }
+    }
+
+    public static function updatePassword($request)
+    {
+        $id_user = $request->input("id_user");
+        $user = User::find($id_user);
+
+        // Memperbarui password hanya jika password baru berbeda dari password lama
+        if ($user) {
+            $newPassword = Hash::make($request->input('newPassword'));
+            $user->password = $newPassword;
+            $user->save();
+        }
+    }
+
     public function isAdmin(){
         return Auth::user()->role == "admin";
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -37,7 +38,15 @@ Route::controller(UserController::class)->group(function(){
     Route::post("/login", "login")->name("login");
     Route::post("/logout", "logout")->name("logout");
     
+
+    Route::get('/profile/menu', "renderProfileMenuView")->name("profileMenu.show");
+    Route::get('/profile', "renderView")->name("profileUpdate.show");
+    Route::post('/profile/photo', "updatePhoto")->name("updatePhoto.post");
+    Route::post('/profile/update', "updateUsername")->name("updateUsername.post");
+    Route::post('/profile/password', "updatePassword")->name("updatePassword.post");
 });
+
+
 Route::controller(ApplicantController::class)->group(function(){
     Route::get('/registerMitra', "renderRegisterMitraView")->middleware(["auth","user"])->name("registerMitra.show");
     Route::put('/registerMitra', "finishApplicant")->middleware(["auth","user"])->name("registerMitra.finish");
@@ -59,14 +68,9 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("accLaundry.show");
 
-
     Route::get("/admin/addLaundry", "renderAddLaundryView")
     ->middleware('admin')
     ->name("addLaundry.show");
-
-    Route::get("/admin/updateLaundry", "renderUpdateLaundryView")
-    ->middleware('admin')
-    ->name("updateLaundry.show");
 
     Route::get("/admin/updateLaundry/{id}", "renderFormUpdateLaundryView")
     ->middleware('admin')
@@ -75,6 +79,10 @@ Route::controller(AdminController::class)->group(function(){
     Route::post("/admin/updateLaundry", "postFormUpdateLaundryView")
     ->middleware('admin')
     ->name("formUpdateLaundry.post");
+
+    Route::get("/admin/updateLaundry", "renderUpdateLaundryView")
+    ->middleware('admin')
+    ->name("updateLaundry.show");
 
     Route::get("/admin/deleteLaundry", "renderDeleteLaundryView")
     ->middleware('admin')
@@ -88,7 +96,9 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("accLaundry.accept");
     
-    Route::post("/admin/addLaundry", "postLaundry")->middleware('admin')->name("laundry.post");
+    Route::post("/admin/addLaundry", "postLaundry")
+    ->middleware('admin')
+    ->name("laundry.post");
 });
 
 

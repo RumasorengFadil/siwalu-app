@@ -71,6 +71,71 @@ class UserController extends Controller
     
         return redirect('/');
     }
+    public function renderProfileMenuView() {       
+        return view('profile.profileListView',[
+            "user" => auth()->user()
+        ]);
+    }
+    public function renderView() {       
+        return view('profile.profileView',[
+            "user" => auth()->user()
+        ]);
+    }
+    public static function updatePhoto(Request $request){
+        $request["id_user"] = auth()->user()->only("id")["id"];
+        $validate = $request->validate([
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        User::updatePhoto($request);
+
+        return redirect()->route('profileUpdate.show');
+    }
+    public static function updateUsername(Request $request)
+{
+    $id_user = auth()->user()->id;
+
+    $validate = $request->validate([
+        "username" => "required|string|max:255"
+    ]);
+
+    User::updateUsername($id_user, $request->input('username'));
+
+    // Redirect ke halaman profil setelah update
+    return redirect()->route('profileUpdate.show')->with('success', 'Username updated successfully.');
+}
+
+    
+    public static function updatePassword(Request $request)
+    {
+        $id_user = auth()->user()->id;
+        $request["id_user"] = $id_user;
+        
+        $credentials = Validator::make($request->all(), [
+            'oldPassword' => 'required',
+            'newPassword' => 'required|min:8|confirmed',
+        ], [
+            'required' => 'The :attribute field is required.',
+            'min' => 'The :attribute must be at least :min characters.',
+            'confirmed' => 'The new password confirmation does not match.',
+        ], [
+            'oldPassword' => 'old password',
+            'newPassword' => 'new password',
+        ])->validate();
+
+        $user = User::find($id_user);
+
+        if (!Hash::check($request->input('oldPassword'), $user->password)) {
+            return redirect()->route('profileUpdate.show')->withErrors(['oldPassword' => 'Old password is incorrect.']);
+        }
+
+        // Memperbarui password
+        User::updatePassword($request);
+
+        // Redirect ke halaman profil setelah update
+        return redirect()->route('profile.show')->with('success', 'Password updated successfully.');
+    }
+
     //todo render
     public function renderRegisterView(){
         return view('register/register');

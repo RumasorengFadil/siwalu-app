@@ -34,6 +34,7 @@
                 @foreach ($favorites as $favorite)
                     @if ($favorite->confirmed)
                         <div class="card">
+                            {{-- {{ dd($favorite->laundry->id_laundry) }}; --}}
                             {{-- {{ var_dump($favorite->laundry) }} --}}
                             <a href="/detailLaundry/{{ $favorite->laundry->id_laundry }}" class="card__link">
                                 <img src="/uploads/{{ $favorite->laundry->foto }}" skeleton-image='[{"height":"500"}]'
