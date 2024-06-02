@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Models\Rating;  
-use App\Models\Favorite;  
+use App\Models\Rating;
+use App\Models\Favorite;
 
 
 class Laundry extends Model
@@ -57,7 +57,7 @@ class Laundry extends Model
 
         return $laundry->firstWhere("id_laundry", $id);
     }
-    
+
     static public function postLaundry($request){
         Laundry::create([
             "id_admin" => $request["id-admin"],
@@ -101,19 +101,30 @@ class Laundry extends Model
         $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
         $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
         $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
-       
+
         $jenisCucian = [];
         if ($request->has('pakaian')) {
             $jenisCucian[] = 'Pakaian';
         }
-        
+
         if ($request->has('sepatu')) {
             $jenisCucian[] = 'Sepatu';
         }
         $laundry->jenis_cucian = $jenisCucian;
 
         $laundry->save();
-    }    
+    }
+
+    public static function deleteLaundry($id)
+    {
+        $laundry = self::where('id_laundry', $id)->first();
+        if ($laundry) {
+            $laundry->delete();
+            return true;
+        }
+        return false;
+    }
+
 
     public function ratings(): HasMany
     {

@@ -39,7 +39,9 @@ class AdminController extends Controller
     }
     public function renderDeleteLaundryView()
     {
-        return view('admin.deleteLaundryView');
+        return view('admin.deleteLaundryView', [
+            "laundries" => Laundry::getLaundries()
+        ]);
     }
     public function postLaundry(Request $request)
     {
@@ -82,7 +84,7 @@ class AdminController extends Controller
     }
     public function acceptApplicant(Request $request)
     {
-        
+
         $applicant = Applicant::getApplicant($request->id_applicant);
         Laundry::postLaundry([
             "id-admin" => $request->id_admin,
@@ -141,17 +143,17 @@ class AdminController extends Controller
         $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
         $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
         $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
-       
+
         $jenisCucian = [];
         if ($request->has('pakaian')) {
             $jenisCucian[] = 'Pakaian';
         }
-        
+
         if ($request->has('sepatu')) {
             $jenisCucian[] = 'Sepatu';
         }
         $laundry->jenis_cucian = $jenisCucian;
 
         $laundry->save();
-    }    
+    }
 }
