@@ -22,7 +22,11 @@
         <div class="menu">  
             <div class="menu__container">
                <h1 class="profile__title">PROFILE</h1>
-               <img src="/uploads/{{ $user->photo }}" alt="" class="profile__img menu__img">
+               @if ($user->photo != null)
+                    <img src="/uploads/{{ $user->photo }}" alt="" class="profile__img menu__img">
+                @else
+                    <img src="/icn/default_pfp.svg" alt="" class="profile__img menu__img">
+                @endif
                <p class="profile__name">{{ $user->name }}</p>
                <p class="profile__email">{{ $user->email }}</p>
             </div>

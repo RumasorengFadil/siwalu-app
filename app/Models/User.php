@@ -118,8 +118,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
         // Memperbarui password hanya jika password baru berbeda dari password lama
         if ($user) {
-            $newPassword = Hash::make($request->input('newPassword'));
-            $user->password = $newPassword;
+            $user->forceFill([
+                'password' => Hash::make($request->input('newPassword'))
+            ]);
             $user->save();
         }
     }

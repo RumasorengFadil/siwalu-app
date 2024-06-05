@@ -79,6 +79,7 @@ class UserController extends Controller
     public function renderView() {       
         return view('profile.profileView',[
             "user" => auth()->user()
+            
         ]);
     }
     public static function updatePhoto(Request $request){
@@ -113,11 +114,10 @@ class UserController extends Controller
         
         $credentials = Validator::make($request->all(), [
             'oldPassword' => 'required',
-            'newPassword' => 'required|min:8|confirmed',
+            'newPassword' => 'required|min:8|',
         ], [
             'required' => 'The :attribute field is required.',
             'min' => 'The :attribute must be at least :min characters.',
-            'confirmed' => 'The new password confirmation does not match.',
         ], [
             'oldPassword' => 'old password',
             'newPassword' => 'new password',
@@ -133,7 +133,7 @@ class UserController extends Controller
         User::updatePassword($request);
 
         // Redirect ke halaman profil setelah update
-        return redirect()->route('profile.show')->with('success', 'Password updated successfully.');
+        return redirect()->route('profileUpdate.show')->with('success', 'Password updated successfully.');
     }
 
     //todo render
