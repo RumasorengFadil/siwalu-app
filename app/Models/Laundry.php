@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Models\Rating;  
-use App\Models\Favorite;  
+use App\Models\Rating;
+use App\Models\Favorite;
 
 
 class Laundry extends Model
@@ -34,6 +34,7 @@ class Laundry extends Model
         "lon",
         "lan"
     ];
+    protected $primaryKey = 'id_laundry';
     protected $casts = [
         'jenis_layanan' => 'array',
         'jenis_cucian' => 'array',
@@ -92,6 +93,7 @@ class Laundry extends Model
 
         $laundry->save();
     }    
+
     static public function postLaundry($request){
         Laundry::create([
             "id_admin" => $request["id-admin"],
@@ -111,6 +113,54 @@ class Laundry extends Model
             "lan" => 0
         ]);
     }
+
+    public static function updateLaundry($request)
+    {
+        $id = $request->input('input-laundry-id');
+        $laundry = self::where('id_laundry', $id)
+        ->first();
+
+        // Check if new file is uploaded
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('uploads');
+            $image->move($location, $fileName);
+            $laundry->foto = $fileName;
+        }
+
+        // Update only if the value is different
+        //dd($request);
+        $laundry->nama = $request["name"] !== $laundry->nama ? $request["name"] : $laundry->nama;
+        $laundry->alamat = $request["location"] !== $laundry->alamat ?  $request["location"] : $laundry->alamat;
+        $laundry->deskripsi = $request["description"] !== $laundry->deskripsi ? $request["description"] : $laundry->deskripsi;
+        $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
+        $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
+        $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
+
+        $jenisCucian = [];
+        if ($request->has('pakaian')) {
+            $jenisCucian[] = 'Pakaian';
+        }
+
+        if ($request->has('sepatu')) {
+            $jenisCucian[] = 'Sepatu';
+        }
+        $laundry->jenis_cucian = $jenisCucian;
+
+        $laundry->save();
+    }
+
+    public static function deleteLaundry($id)
+    {
+        $laundry = self::where('id_laundry', $id)->first();
+        if ($laundry) {
+            $laundry->delete();
+            return true;
+        }
+        return false;
+    }
+
 
     public function ratings(): HasMany
     {
