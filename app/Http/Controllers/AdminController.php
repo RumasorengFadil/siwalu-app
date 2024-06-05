@@ -33,6 +33,33 @@ class AdminController extends Controller
     }
     public function renderUpdateLaundryView()
     {
+
+        return view('admin.updateLaundryView',[
+            "laundries" => Laundry::getLaundries()
+        ]);
+    }
+    public static function renderFormUpdateLaundryView($id){
+        return view('admin.formUpdatelaundry',[
+            "laundry" => Laundry::getLaundry($id)
+        ]);
+    }
+    public static function postFormUpdateLaundryView(Request $request){
+        $validate = $request->validate([
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
+            "name" => "required",
+            "location" => "required",
+            "description" => "required",
+            "service" => "required",
+            "harga" => "required",
+            "number",
+            "whatsappNumber" => "required",
+            "number",
+        ]);
+
+        Laundry::updateLaundry($request);
+
+        return redirect()->route('updateLaundry.show');
+
         return view('admin.updateLaundryView', [
             "laundries" => Laundry::getLaundries()
         ]);
@@ -48,9 +75,8 @@ class AdminController extends Controller
         $request["id-admin"] = auth()->user()->only(['id'])['id'];
         $request["id-mitra"] = null;
 
-
         $validator = $request->validate([
-            "gambar" => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
             "name" => "required",
             "location" => "required",
             "description" => "required",

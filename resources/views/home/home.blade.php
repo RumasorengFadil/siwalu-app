@@ -32,7 +32,7 @@
                         <img src="/icn/chevron-down.svg" alt="" class="nav__icon nav__chev-down-icon">
 
                         <ul class="nav__dropdown">
-                            <a class="nav__link nav__dr-link">
+                            <a class="nav__link nav__dr-link" href="{{ route("profileMenu.show") }}">
                                 <img src="/icn/user-no-circle.svg" alt="" class="nav__icon">
                                 <p class="nav__my-profile-text">Profile Saya</p>
                             </a>

@@ -36,7 +36,7 @@
                     <img src="/icn/add.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Tambah Laundry</p>
                 </a>
-                <a href="{{route('updateLaundry.show')}}" class="sidebar__link {{ Request::route()->named('updateLaundry.show') ? 'sidebar__link-active' : '' }}">
+                <a href="{{route('updateLaundry.show')}}" class="sidebar__link {{ Request::route()->named('updateLaundry.show') || Request::route()->named('formUpdateLaundry.show') ? 'sidebar__link-active' : '' }}">
                     <img src="/icn/delete.svg" alt="" class="sidebar__icon">
                     <p class="sidebar__link-text">Perbarui Laundry</p>
                 </a>

@@ -15,6 +15,7 @@ class Laundry extends Model
 
     use HasFactory;
     use HasUuids;
+    protected $primaryKey = 'id_laundry';
 
     protected $fillable = [
         'id_admin',
@@ -57,6 +58,41 @@ class Laundry extends Model
 
         return $laundry->firstWhere("id_laundry", $id);
     }
+    public static function updateLaundry($request)
+    {
+        $id = $request->input('input-laundry-id');
+        $laundry = self::findOrFail($id);
+
+        // Check if new file is uploaded
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('uploads');
+            $image->move($location, $fileName);
+            $laundry->foto = $fileName;
+        }
+
+        // Update only if the value is different
+        //dd($request);
+        $laundry->nama = $request["name"] !== $laundry->nama ? $request["name"] : $laundry->nama;
+        $laundry->alamat = $request["location"] !== $laundry->alamat ?  $request["location"] : $laundry->alamat;
+        $laundry->deskripsi = $request["description"] !== $laundry->deskripsi ? $request["description"] : $laundry->deskripsi;
+        $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
+        $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
+        $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
+       
+        $jenisCucian = [];
+        if ($request->has('pakaian')) {
+            $jenisCucian[] = 'Pakaian';
+        }
+        
+        if ($request->has('sepatu')) {
+            $jenisCucian[] = 'Sepatu';
+        }
+        $laundry->jenis_cucian = $jenisCucian;
+
+        $laundry->save();
+    }    
 
     static public function postLaundry($request){
         Laundry::create([

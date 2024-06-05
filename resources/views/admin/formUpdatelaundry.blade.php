@@ -4,6 +4,9 @@
     <form action="{{ route('formUpdateLaundry.post') }}" class="form form__admin" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form__el">
+            <img height="167px" src="/uploads/{{ $laundry->foto }}">
+            <label for="gambar">
+                <img class="form__image-placeholder" title="pilih file" src="/img/image-placeholder.png" alt="Placeholder">
             <label for="gambar">
                 <img class="form__image-placeholder" title="pilih file" src="{{$laundry->foto?"/uploads/$laundry->foto":"/img/image-placeholder.png"}}" alt="Placeholder">
             </label>
