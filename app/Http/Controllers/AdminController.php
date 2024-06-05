@@ -26,8 +26,14 @@ class AdminController extends Controller
     {
         return view('admin.addLaundryView');
     }
+    public static function renderFormUpdateLaundryView($id){
+        return view('admin.formUpdatelaundry',[
+            "laundry" => Laundry::getLaundry($id)
+        ]);
+    }
     public function renderUpdateLaundryView()
     {
+
         return view('admin.updateLaundryView',[
             "laundries" => Laundry::getLaundries()
         ]);
@@ -53,10 +59,16 @@ class AdminController extends Controller
         Laundry::updateLaundry($request);
 
         return redirect()->route('updateLaundry.show');
+
+        return view('admin.updateLaundryView', [
+            "laundries" => Laundry::getLaundries()
+        ]);
     }
     public function renderDeleteLaundryView()
     {
-        return view('admin.deleteLaundryView');
+        return view('admin.deleteLaundryView', [
+            "laundries" => Laundry::getLaundries()
+        ]);
     }
     public function postLaundry(Request $request)
     {
@@ -98,7 +110,7 @@ class AdminController extends Controller
     }
     public function acceptApplicant(Request $request)
     {
-        
+
         $applicant = Applicant::getApplicant($request->id_applicant);
         Laundry::postLaundry([
             "id-admin" => $request->id_admin,
@@ -116,5 +128,58 @@ class AdminController extends Controller
         User::updates($applicant->user->id, "role", "laundry");
         Applicant::updates($request->id_applicant, "status", "accept");
         return redirect()->back();
+    }
+    public static function postFormUpdateLaundryView(Request $request){
+        $validate = $request->validate([
+            "gambar" => 'image|mimes:jpeg,png,jpg|max:2048',
+            "name" => "required",
+            "location" => "required",
+            "description" => "required",
+            "service" => "required",
+            "harga" => "required",
+            "number",
+            "whatsappNumber" => "required",
+            "number",
+        ]);
+
+        Laundry::updateLaundry($request);
+
+        return redirect()->route('updateLaundry.show');
+    }
+
+     public static function updateLaundry($request)
+    {
+        $id = $request->input('input-laundry-id');
+        $laundry = self::findOrFail($id);
+
+        // Check if new file is uploaded
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('uploads');
+            $image->move($location, $fileName);
+            $laundry->foto = $fileName;
+        }
+
+        // Update only if the value is different
+        //dd($request);
+        $laundry->nama = $request["name"] !== $laundry->nama ? $request["name"] : $laundry->nama;
+        $laundry->alamat = $request["location"] !== $laundry->alamat ?  $request["location"] : $laundry->alamat;
+        $laundry->deskripsi = $request["description"] !== $laundry->deskripsi ? $request["description"] : $laundry->deskripsi;
+        $laundry->jenis_layanan = $request["service"] !== $laundry->jenis_layanan ? $request["service"] : $laundry->jenis_layanan;
+        $laundry->harga = $request["harga"] !== $laundry->harga ? $request["harga"] : $laundry->harga;
+        $laundry->nomor_telp = $request["whatsappNumber"] !== $laundry->nomor_telp ? $request["whatsappNumber"] : $laundry->nomor_telp;
+
+        $jenisCucian = [];
+        if ($request->has('pakaian')) {
+            $jenisCucian[] = 'Pakaian';
+        }
+
+        if ($request->has('sepatu')) {
+            $jenisCucian[] = 'Sepatu';
+        }
+        $laundry->jenis_cucian = $jenisCucian;
+
+        $laundry->save();
     }
 }

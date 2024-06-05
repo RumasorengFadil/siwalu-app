@@ -12,6 +12,9 @@ export default defineConfig({
                 'public/js/addLaundry.js', 
                 'public/js/rating.js', 
                 'public/js/toggleSidebar.js', 
+                'public/js/sendMessage.js', 
+                'resources/css/app.css',
+                'resources/js/app.js'
             ],
             refresh: true,
         }),

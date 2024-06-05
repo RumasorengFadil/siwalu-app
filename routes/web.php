@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\MyEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\FavoriteController;
@@ -25,16 +26,17 @@ Route::controller(RatingController::class)->group(function(){
         ->name("ratingLaundryView");
         Route::post('detailLaundry/{id}', "postRatingLaundry");
     });
+
 });
 
 Route::controller(UserController::class)->group(function(){
     Route::get('/register', "renderRegisterView")->middleware("guest")->name("register");
     Route::get('/registerMitra', "renderRegisterMitraView")->middleware("auth")->name("registerMitra.show");
     Route::get('/login', "renderLoginView")->middleware("guest")->name('login');
-    
+
     Route::post("/register", "register")->name("register");
     // Route::post('/registerMitra', "registerMitra")->middleware("auth")->name("registerMitra.store");
-    
+
     Route::post("/login", "login")->name("login");
     Route::post("/logout", "logout")->name("logout");
     
@@ -44,6 +46,7 @@ Route::controller(UserController::class)->group(function(){
     Route::post('/profile/photo', "updatePhoto")->name("updatePhoto.post");
     Route::post('/profile/update', "updateUsername")->name("updateUsername.post");
     Route::post('/profile/password', "updatePassword")->name("updatePassword.post");
+
 });
 
 
@@ -63,7 +66,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get("/admin/dashboard", "renderDashboardView")
     ->middleware('admin')
     ->name("dashboard.show");
-    
+
     Route::get("/admin/accLaundry", "renderAccLaundryView")
     ->middleware('admin')
     ->name("accLaundry.show");
@@ -84,10 +87,18 @@ Route::controller(AdminController::class)->group(function(){
     ->middleware('admin')
     ->name("updateLaundry.show");
 
+    Route::get("/admin/updateLaundry/{id}", "renderFormUpdateLaundryView")
+    ->middleware('admin')
+    ->name("formUpdateLaundry.show");
+
+    Route::post("/admin/updateLaundry", "postFormUpdateLaundryView")
+    ->middleware('admin')
+    ->name("formUpdateLaundry.post");
+
     Route::get("/admin/deleteLaundry", "renderDeleteLaundryView")
     ->middleware('admin')
     ->name("deleteLaundry.show");
-    
+
     Route::put("/admin/accLaundry", "rejectApplicant")
     ->middleware('admin')
     ->name("accLaundry.reject");
@@ -99,6 +110,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::post("/admin/addLaundry", "postLaundry")
     ->middleware('admin')
     ->name("laundry.post");
+
+    Route::post("/admin/addLaundry", "postLaundry")->middleware('admin')->name("laundry.post");
 });
 
 
